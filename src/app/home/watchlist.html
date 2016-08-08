@@ -1,0 +1,43 @@
+<div style="padding: 0 40px;">
+  <view-header tips="'将日常或近期需要关注的指标方便的加到“我的关注”上，随时查看。'" text="'我的关注'"></view-header>
+  <div style="clear:both;margin-bottom:20px;">
+    <mj-date-picker></mj-date-picker>
+    <mj-tree-tab tabs="$ctrl.commercial.tabs" data="$ctrl.commercial.data" width="300"></mj-tree-tab>
+    <mj-tree-tab tabs="$ctrl.space.tabs" data="$ctrl.space.data" width="400"></mj-tree-tab>
+    <input type="text" ng-model="$ctrl.selected" uib-typeahead="state for state in $ctrl.states | filter:$viewValue | limitTo:8" class="form-control" style="display:inline-block;width: 200px;">
+  </div>
+  <div>
+    <div>
+      <table ng-table-dynamic="$ctrl.tableParams with $ctrl.cols" class="mj-table table table-condensed table-bordered table-hover">
+        <colgroup>
+          <col width="30%" />
+          <col width="5%" />
+          <col width="30%" />
+          <col width="15%" />
+          <col width="15%" />
+          <col width="5%" />
+        </colgroup>
+        <tr  ng-repeat="row in $ctrl.indexList track by $index" ng-click="row.showDetails = !row.showDetails">
+          <td data-title="$ctrl.cols[0]" style="text-align:center;position:relative; line-height: 50px;">
+            {{ row.name }}
+            <span class="pull-right tool-bar">
+              <span class="glyphicon glyphicon-stats mj-icon" style="color:#1b809e;" ng-click="$ctrl.showDetails(row)"></span>
+              <span class="glyphicon glyphicon-eye-open mj-icon" style="color:#1b809e;" ng-if="row.cgEnable" ng-click="$ctrl.showCgAnalysis(row)"></span>
+              <span class="glyphicon glyphicon-heart mj-icon" style="color:#ce4844;" ng-click="$ctrl.delete($index)"></span>
+            </span>
+          </td>
+          <td data-title="$ctrl.cols[1]" style="text-align:center;line-height: 50px;">{{ row.unit }}</td>
+          <td data-title="$ctrl.cols[2]" style="text-align:center;line-height: 50px;"><div class="spline-container"><highchart id="chart-{{row.id}}" config="row.splineData"  ng-show="row.splineData"></highchart></div></td>
+          <td data-title="$ctrl.cols[3]" style="text-align:center;line-height: 50px;">{{ row.value }}</td>
+          <td data-title="$ctrl.cols[4]" style="text-align:center;line-height: 50px;">{{ row._d_value }}</td>
+          <td data-title="$ctrl.cols[5]" style="text-align:center;line-height: 50px;">{{ row.doD }}%</td>
+        </tr>
+        <tfoot ng-if="$ctrl.isLastPage()">
+          <tr>
+
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>

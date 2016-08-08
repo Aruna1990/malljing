@@ -1,0 +1,64 @@
+<div style="padding: 0 40px;margin-left: 200px;clear:both;">
+  <div>
+    <view-header tips="'每5分钟统计一次客流指数'" text="'实时客流指标'"></view-header>
+    <div style="clear:both;margin-bottom:20px;">
+      <mj-tree-tab tabs="$ctrl.commercial.tabs" data="$ctrl.commercial.data" width="300"></mj-tree-tab>
+      <mj-tree-tab tabs="$ctrl.space.tabs" data="$ctrl.space.data" width="400"></mj-tree-tab>
+      <input type="text" ng-model="$ctrl.selected" uib-typeahead="state for state in $ctrl.states | filter:$viewValue | limitTo:8" class="form-control" style="display:inline-block;width: 200px;">
+    </div>
+
+    <div>
+      <ul style="padding:0;height: 100px;">
+        <li class="col-md-2 index-card" ng-repeat="index in $ctrl.indexList" ng-click="$ctrl.onSelecteIndex(index)">
+          <div>{{index.name}}</div>
+          <div>{{index.value}}{{index.unit}}</div>
+          <div>{{index.doD}}<span class="glyphicon" ng-class="{'glyphicon-arrow-up':index.up, 'glyphicon-arrow-down':!index.up}"></span></div>
+          <div class="tool-bar">
+            <span class="glyphicon glyphicon-stats mj-icon" style="color:#1b809e;" ng-click="$ctrl.showDetails(row);$event.stopPropagation();"></span>
+            <span class="glyphicon glyphicon-eye-open mj-icon" style="color:#1b809e;" ng-click="$ctrl.showCgAnalysis(row);$event.stopPropagation();"></span>
+          </div>
+          <div class="remove-btn"><span class="glyphicon glyphicon-remove mj-icon" ng-click="$ctrl.delete($index)"></span></div>
+        </li>
+
+        <li class="col-md-2" ng-if="$ctrl.indexList.length!=6" style="
+          list-style: none;
+          border: 1px black solid;
+          height: 100px;
+          padding: 0;">
+          <i class="glyphicon glyphicon-plus" style="
+            font-size: 50px;
+            color: #ccc;
+            text-align: center;
+            width: 100%;
+            padding: 25px;
+          "></i>
+        </li>
+      </ul>
+    </div>
+    <div style="padding-top:30px;" ng-repeat="index in $ctrl.indexList track by $index" ng-show="index.selected">
+      <highchart id="chart_thred_{{$index}}" config="index.trend"></highchart>
+    </div>
+  </div>
+
+  <hr style="height: 15px;border-top: 15px solid #eee;">
+  <div>
+    <view-header tips="'每5分钟更新一次客流分布与热度。'" text="'实时客流地图'"></view-header>
+    <div style="clear:both;margin-bottom:20px;">
+      <mj-tree-tab tabs="$ctrl.space.tabs" data="$ctrl.space.data" width="400"></mj-tree-tab>
+      <div class="btn btn-primary pull-right" ng-click="$ctrl.play()" style="margin:auto 10px;"><i class="glyphicon" ng-class="{'glyphicon-play': !$ctrl.played, 'glyphicon-stop': $ctrl.played}"></i></div>
+      <div class="btn-group pull-right" style="margin:auto 10px;">
+          <label class="btn btn-primary" ng-model="mapStatus" uib-btn-radio="'Distribute'">分布</label>
+          <label class="btn btn-primary" ng-model="mapStatus" uib-btn-radio="'Heat'">热力</label>
+      </div>
+
+      <div style="height: 500px;margin-top: 30px;text-align:center;position:relative;overflow:hidden;">
+        <img style="width:100%;" src="\images\1.jpg" alt="" ng-show="$ctrl.maps[0].show">
+        <img style="width:100%;" src="\images\2.jpg" alt="" ng-show="$ctrl.maps[1].show">
+        <img style="width:100%;" src="\images\3.jpg" alt="" ng-show="$ctrl.maps[2].show">
+        <div style="background:rgba(0, 0, 0, 0.4);width:250px;height:50px;position:absolute;top:0;right:0;padding:15px;color:#fff;">
+          当前时刻: {{$ctrl.maps[$ctrl.activeMap].time}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

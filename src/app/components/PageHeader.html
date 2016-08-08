@@ -1,0 +1,18 @@
+<div style="position:relative;float:left;margin-bottom:20px;clear:both;">
+  <h1>{{$ctrl.text}}<span class="glyphicon glyphicon-question-sign" style="font-size:20px;color: #5bc0de;line-height: 40px;vertical-align: super;cursor:pointer;" ng-mouseenter="$ctrl.openTips()" ng-mouseout="$ctrl.closeTips()"></span></h1>
+
+  <div uib-alert class="alert-info" ng-show="$ctrl.showTips" 
+    style="width: 500px;
+      position: absolute;
+      z-index: 5;
+      top: 33px;
+      left: 100%;
+      margin-left: 10px;
+      font-size: small;
+      min-height: 40px;
+      line-height: 20px;
+      padding-top: 11px;
+      padding-bottom: 11px;">
+      {{$ctrl.tips}}
+    </div>
+</div>

@@ -1,0 +1,89 @@
+<div style="padding: 0 40px;margin-left: 200px;">
+  <div class="btn btn-primary" ng-click="$ctrl.back()"><i class="glyphicon glyphicon-arrow-left"></i></div>
+  <div><view-header tips="'重要声明：
+本分析会通过以下来源收集访客特征和属性数据：
+（1）事实判断：来源为定位感知数据，如存在充分的客观事实时（如驻留男卫/女卫），本分析会基于此事实对访客特征和属性进行总结和加工。
+（2）概率统计和计算：来源为会员数据、第三方标签数据以及定位感知数据中的不充分事实。如能够建立关联，则本分析会收集来源中提供的所有访客特征和属性并综合进行数学计算和加工。
+
+如果没有获取到客观事实或者未建立任何第三方连接，那么本分析将无法收集访客特征和属性。这样一来，本分析只能提供部分访客的特征和属性，而这些数据不能代表您的访客群体的全部。
+相关图表的第一行显示这部分数据占您的整体数据的百分比（例如，年龄层次分布  -占本分群的90.11%）。
+  此外，当涉及个别用户敏感信息的数据时，我们可能会加以限制，因此这些数据将从本分析中删除。'" text="'访客群体特征与属性'"></view-header></div>
+  <div style="clear: both;margin-bottom:20px;">本分群人数: 1213</div>
+  <div style="margin-bottom:20px;">
+    <uib-tabset justified="true">
+      <uib-tab index="0" heading="人口" ng-click="$ctrl.reflow()">
+        <ul>
+          <li style="list-style:none;" class="col-md-6">
+            <h3>生理性别分布</h3>
+            <div>占本分群的34.44%</div>
+            <div style="padding-top:30px;">
+              <highchart id="chart_sex" config="$ctrl.chartSexConfig"></highchart>
+            </div>
+          </li>
+          <li style="list-style:none;" class="col-md-6">
+            <h3>年龄层次分布</h3>
+            <div>占本分群的60.11%</div>
+            <div style="padding-top:30px;">
+              <highchart id="chart_age" config="$ctrl.chartAgeConfig"></highchart>
+            </div>
+          </li>
+          <li style="list-style:none;" class="col-md-6">
+            <h3>婚育阶段</h3>
+            <div>占本分群的64.58%</div>
+            <div style="padding-top:30px;">
+              <highchart id="chart_marry" config="$ctrl.chartMarryConfig"></highchart>
+            </div>
+          </li>
+          <li style="list-style:none;" class="col-md-6">
+            <h3>车辆阶段</h3>
+            <div>占本分群的64.81%</div>
+            <div style="padding-top:30px;">
+              <highchart id="chart_car" config="$ctrl.chartCarConfig"></highchart>
+            </div>
+          </li>
+          <!-- <li style="list-style:none;" class="col-md-6">
+            <h3>是否工作人员</h3>
+            <div>占本分群的60.11%</div>
+            <div style="padding-top:30px;">
+              <highchart id="chart_pie" config="$ctrl.chartDeviceConfig"></highchart>
+            </div>
+          </li> -->
+        </ul>
+      </uib-tab>
+      <uib-tab index="1" heading="设备" ng-click="$ctrl.reflow()">
+        <div style="padding-top:30px;">
+          <highchart id="chart_pie" config="$ctrl.chartDeviceConfig"></highchart>
+        </div>
+      </uib-tab>
+      <uib-tab index="2" heading="位置" ng-click="$ctrl.reflow()">
+        <div style="padding-top:30px;">
+          <highchart id="chart_pie" config="$ctrl.chartPositionConfig"></highchart>
+        </div>
+      </uib-tab>
+    </uib-tabset>
+  </div>
+  <div>
+    <div>
+      <table ng-table-dynamic="$ctrl.tableParams with $ctrl.cols" class="mj-table table table-condensed table-bordered table-hover">
+        <colgroup>
+          <col width="30%" />
+          <col width="20%" />
+          <col width="20%" />
+          <col width="15%" />
+          <col width="15%" />
+        </colgroup>
+        <tr  ng-repeat="row in $data track by $index" ng-click="$ctrl.showDetails(row)" style="cursor:pointer;">
+          <td data-title="$ctrl.cols[0]">{{ row.id }}</td>
+          <td data-title="$ctrl.cols[1]">{{ row.first }}</td>
+          <td data-title="$ctrl.cols[2]">{{ row.last }}</td>
+          <td data-title="$ctrl.cols[3]">{{ row.visitcount }}</td>
+          <td data-title="$ctrl.cols[4]">{{ row.timecount }}分钟</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div><button class="btn btn-primary"><i class="glyphicon glyphicon-floppy-disk"></i>保存</button></div>
+</div>
+
+<div ng-if="$ctrl.showCustomDetails" style="position:fixed;top:0;bottom:0;left:0;right:0;" ng-click="$ctrl.showCustomDetails = false"></div>
+<custom-details show="$ctrl.showCustomDetails" custom-id="$ctrl.selectedCustomId"></custom-details>

@@ -1,0 +1,18 @@
+<div class="btn-group" uib-dropdown ng-class="{open:$ctrl.range.isopen}">
+  <button id="single-button" type="button" class="btn" ng-click="$ctrl.toggleRangePicker()" style="width:{{$ctrl.width}}px;">
+    <span ng-repeat="path in $ctrl.paths track by $index">{{path.name}}<span ng-if="$ctrl.paths.length != ($index+1)"> / </span></span>
+    <span class="caret"></span>
+  </button>
+  <div class="dropdown-menu" ng-class="{'width-700':$ctrl.selectedType.rangeEnd,'width-366':!$ctrl.selectedType.rangeEnd}">
+    <uib-tabset active="$ctrl.active">
+      <uib-tab ng-repeat="tab in $ctrl.contents track by tab.id" heading="{{tab.tabName}}">
+        <div style="height:200px;overflow: auto;">
+          <div ng-click="$ctrl.onSelected(tab.id, {name:'所有'+tab.tabName})">所有</div>
+          <ul ng-if="$ctrl.contents[$index]">
+          <li role="menuitem" ng-repeat="item in $ctrl.contents[tab.id].children" ng-click="$ctrl.onSelected(tab.id, item)">{{item.name}}</li>
+          </ul>
+        </div>
+      </uib-tab>
+    </uib-tabset>
+  </div>
+</div>

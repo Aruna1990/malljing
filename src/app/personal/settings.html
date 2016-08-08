@@ -1,0 +1,257 @@
+<div class="container">
+  
+  <form name="formUserInfo" ng-submit="saveUserInfo()" role="form">
+
+    <div class="row">
+      <div class="pull-left col">
+        
+        <div class="form-group">
+            <label>用户名</label>
+            <input type="text" name="userName" id="userName" placeholder="请选择一个用户名" class="form-control" ng-model="userInfo.userName"/>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': formUserInfo.realName.$dirty && formUserInfo.realName.$error.required }">
+            <label>真实姓名<span class="red-font">*</span></label>
+            <input type="text" name="realName" id="realName" placeholder="请输入真实姓名" class="form-control" ng-model="userInfo.realName" required />
+        </div>
+        <div class="form-group">
+            <label>性别</label>
+            <label><input type="radio" name="sex" value="1" ng-model="userInfo.sex">男</label>
+            <label><input type="radio" name="sex" value="2" ng-model="userInfo.sex">女</label>
+        </div>
+        <div class="form-group">
+            <label style="line-height: 34px;text-align: left;float: left;margin-right: 5px;">生日</label>
+            <p class="input-group date-picker-150">
+              <input type="text" name="birthday" class="form-control" uib-datepicker-popup="yyyy-MM-dd" language="cn" show-button-bar="false" ng-model="userInfo.birthday" is-open="date.datepicker.opened" datepicker-options="date.dateOptions" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="date.openDatepicker()"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': formUserInfo.company.$dirty && formUserInfo.company.$error.required }">
+            <label>所在企业<span class="red-font">*</span></label>
+            <select name="company" id="company" required ng-model="selectedCompany" ng-change="" ng-options="item as item.name for item in companies"></select>
+        </div>
+      </div>
+      <div class="pull-left col">
+        <div class="avatar">
+          <div class="preview"><img src="{{userInfo.avatar}}" alt=""></div>
+          <!-- <div class="upload"><span class="tip">点击上传头像</span><span class="btn"><span class="glyphicon glyphicon-pencil"></span></span></div> -->
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <div class="form-group col pull-left" ng-class="{ 'has-error': formUserInfo.department.$dirty && formUserInfo.department.$error.required }">
+            <label>所在部门<span class="red-font">*</span></label>
+            <select name="department" id="department" required ng-model="selectedDepartment" ng-change="" ng-options="item as item.deptName for item in departments"></select>
+        </div>
+        <div class="form-group col pull-left" ng-class="{ 'has-error': formUserInfo.position.$dirty && formUserInfo.position.$error.required }">
+            <!-- select -->
+            <label>岗位<span class="red-font">*</span></label>
+            <select name="position" id="position" required ng-model="selectedPosition" ng-change="" ng-options="item as item.quartersName for item in positions"></select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-2" style="position: relative;height: 100px;">
+          <label style="top: 0;position: absolute;">联系地址</label>
+          <textarea style="top: 0;position: absolute;left: 95px;" name="address" id="address" class="form-control" ng-model="userInfo.address"></textarea>
+      </div>
+      <div class="form-group col">
+          <label>邮编</label>
+          <input type="text" name="postcode" id="postcode" class="form-control" ng-model="userInfo.postcode"/>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div>
+        <div class="form-group col {{phoneBlur?'has-error':''}}" ng-class="{ 'has-error': formUserInfo.phone.$dirty && formUserInfo.phone.$error.required }">
+            <label>手机<span class="red-font">*</span></label>
+            <input type="text" name="phone" id="phone" class="form-control" ng-blur='geterrorBlur("phoneBlur")' ng-model="userInfo.phone" required/>
+            <span ng-show="formUserInfo.phone.$dirty && phoneBlur" class="help-block">请填写有效手机号码</span>
+        </div>
+      </div>
+      <div class="form-group col {{emailBlur?'has-error':''}}" ng-class="{ 'has-error': formUserInfo.email.$dirty && formUserInfo.email.$error.required }">
+          <label>邮箱<span class="red-font">*</span></label>
+          <input type="text" name="email" id="email" class="form-control" ng-blur='geterrorBlur("emailBlur")' ng-model="userInfo.email" required/>
+          <span ng-show="formUserInfo.email.$dirty && emailBlur" class="help-block">请填写有效邮箱！</span>
+      </div>
+    </div>
+    <div>
+        <span style="color: #a94442;" ng-show="saveFailed==1" class="help-block">保存失败。{{saveFailedMsg}}</span>
+    </div>
+    <div>
+        <span style="color: #34A853;" ng-show="saveFailed==2" class="help-block">保存成功。</span>
+    </div>
+
+    <div class="form-actions" ng-if="editable">
+        <button type="submit" ng-disabled="formUserInfo.$invalid || userInfo.dataLoading" class="btn btn-primary">保存修改</button>
+        <div><img ng-if="userInfo.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" /></div>
+    </div>
+  </form>
+</div>
+
+<!-- <div class="column three-fourths">
+  <div class="boxed-group">
+    <div class="boxed-group-inner clearfix">
+      <form accept-charset="UTF-8" action="/users/Aruna1990" class="columns js-uploadable-container js-upload-avatar-image is-default" data-alambic-owner-id="6365521" data-alambic-owner-type="User" data-form-nonce="bd713bfca189567f26334d352be807288c5401df" data-upload-policy-url="/upload/policies/avatars" id="profile_6365521" method="post" novalidate="novalidate">
+        <div style="margin:0;padding:0;display:inline">
+          <input name="utf8" type="hidden" value="✓">
+          <input name="_method" type="hidden" value="put">
+          <input name="authenticity_token" type="hidden" value="2xm+4TVEJD+2YEtV6JjgZyLhRBa20EOYnOlHNkH5z6WAnBaloksZBBP2GF+naVGshvYnPVuai8d4ZjJUmcQz8A==">
+        </div>
+
+        <div class="column two-thirds">
+          <dl class="form-group edit-profile-avatar">
+            <dt><label for="upload-profile-picture">Profile picture</label></dt>
+            <dd class="avatar-upload-container clearfix">
+              <img alt="@Aruna1990" class="avatar left" height="70" src="https://avatars2.githubusercontent.com/u/6365521?v=3&amp;u=bb326fac4a915c5415c7146984e002b83b9d3507&amp;s=140" width="70">
+              <div class="avatar-upload">
+                <a href="#" class="btn button-change-avatar">
+                  <label for="upload-profile-picture">
+                    Upload new picture
+                    <input id="upload-profile-picture" type="file" class="manual-file-chooser js-manual-file-chooser js-avatar-field">
+                  </label>
+                </a>
+
+                <div class="upload-state default">
+                  <p>You can also drag and drop a picture from your computer.</p>
+                </div>
+
+                <div class="upload-state loading">
+                  <button class="btn" disabled="">
+                    <img alt="" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16"> Uploading...
+                  </button>
+                </div>
+
+                <div class="upload-state text-danger file-empty">
+                  This file is empty.
+                </div>
+
+                <div class="upload-state text-danger too-big">
+                  Please upload a picture smaller than 1 MB.
+                </div>
+
+                <div class="upload-state text-danger bad-dimensions">
+                  Please upload a picture smaller than 10,000x10,000.
+                </div>
+
+                <div class="upload-state text-danger bad-file">
+                  Unfortunately, we only support PNG, GIF, or JPG pictures.
+                </div>
+
+                <div class="upload-state text-danger failed-request">
+                  Something went really wrong and we can’t process that picture.
+                </div>
+              </div>
+            </dd>
+          </dl>
+
+          <dl class="form-group">
+            <dt><label for="user_profile_name">Name</label></dt>
+            <dd><input class="form-control" id="user_profile_name" name="user[profile_name]" size="30" type="text" value="aruna"></dd>
+          </dl>
+          <dl class="form-group">
+            <dt><label for="user_profile_email">Public email</label></dt>
+            <dd>
+              <select class="form-select select" id="user_profile_email" name="user[profile_email]">
+                <option value="">Don’t show my email address</option>
+                <option value="1017124510@qq.com">1017124510@qq.com</option>
+              </select>
+              <p class="note">You can add or remove verified email addresses in your <a href="/settings/emails">personal email settings</a>.</p>
+            </dd>
+          </dl>
+          <dl class="form-group">
+            <dt><label for="user_profile_bio">Bio</label></dt>
+            <dd class="user-profile-bio-field-container js-user-profile-bio-container js-suggester-container">
+              <textarea class="form-control user-profile-bio-field js-suggester-field js-user-profile-bio" cols="40" data-bio-label="remaining" data-max-length="160" id="user_profile_bio" name="user[profile_bio]" placeholder="Tell a little about yourself" rows="20"></textarea>
+              <p class="user-profile-help-text">
+                You can <strong>@mention</strong> other users and
+                organizations to link to them.
+              </p>
+              <p class="js-user-profile-bio-message user-profile-bio-message hidden"></p>
+              <div class="suggester-container">
+                <div class="suggester js-suggester js-navigation-container" data-url="/autocomplete/user-suggestions">
+                </div>
+              </div>
+            </dd>
+          </dl>
+          <dl class="form-group">
+            <dt><label for="user_profile_blog">URL</label></dt>
+            <dd><input class="form-control" id="user_profile_blog" name="user[profile_blog]" size="30" type="url" value=""></dd>
+          </dl>
+          <dl class="form-group">
+            <dt><label for="user_profile_company">Company</label></dt>
+            <dd class="user-profile-company-field-container js-suggester-container">
+              <input autocomplete="off" class="form-control js-suggester-field" id="user_profile_company" name="user[profile_company]" size="30" type="text" value="">
+              <p class="user-profile-help-text">
+                You can <strong>@mention</strong> your company's GitHub
+                organization to link it.
+              </p>
+              <div class="suggester-container">
+                <div class="suggester js-suggester js-navigation-container" data-url="/autocomplete/organizations">
+                </div>
+              </div>
+            </dd>
+          </dl>
+          <dl class="form-group">
+            <dt><label for="user_profile_location">Location</label></dt>
+            <dd><input class="form-control" id="user_profile_location" name="user[profile_location]" size="30" type="text" value=""></dd>
+          </dl>
+          <p><button type="submit" class="btn btn-primary">Update profile</button></p>
+        </div>
+      </form>
+      <p class="note">
+        We store your personal data in the United States. See our <a href="https://github.com/site/privacy">privacy policy</a> for more information.
+      </p>
+    </div>
+  </div>
+
+  <div class="boxed-group clearfix">
+    <h3>Contributions</h3>
+    <div class="boxed-group-inner">
+      <form accept-charset="UTF-8" action="/users/Aruna1990/set_private_contributions_preference" class="edit_user" data-form-nonce="bd713bfca189567f26334d352be807288c5401df" id="user_profile_contributions_6365521" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="_method" type="hidden" value="put"><input name="authenticity_token" type="hidden" value="iV6YqwHkpUnT2KqqZ1uXoYFIN3qozMLvmW/lqw/xpuT1gDXpqQHxtiTU9Uh7MnxWHyGXfIFrkV9OgdGiiLFYNg=="></div>
+        <p class="checkbox">
+          <input name="user[show_private_contribution_count]" type="hidden" value="0"><input id="user_show_private_contribution_count" name="user[show_private_contribution_count]" type="checkbox" value="1">
+          <label for="user_show_private_contribution_count">Include private contributions on my profile</label>
+        </p>
+        <p>
+          Get credit for all your work by showing the number of contributions to
+          private repositories on your profile without any repository or
+          organization information. <a href="https://help.github.com/articles/viewing-contributions-on-your-profile-page/">Learn how we count contributions</a>.
+        </p>
+        <p><button type="submit" class="btn btn-primary">Update contributions</button></p>
+</form>    </div>
+  </div>
+
+<div id="github-developer-program" class="boxed-group clearfix">
+  <h3>GitHub Developer Program</h3>
+  <div class="boxed-group-inner">
+      <p>
+        Building an application, service, or tool that integrates with GitHub?
+        <a href="/developer/register?account=Aruna1990">Join the GitHub Developer Program</a>,
+        or read more about it at our <a href="https://developer.github.com">Developer site</a>.
+      </p>
+
+  </div>
+</div>
+
+
+    <div class="boxed-group clearfix">
+      <h3>Jobs profile</h3>
+      <div class="boxed-group-inner">
+        <form accept-charset="UTF-8" action="/users/Aruna1990" class="edit_user" data-form-nonce="bd713bfca189567f26334d352be807288c5401df" id="jobs_profile_6365521" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="_method" type="hidden" value="put"><input name="authenticity_token" type="hidden" value="6pRgnJA/OeUWWjWp2ckSPtsXcsclx7pHKSNHhJoXVUbemtr7OeqCJB9QCXUdOCFJzEh78boVLELcHXIxFREbLA=="></div>
+          <p class="checkbox">
+            <input name="user[profile_hireable]" type="hidden" value="0"><input id="user_profile_hireable" name="user[profile_hireable]" tabindex="3" type="checkbox" value="1">
+            <label for="user_profile_hireable">Available for hire</label>
+          </p>
+
+          <p>
+            <span class="success" style="display: none"><svg aria-hidden="true" class="octicon octicon-check" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg> Saved</span>
+            <button class="btn btn-primary" tabindex="4">Save jobs profile</button>
+          </p>
+</form>      </div>
+    </div>
+
+
+    </div> -->

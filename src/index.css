@@ -1,0 +1,101 @@
+.width-700{
+  width:700px;
+}
+.width-366{
+  width:366px;
+}
+.mj-table{
+
+}
+.mj-table thead{
+  background: #e6e6e6;
+  color: #333;
+  cursor: pointer;
+  text-align: center;
+  padding: 9px;
+  text-align: left;
+  vertical-align: middle;
+  background-clip: padding-box;
+  font-size: 14px;
+}
+.mj-table .tool-bar{
+  margin-right:20px;
+  position:absolute;
+  right:0;
+  display: none;
+}
+.mj-table tr:hover .tool-bar{
+  display: inline-block;
+}
+.mj-icon{
+  padding: 0 5px;
+  cursor: pointer;
+}
+.index-card{
+  list-style: none;
+  border: 1px black solid;
+  height: 100px;
+  cursor: pointer;
+  padding: 0;
+  position:relative;
+}
+.index-card .tool-bar{
+  position:absolute;
+  bottom:0;right:0;
+  left:0;
+  background:rgba(0, 0, 0, 0.1);
+  text-align:center;
+  display:none;
+}
+
+.index-card:hover .tool-bar{
+  display:block;
+}
+
+.index-card .remove-btn{
+  position:absolute;
+  top:0;
+  right:0;
+  color: #ccc;
+  display:none;
+}
+
+.index-card:hover .remove-btn{
+  display:block;
+}
+.index-card .remove-btn:hover{
+  color: #ce4844;
+}
+/*sidebar start*/
+.side-bar{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  padding: 30px 0;
+  padding-left: 15px;
+  background:#354052;
+  padding-top: 82px;
+}
+.side-bar .list-group{
+  margin-bottom: 10px;
+  border-bottom: 1px solid #3e495a;
+}
+.side-bar .list-group-item:hover,
+.side-bar .list-group-item.active, 
+.side-bar .list-group-item.active:focus, 
+.side-bar .list-group-item.active:hover{
+  border-color: #354052;
+  border-radius: 4px;
+  background-color: #424f62;
+  color: #fff;
+}
+.side-bar a.list-group-item, .side-bar button.list-group-item{
+  background-color: #354052;
+  border-color: #354052;
+  color:#a0a3aa;
+}
+/*sidebar end*/
+
+
+@import url(app/portal/portal.css);

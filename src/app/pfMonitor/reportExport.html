@@ -1,0 +1,36 @@
+<div class="container" style="padding: 0 40px;margin-left: 200px;">
+  <div>
+    <view-header tips="'选择报表类型及内容字段，然后导出CSV到本地。'" text="'报表定制'"></view-header>
+    <div style="clear:both;margin-bottom:20px;">
+      <h3 style="margin-top:20px;margin-bottom:20px;">1. 选择时间类型及范围</h3>
+      <mj-date-picker></mj-date-picker>
+      <h3 style="margin-top:20px;margin-bottom:20px;">2. 选择空间及商业类型</h3>
+      <mj-tree-tab tabs="$ctrl.commercial.tabs" data="$ctrl.commercial.data" width="300"></mj-tree-tab>
+      <mj-tree-tab tabs="$ctrl.space.tabs" data="$ctrl.space.data" width="400"></mj-tree-tab>
+      <h3 style="margin-top:20px;margin-bottom:20px;">3. 选择报表字段</h3>
+      <div>
+        <div style="float:left;">
+          <div>维度</div>
+          <div>
+            <ul style="padding: 0;">
+              <li style="list-style:none;width:200px;"><input type="checkbox" id="allDim"><label for="allDim">所有</label></li>
+              <li style="list-style:none;width:200px;"><input type="checkbox" id="dim1"><label for="dim1">维度1</label></li>
+              <li style="list-style:none;width:200px;"><input type="checkbox" id="dim2"><label for="dim2">维度2</label></li>
+            </ul>
+          </div>
+        </div>
+        <div style="float:left;">
+          <div>指标</div>
+          <div>
+            <ul style="padding: 0;">
+              <li style="list-style:none;width:200px;"><input type="checkbox" id="allIndex"><label for="allIndex">所有</label></li>
+              <li style="list-style:none;width:200px;"><input type="checkbox" id="index1"><label for="index1">维度1</label></li>
+              <li style="list-style:none;width:200px;"><input type="checkbox" id="index2"><label for="index2">维度2</label></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="clear:both;margin-bottom:20px;"><div class="btn btn-primary"><i class="glyphicon glyphicon-download-alt" style="margin-right:10px;"></i>导出报表</div></div>
+  </div>
+</div>

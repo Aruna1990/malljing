@@ -1,0 +1,49 @@
+
+<div style="position:fixed;right:0;top:0;bottom:0;width:400px;background: rgba(0, 0, 0, 0.85);z-index:999;overflow:auto;color:#fff;padding:30px" ng-show="$ctrl.show">
+  <div>标识：8ac1dc6a-49e0-11e6-83fc-90b11c32f3cc</div>
+  <hr>
+  <div>
+    人口属性
+    <ul>
+      <li>生理性别：未知</li>
+      <li>年龄层次：未知</li>
+      <li>婚育阶段：未知</li>
+      <li>车辆情况：未知</li>
+      <li>是否工作人员：未知</li>
+    </ul>
+  </div>
+  <div>
+    设备属性
+    <ul>
+      <li>手机品牌：未知</li>
+      <li>手机号码归属地：未知</li>
+    </ul>
+  </div>
+  <div>
+    位置属性
+    <ul>
+      <li>常去场所：未知</li>
+      <li>工作地：未知</li>
+      <li>居住地：未知</li>
+    </ul>
+  </div>
+  <div>
+    近30天进店次数
+    <div style="padding:30px;">
+      <highchart id="chart_thred" config="$ctrl.chartThredConfig"></highchart>
+    </div>
+  </div>
+
+  <div>
+    <table ng-table-dynamic="$ctrl.tableParams with $ctrl.cols" class="mj-table table table-condensed table-bordered table-hover">
+      <colgroup>
+        <col width="50%" />
+        <col width="50%" />
+      </colgroup>
+      <tr  ng-repeat="row in $data track by $index" ng-click="row.showDetails = !row.showDetails">
+        <td data-title="$ctrl.cols[0]">{{ row.time }}</td>
+        <td data-title="$ctrl.cols[1]">{{ row.action }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

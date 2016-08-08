@@ -1,0 +1,15 @@
+<nav class="navbar navbar-inverse" style="position:relative;z-index:5">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+        <span class="sr-only">导航开关</span>
+      </button>
+      <a href="#" class="navbar-brand">猫镜</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li ng-repeat="nav in $ctrl.navs track by $index" ng-class="{active:nav.active, disabled: !nav.enable}" ng-click="$ctrl.onClick($index)"><a href="{{nav.path}}">{{nav.name}}</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

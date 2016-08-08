@@ -1,0 +1,14 @@
+<div class="side-bar">
+  <div class="list-group">
+    <div ng-repeat="nav in $ctrl.navs track by nav.id">
+      <a class="list-group-item" href="{{nav.path}}" ng-class="{active: nav.active, disabled: !nav.enable}" ng-click="$ctrl.onClick($index, 1)">
+        {{nav.name}}
+      </a>
+        <div ng-if="nav.children" class="list-group">
+          <a ng-repeat="item in nav.children track by item.id" href="{{item.path}}" class="list-group-item" ng-class="{active: item.active, disabled: !item.enable}"  ng-click="$ctrl.onClick(item.id, 2, nav.id)" style="padding-left: 40px;">
+            {{item.name}}
+          </a>
+        </div>
+    </div>
+  </div>
+</div>

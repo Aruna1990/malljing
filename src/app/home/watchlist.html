@@ -8,6 +8,7 @@
   </div>
   <div>
     <div>
+      <div style="margin-bottom:20px;"><button class="btn" ng-click="$ctrl.openCgDefine();">客群定义</button></div>
       <table ng-table-dynamic="$ctrl.tableParams with $ctrl.cols" class="mj-table table table-condensed table-bordered table-hover">
         <colgroup>
           <col width="30%" />
@@ -41,3 +42,5 @@
     </div>
   </div>
 </div>
+
+<cg-define ng-if="$ctrl.showCgDefine" show="$ctrl.showCgDefine"></cg-define>

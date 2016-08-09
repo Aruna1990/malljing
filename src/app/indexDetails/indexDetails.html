@@ -48,6 +48,25 @@
         <div style="padding-top:30px;">
           <highchart id="chart_thred" config="$ctrl.chartThredConfig"></highchart>
         </div>
+
+        <div>
+          <table ng-table-dynamic="$ctrl.tableParams1 with $ctrl.cols1" class="mj-table table table-condensed table-bordered table-hover">
+            <colgroup>
+              <col width="50%" />
+              <col width="50%" />
+            </colgroup>
+            <tr  ng-repeat="row in $data track by $index" ng-click="row.showDetails = !row.showDetails">
+              <td data-title="$ctrl.cols1[0]" style="text-align:center;">{{ row.date }}</td>
+              <td data-title="$ctrl.cols1[1]" style="text-align:center;">{{ row.value }}</td>
+            </tr>
+            <tfoot ng-if="$ctrl.isLastPage()">
+              <tr>
+
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
       </uib-tab>
       <uib-tab index="1" heading="分布分析" ng-click="$ctrl.reflow()">
         <div style="padding-top:30px;">
@@ -56,6 +75,24 @@
             <select ng-model="$ctrl.selectedDim" ng-options="dim.name for dim in $ctrl.dimData" ng-change="$ctrl.onDimChange();"></select>
           </div>
           <highchart id="chart_pie" config="$ctrl.chartPieConfig"></highchart>
+          <div>
+            <table ng-table-dynamic="$ctrl.tableParams2 with $ctrl.cols2" class="mj-table table table-condensed table-bordered table-hover">
+              <colgroup>
+                <col width="50%" />
+                <col width="50%" />
+              </colgroup>
+              <tr  ng-repeat="row in $data track by $index" ng-click="row.showDetails = !row.showDetails">
+                <td data-title="$ctrl.cols2[0]" style="text-align:center;">{{ row.dim }}</td>
+                <td data-title="$ctrl.cols2[1]" style="text-align:center;">{{ row.value }}</td>
+              </tr>
+              <tfoot ng-if="$ctrl.isLastPage()">
+                <tr>
+
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          
         </div>
       </uib-tab>
       <uib-tab index="2" heading="对比分析" ng-click="$ctrl.reflow()">
@@ -65,42 +102,30 @@
             <select ng-model="$ctrl.selectedIndex" ng-options="index.name for index in $ctrl.indexData" ng-change="$ctrl.onIndexChange();"></select>
           </div>
           <highchart id="chart_pie" config="$ctrl.chartCompareConfig"></highchart>
+          <div>
+            <table ng-table-dynamic="$ctrl.tableParams3 with $ctrl.cols3" class="mj-table table table-condensed table-bordered table-hover">
+              <colgroup>
+                <col width="40%" />
+                <col width="30%" />
+                <col width="30%" />
+              </colgroup>
+              <tr  ng-repeat="row in $data track by $index" ng-click="row.showDetails = !row.showDetails">
+                <td data-title="$ctrl.cols[0]" style="text-align:center;">{{ row.date }}</td>
+                <td data-title="$ctrl.cols[1]" style="text-align:center;">{{ row.value }}</td>
+                <td data-title="$ctrl.cols[2]" style="text-align:center;">{{ row.value2 }}</td>
+              </tr>
+              <tfoot ng-if="$ctrl.isLastPage()">
+                <tr>
+
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          
         </div>
       </uib-tab>
     </uib-tabset>
   </div>
   <div>
-    <div>
-      <table ng-table-dynamic="$ctrl.tableParams with $ctrl.cols" class="mj-table table table-condensed table-bordered table-hover">
-        <colgroup>
-          <col width="30%" />
-          <col width="5%" />
-          <col width="30%" />
-          <col width="15%" />
-          <col width="15%" />
-          <col width="5%" />
-        </colgroup>
-        <tr  ng-repeat="row in $data track by $index" ng-click="row.showDetails = !row.showDetails">
-          <td data-title="$ctrl.cols[0]" style="text-align:center;position:relative;">
-            {{ row.name }}
-            <span class="pull-right tool-bar">
-              <span class="glyphicon glyphicon-stats mj-icon" style="color:#1b809e;"></span>
-              <span class="glyphicon glyphicon-eye-open mj-icon" style="color:#1b809e;"></span>
-              <span class="glyphicon glyphicon-heart mj-icon" style="color:#ce4844;" ng-click="$ctrl.delete($index)"></span>
-            </span>
-          </td>
-          <td data-title="$ctrl.cols[1]" style="text-align:center;">{{ row.unit }}</td>
-          <td data-title="$ctrl.cols[2]" style="text-align:center;">趋势图</td>
-          <td data-title="$ctrl.cols[3]" style="text-align:center;">{{ row.value }}</td>
-          <td data-title="$ctrl.cols[4]" style="text-align:center;">{{ row._d_value }}</td>
-          <td data-title="$ctrl.cols[5]" style="text-align:center;">{{ row.doD }}%</td>
-        </tr>
-        <tfoot ng-if="$ctrl.isLastPage()">
-          <tr>
-
-          </tr>
-        </tfoot>
-      </table>
-    </div>
   </div>
 </div>

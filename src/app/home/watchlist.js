@@ -1510,6 +1510,11 @@ function watchlistCtrl($rootScope, $state, todoService, $injector, $location) {
    }]
   };
 
+  this.openCgDefine = function(){
+    console.log("openCgDefine");
+    this.showCgDefine = true;
+  }
+
   var self = this;
   self.cols = [{
     field: "id",

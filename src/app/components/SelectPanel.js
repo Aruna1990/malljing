@@ -1,17 +1,15 @@
 angular
   .module('app')
-  .component('mjDatePicker', {
-    templateUrl: 'app/components/DatePicker.html',
-    controller: DatePicker,
+  .component('mjSelectpanel', {
+    templateUrl: 'app/components/SelectPanel.html',
+    controller: SelectPanel,
     bindings: {
-      dateType: '<',
-      dateRange: '<',
-      dropdownLift: '@',
-      selectedFilter: '<filter',
+      data: '<',
+      selectedMax: '<'
     }
   });
 
-function DatePicker($filter) {
+function SelectPanel($filter) {
   this.$filter = $filter;
   this.dateTypes = [{
     id: 'hour',
@@ -72,15 +70,72 @@ function DatePicker($filter) {
     rangeStart: true,
     rangeEnd: true
   }];
-  this.toActiveType(1);
   this.range = {
     isopen: false
-  }
+  };
+  this.selectedItems = [];
+  this.selectedMax = 3;
+
+  this.data = [{
+    title: "空间到访",
+    enable: true,
+    items:[{
+      name:"进入",
+      id:""
+    },{
+      name:"驻留",
+      id:""
+    },{
+      name:"离开",
+      id:""
+    }]
+  },{
+    title: "摇一摇活动",
+    enable: false,
+    items:[{
+      name:"参与",
+      id:""
+    },{
+      name:"中券",
+      id:""
+    },{
+      name:"核销",
+      id:""
+    }]
+  },{
+    title: "服务使用",
+    enable: false,
+    items:[{
+      name:"WiFi上网",
+      id:""
+    },{
+      name:"摇一摇停车",
+      id:""
+    }]
+  },{
+    title: "消费",
+    enable: false,
+    items:[{
+      name:"支付",
+      id:""
+    }]
+  }]
 }
 
-DatePicker.prototype = {
-  onTypeChange: function (type) {
-    this.toActiveType(type);
+SelectPanel.prototype = {
+  onAddItem: function (item) {
+    if(!item.selected && this.selectedItems.length >= this.selectedMax) return;
+    if(!item.selected){
+      this.selectedItems.push(item);
+    }else{
+      for(var i=0; i<this.selectedItems.length; i++){
+        if(item.name == this.selectedItems[i].name){
+          this.selectedItems.splice(i,1);
+        }
+      }
+    }
+    item.selected = !item.selected;
+    console.log(this.selectedItems);
   },
 
   toActiveType: function (idx) {

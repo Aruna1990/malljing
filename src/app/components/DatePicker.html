@@ -13,7 +13,7 @@
     <span ng-if="$ctrl.selectedDefaultRange.values[1]">~{{$ctrl.selectedDefaultRange.values[1]}}</span>
     <span class="caret"></span>
   </button>
-  <div class="dropdown-menu" ng-class="{'width-700':$ctrl.selectedType.rangeEnd,'width-366':!$ctrl.selectedType.rangeEnd}">
+  <div class="dropdown-menu" ng-class="{'width-700':$ctrl.selectedType.rangeEnd,'width-366':!$ctrl.selectedType.rangeEnd}" style="left:{{$ctrl.dropdownLift}}">
       <uib-tabset active="active">
         <uib-tab index="0" heading="最近">
           <div class="btn-group" style="width:100%; padding:30px;">

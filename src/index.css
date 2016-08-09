@@ -97,5 +97,25 @@
 }
 /*sidebar end*/
 
+/*custom define start*/
+.modal-dialog li.select-input{
+  list-style: none;
+  margin-left:10px;
+  margin-bottom:20px;
+}
+.modal-dialog li.select-item{
+  list-style: none;
+  margin-left:10px;
+  margin-bottom:20px;
+  cursor: pointer;
+}
+.modal-dialog li.select-item:hover{
+  color: #ff0000;
+  cursor: pointer;
+}
+.select-panel .selected{
+  color: #ff0000;
+}
+/*custom define end*/
 
 @import url(app/portal/portal.css);

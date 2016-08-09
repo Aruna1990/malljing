@@ -1544,6 +1544,40 @@ function indexDetailsCtrl($rootScope, $state, todoService, $injector, $timeout) 
     show: true
   }];
 
+  self.cols1 = [{
+    field: "date",
+    title: "日期",
+    show: true
+  }, {
+    field: "value",
+    title: "指标值",
+    show: true
+  }];
+
+  self.cols2 = [{
+    field: "dim",
+    title: "维度",
+    show: true
+  }, {
+    field: "value",
+    title: "指标值",
+    show: true
+  }];
+
+  self.cols3 = [{
+    field: "date",
+    title: "日期",
+    show: true
+  }, {
+    field: "value",
+    title: "指标值",
+    show: true
+  }, {
+    field: "value2",
+    title: "对比指标值",
+    show: true
+  }];
+
   self.indexList = [{
     id:0,
     name:"指标名称0",
@@ -1641,8 +1675,6 @@ function indexDetailsCtrl($rootScope, $state, todoService, $injector, $timeout) 
   }];
 
   var colorBank = Highcharts.getOptions().colors;
-  console.log("colorBank");
-  console.log(Highcharts);
 
   this.dimData = [{
     id:0,
@@ -1734,864 +1766,1151 @@ function indexDetailsCtrl($rootScope, $state, todoService, $injector, $timeout) 
     cgEnable: true,
     up: false,
     data: [840, 872, 914]
-  },{
-    id:4,
-    name:"商业类型",
-    unit:"人数",
-    values: [{
-      name:'餐饮',
-      y:142294,
-      drilldown:{
-        name: '餐饮',
-        data: [{
-          name: "吧台",
-          y: 4408,
-          drilldown: {
-            name: "吧台",
-            data: [{
-              name: "浆宝",
-              y: 181
-            },{
-              name: "鲜饮空间",
-              y: 1226
-            },{
-              name: "鲜芋仙",
-              y: 184
-            },{
-              name: "鲜元素",
-              y: 2785
-            },{
-              name: "找茶",
-              y: 23
-            },{
-              name: "珍仕菓",
-              y: 9
-            }]
-          }
-        },{
-          name: "快餐",
-          y: 24622,
-          drilldown: {
-            name: "快餐",
-            data: [{
-              name: "大快活",
-              y: 491
-            },{
-              name: "汉堡王",
-              y: 9607
-            },{
-              name: "吉野家",
-              y: 3254
-            },{
-              name: "肯德基",
-              y: 11270
-            }]
-          }
-        },{
-          name: "料理",
-          y: 11212,
-          drilldown: {
-            name: "料理",
-            data: [{
-              name: "池田回转寿司",
-              y: 3339
-            },{
-              name: "池田寿司",
-              y: 2411
-            },{
-              name: "禾绿回转寿司",
-              y: 2886
-            },{
-              name: "惠比寿 杏",
-              y: 2576
-            }]
-          }
-        },{
-          name: "甜品",
-          y: 11212,
-          drilldown: {
-            name: "甜品",
-            data: [{
-              name: "DQ",
-              y: 374
-            },{
-              name: "Eimio",
-              y: 2165
-            },{
-              name: "Gandy Lab",
-              y: 268
-            },{
-              name: "Stick house",
-              y: 2
-            },{
-              name: "凡情蒂诺巧克力",
-              y: 1603
-            },{
-              name: "快乐柠檬",
-              y: 2326
-            },{
-              name: "满记甜品",
-              y: 228
-            },{
-              name: "漫果工坊",
-              y: 256
-            },{
-              name: "摩提工坊",
-              y: 169
-            }]
-          }
-        },{
-          name: "西餐",
-          y: 18005,
-          drilldown: {
-            name: "甜品",
-            data: [{
-              name: "星巴克",
-              y: 15388
-            },{
-              name: "太平洋咖啡",
-              y: 2617
-            }]
-          }
-        },{
-          name: "中餐",
-          y: 76656,
-          drilldown: {
-            name: "中餐",
-            data: [{
-              name: "巴贝拉",
-              y: 1322
-            },{
-              name: "北京小王府红茶餐厅",
-              y: 1093
-            },{
-              name: "避风塘",
-              y: 6809
-            },{
-              name: "边境共和国",
-              y: 8361
-            },{
-              name: "川辣汇",
-              y: 4455
-            },{
-              name: "豆捞坊",
-              y: 7134
-            },{
-              name: "沸腾夜话",
-              y: 1483
-            },{
-              name: "呷哺呷哺",
-              y: 1288
-            },{
-              name: "港丽餐厅",
-              y: 2658
-            },{
-              name: "蕉叶",
-              y: 2490
-            },{
-              name: "井格老灶火锅",
-              y: 4005
-            },{
-              name: "咖喱虎",
-              y: 595
-            },{
-              name: "鹿港小镇",
-              y: 13620
-            },{
-              name: "拿渡麻辣香锅",
-              y: 3352
-            },{
-              name: "南小馆",
-              y: 208
-            },{
-              name: "味千拉面",
-              y: 10404
-            },{
-              name: "一味一诚",
-              y: 7290
-            },{
-              name: "印巷小馆",
-              y: 89
-            }]
-          }
-        }]
-      }
-    },{
-      name:'零售专卖',
-      y:745321,
-      drilldown:{
-        name: '零售专卖',
-        data: [{
-          name: "儿童用品",
-          y: 435,
-          dilldown:{
-            name: "儿童用品",
-            data:[{
-              name: "NICI",
-              y:174
-            },{
-              name: "全棉时代",
-              y:111
-            },{
-              name: "GC",
-              y: 150
-            }]
-          }
-        },{
-          name: "化妆品",
-          y:40773,
-          drilldown:{
-            name: "化妆品",
-            data:[{
-              name: "BObbi Brown",
-              y:2968,
-            },{
-              name: "CK香水",
-              y:415,
-            },{
-              name: "CK香水",
-              y:1149,
-            },{
-              name: "innisfree",
-              y:338,
-            },{
-              name: "Jurlique",
-              y:5687,
-            },{
-              name: "KIEHLS",
-              y:2450,
-            },{
-              name: "LAVIN香水",
-              y:1237,
-            },{
-              name: "LOCCITANE",
-              y:1105,
-            },{
-              name: "MAC",
-              y:4940,
-            },{
-              name: "MAX FACTOR",
-              y:447,
-            },{
-              name: "ORIGINS",
-              y:5735,
-            },{
-              name: "Roger&Gallet",
-              y:1380,
-            },{
-              name: "SEPHORA",
-              y:9403,
-            },{
-              name: "大长今",
-              y:3519,
-            }]
-          }
-        },{
-          name: "黄金珠宝",
-          y:16792,
-          drilldown:{
-            name: "黄金珠宝",
-            data:[{
-              name: "I gold",
-              y:2129
-            },{
-              name: "LOVE&LOVE",
-              y:13036
-            },{
-              name: "PANDORA",
-              y:661
-            },{
-              name: "施华洛世奇",
-              y:966
-            }]
-          }
-        },{
-          name: "家居",
-          y:11777,
-          drilldown:{
-            name: "家居",
-            data:[{
-              name: "MUJI",
-              y:11777 
-            }]
-          }
-        },{
-          name: "居家生活",
-          y:12881,
-          drilldown:{
-            name: "居家生活",
-            data:[{
-              y:3729,
-              name: "阿芙香薰"
-            },{
-              y:3209,
-              name: "万宁"
-            },{
-              y:122,
-              name: "名创优品"
-            },{
-              y:5821,
-              name: "品阁"
-            }]
-          }
-        },{
-          name: "快销集合店",
-          y:18572,
-          drilldown:{
-            name: "快销集合店",
-            data:[{
-              y:18572,
-              name: "BHG"
-            }]
-          }
-        },{
-          name: "男女装",
-          y:207244,
-          drilldown:{
-            name: "快销集合店",
-            data:[{
-              y:4816,
-              name: "Calvin Klein"
-            },{
-              y:396,
-              name: "Calvin Klein Jeans"
-            },{
-              y:2096,
-              name: "Calvin Klein underwear"
-            },{
-              y:277,
-              name: "cheap monday"
-            },{
-              y:1913,
-              name: "CK JEANS"
-            },{
-              y:1954,
-              name: "ecco"
-            },{
-              y:3266,
-              name: "ED hardy"
-            },{
-              y:1434,
-              name: "EMPORIO ARMANI"
-            },{
-              y:575,
-              name: "EVISU"
-            },{
-              y:2248,
-              name: "G·STAR RAW"
-            },{
-              y:3187,
-              name: "G2000"
-            },{
-              y:14760,
-              name: "GAP"
-            },{
-              y:3502,
-              name: "GUESS"
-            },{
-              y:18485,
-              name: "i.t"
-            },{
-              y:1423,
-              name: "IZZUE"
-            },{
-              y:12204,
-              name: "JACK JONES"
-            },{
-              y:7813,
-              name: "Juicy Couture"
-            },{
-              y:480,
-              name: "Lee"
-            },{
-              y:1498,
-              name: "levis"
-            },{
-              y:80,
-              name: "pancoat"
-            },{
-              y:299,
-              name: "PRICH"
-            },{
-              y:2553,
-              name: "REPLAY"
-            },{
-              y:3592,
-              name: "STAY REAL"
-            },{
-              y:20067,
-              name: "UNIQLO"
-            },{
-              y:97007,
-              name: "ZARA"
-            },{
-              y:1319,
-              name: "速写"
-            }]
-          }
-        },{
-          name: "男装",
-          y:31959,
-          dilldown: {
-            name: "男装",
-            data: [{
-              y:5786,
-              name: "6IXTY 8IGHT"
-            },{
-              y:2276,
-              name: "Aape"
-            },{
-              y:9600,
-              name: "aojo"
-            },{
-              y:395,
-              name: "b+ab"
-            },{
-              y:911,
-              name: "BOY"
-            },{
-              y:1145,
-              name: "GXG"
-            },{
-              y:1204,
-              name: "gxg.jeans"
-            },{
-              y:6027,
-              name: "GXG特卖"
-            },{
-              y:1545,
-              name: "IM DAVID"
-            },{
-              y:278,
-              name: "SELECTED"
-            },{
-              y:2792,
-              name: "trendiano"
-            }]
-          }
-        },{
-          name: "内衣",
-          y:3270,
-          dilldown: {
-            name: "内衣",
-            data: [{
-                y:763,
-              name: "Blumenovum"
-            },{
-              y:979,
-              name: "PEACH JOHN"
-            },{
-              y:481,
-              name: "PRIVATE STRUCTURE"
-            },{
-              y:1,
-              name: "Rime"
-            },{
-              y:232,
-              name: "TUTUANNA"
-            },{
-              y:814,
-              name: "爱美丽"
-            }]
-          }
-        },{
-          name: "女装",
-          y:149912,
-          drilldown:{
-            name: "女装",
-            data: [{
-              y:2796,
-              name: "AVVN"
-            },{
-              y:653,
-              name: "Bout hent ique"
-            },{
-              y:81,
-              name: "COCO DEAL"
-            },{
-              y:772,
-              name: "CR?Z！"
-            },{
-              y:1899,
-              name: "DAZZLE"
-            },{
-              y:11394,
-              name: "DKNY"
-            },{
-              y:3838,
-              name: "E·LAND"
-            },{
-              y:2997,
-              name: "earth music&ecolog"
-            },{
-              y:1609,
-              name: "ENO"
-            },{
-              y:5977,
-              name: "Five Plus"
-            },{
-              y:5248,
-              name: "Hello Kitty"
-            },{
-              y:5973,
-              name: "III VIVINIKO"
-            },{
-              y:2717,
-              name: "Initial"
-            },{
-              y:1064,
-              name: "JNBY"
-            },{
-              y:10486,
-              name: "JUCY JUDY"
-            },{
-              y:3041,
-              name: "KODICE"
-            },{
-              y:9,
-              name: "lily"
-            },{
-              y:1193,
-              name: "marie n°mary"
-            },{
-              y:8387,
-              name: "MAX&Co."
-            },{
-              y:1118,
-              name: "MIGAINO"
-            },{
-              y:1412,
-              name: "MISS SIXTY"
-            },{
-              y:551,
-              name: "missoul"
-            },{
-              y:8704,
-              name: "MO&Co."
-            },{
-              y:884,
-              name: "MOUSSY"
-            },{
-              y:2446,
-              name: "NANCY K"
-            },{
-              y:12018,
-              name: "Ochirly"
-            },{
-              y:15456,
-              name: "PLAYLOUNGE"
-            },{
-              y:4241,
-              name: "snidel"
-            },{
-              y:1091,
-              name: "tanni"
-            },{
-              y:1070,
-              name: "test-tube"
-            },{
-              y:12947,
-              name: "Vero moda"
-            },{
-              y:10649,
-              name: "ZCZZ"
-            },{
-              y:466,
-              name: "ZUCZUG"
-            },{
-              y:2442,
-              name: "百家好"
-            },{
-              y:2254,
-              name: "播"
-            },{
-              y:479,
-              name: "乐町"
-            },{
-              y:1402,
-              name: "斯琴"
-            },{
-              y:148,
-              name: "再尚秀"
-            }]
-          }
-        },{
-          name: "配饰",
-          y: 75327,
-          drilldown:{
-            name: "配饰",
-            data: [{
-              name: "CK WATCH",
-              y:670
-            },{
-              y: 2217,
-              name: "crocs"
-            },{
-              y: 242,
-              name: "FESSURA"
-            },{
-              y: 1470,
-              name: "FOLLIE"
-            },{
-              y: 22,
-              name: "HAT'S ON"
-            },{
-              y: 8,
-              name: "Hitomi Optician"
-            },{
-              y: 2957,
-              name: "hotwind"
-            },{
-              y: 2315,
-              name: "ipanema"
-            },{
-              y: 5853,
-              name: "J&M"
-            },{
-              y: 3214,
-              name: "kate spade"
-            },{
-              y: 408,
-              name: "Kipling"
-            },{
-              y: 30,
-              name: "La pa Y-P"
-            },{
-              y: 6950,
-              name: "MAP"
-            },{
-              y: 15997,
-              name: "MICHAEL KORS"
-            },{
-              y: 656,
-              name: "reemoor"
-            },{
-              y: 723,
-              name: "Samantha Thavasa"
-            },{
-              y: 776,
-              name: "SUUNTO"
-            },{
-              y: 3,
-              name: "SWATCH"
-            },{
-              y: 322,
-              name: "TUSCANS"
-            },{
-              y: 2998,
-              name: "UGG"
-            },{
-              y: 4542,
-              name: "Vivi tix"
-            },{
-              y: 1929,
-              name: "阿吉豆"
-            },{
-              y: 6958,
-              name: "宝岛眼镜"
-            },{
-              y: 364,
-              name: "靓佩"
-            },{
-              y: 7006,
-              name: "木九十"
-            },{
-              y: 1102,
-              name: "瑞士军刀、ZIPPO"
-            },{
-              y: 5595,
-              name: "西遇"
-            }]
-          }
-        },{
-          name: "饰品",
-          y: 666,
-          drilldown:{
-            name: "饰品",
-            data: [{
-              name: "KING BABY",
-              y: 666
-            }]
-          }
-        },{
-          name: "数码电器",
-          y: 31874,
-          drilldown:{
-            name: "数码电器",
-            data: [{
-              y:85,
-              name: "ALIENWARE"
-            },{
-              y:662,
-              name: "Apple Store"
-            },{
-              y:2245,
-              name: "CYO VAPE"
-            },{
-              y:1571,
-              name: "HS"
-            },{
-              y:2513,
-              name: "HUAWEI"
-            },{
-              y:5886,
-              name: "iPhone"
-            },{
-              y:2147,
-              name: "Microsoft"
-            },{
-              y:354,
-              name: "迪信通"
-            },{
-              y:6763,
-              name: "卡乐时代"
-            },{
-              y:1592,
-              name: "魅族手机"
-            },{
-              y:8056,
-              name: "三星手机"
-            }]
-          }
-        },{
-          name: "文化用品",
-          y: 755,
-          drilldown:{
-            name: "文化用品",
-            data: [{
-              y:755,
-              name: "LAMY"
-            }]
-          }
-        },{
-          name: "眼镜",
-          y: 107,
-          drilldown:{
-            name: "文化用品",
-            data: [{
-              y:107,
-              name: "LOHO"
-            }]
-          }
-        },{
-          name: "运动休闲",
-          y: 142977,
-          drilldown:{
-            name: "运动休闲",
-            data: [{
-              y:237,
-              name: "adidas Originals"
-            },{
-              y:5824,
-              name: "Baleno"
-            },{
-              y:10243,
-              name: "CONVERSE"
-            },{
-              y:84331,
-              name: "H&M"
-            },{
-              y:902,
-              name: "HIPANDA"
-            },{
-              y:13513,
-              name: "LALABOBO"
-            },{
-              y:1730,
-              name: "MLB"
-            },{
-              y:679,
-              name: "Monki"
-            },{
-              y:1780,
-              name: "new balance"
-            },{
-              y:645,
-              name: "NIKE"
-            },{
-              y:3876,
-              name: "Onit suka eTiger"
-            },{
-              y:93,
-              name: "Paul Frank"
-            },{
-              y:1303,
-              name: "PUMA 黑标"
-            },{
-              y:536,
-              name: "ROBINHOOD"
-            },{
-              y:2,
-              name: "THE NORTH FACE"
-            },{
-              y:12,
-              name: "Tous"
-            },{
-              y:7224,
-              name: "UNDER ARMOUR"
-            },{
-              y:6926,
-              name: "VANS"
-            },{
-              y:973,
-              name: "WAKE UP"
-            },{
-              y:2148,
-              name: "航海王"
-            }]
-          }
-        }]
-      }
-    },{
-      name:'生活配套',
-      y: 327,
-      drilldown:{
-        name: "生活配套",
-        data: [{
-          y:327,
-          name: "洗车",
-          drilldown:{
-            name: "洗车",
-            data: [{
-              y:327,
-              name: "Cars one"
-            }]
-          }
-        }]
-      }
-    },{
-      name:'休闲娱乐',
-      y: 2862,
-      drilldown:{
-        name: "休闲娱乐",
-        data: [{
-          y:1064,
-          name: "KTV",
-          drilldown:{
-            name: "KTV",
-            data: [{
-              y:1064,
-              name: "XOXO"
-            }]
-          }
-        },{
-          y:1798,
-          name: "美发美甲",
-          drilldown:{
-            name: "美发美甲",
-            data: [{
-              y:1064,
-              name: "BHG SALON"
-            }]
-          }
-        }]
-      }
-    }],
-    _d_value: 698165,
-    doD: -14.18,
-    cgEnable: true,
-    up: false,
-    data: [840, 872, 914]
+  // },{
+  //   id:4,
+  //   name:"商业类型",
+  //   unit:"人数",
+  //   values: [{
+  //     name:'餐饮',
+  //     y:142294,
+  //     color: colorBank[0],
+  //     drilldown:{
+  //       name: '餐饮',
+  //       data: [{
+  //         name: "吧台",
+  //         color: colorBank[0],
+  //         y: 4408,
+  //         drilldown: {
+  //           name: "吧台",
+  //           data: [{
+  //             name: "浆宝",
+  //             color: colorBank[0],
+  //             y: 181
+  //           },{
+  //             name: "鲜饮空间",
+  //             color: colorBank[0],
+  //             y: 1226
+  //           },{
+  //             name: "鲜芋仙",
+  //             color: colorBank[0],
+  //             y: 184
+  //           },{
+  //             name: "鲜元素",
+  //             color: colorBank[0],
+  //             y: 2785
+  //           },{
+  //             name: "找茶",
+  //             color: colorBank[0],
+  //             y: 23
+  //           },{
+  //             name: "珍仕菓",
+  //             color: colorBank[0],
+  //             y: 9
+  //           }]
+  //         }
+  //       },{
+  //         name: "快餐",
+  //         y: 24622,
+  //         color: colorBank[0],
+  //         drilldown: {
+  //           name: "快餐",
+  //           data: [{
+  //             name: "大快活",
+  //             color: colorBank[0],
+  //             y: 491
+  //           },{
+  //             name: "汉堡王",
+  //             color: colorBank[0],
+  //             y: 9607
+  //           },{
+  //             name: "吉野家",
+  //             color: colorBank[0],
+  //             y: 3254
+  //           },{
+  //             name: "肯德基",
+  //             color: colorBank[0],
+  //             y: 11270
+  //           }]
+  //         }
+  //       },{
+  //         name: "料理",
+  //         y: 11212,
+  //         color: colorBank[0],
+  //         drilldown: {
+  //           name: "料理",
+  //           data: [{
+  //             name: "池田回转寿司",
+  //             color: colorBank[0],
+  //             y: 3339
+  //           },{
+  //             name: "池田寿司",
+  //             color: colorBank[0],
+  //             y: 2411
+  //           },{
+  //             name: "禾绿回转寿司",
+  //             color: colorBank[0],
+  //             y: 2886
+  //           },{
+  //             name: "惠比寿 杏",
+  //             color: colorBank[0],
+  //             y: 2576
+  //           }]
+  //         }
+  //       },{
+  //         name: "甜品",
+  //         color: colorBank[0],
+  //         y: 11212,
+  //         drilldown: {
+  //           name: "甜品",
+  //           data: [{
+  //             name: "DQ",
+  //             color: colorBank[0],
+  //             y: 374
+  //           },{
+  //             name: "Eimio",
+  //             color: colorBank[0],
+  //             y: 2165
+  //           },{
+  //             name: "Gandy Lab",
+  //             color: colorBank[0],
+  //             y: 268
+  //           },{
+  //             name: "Stick house",
+  //             color: colorBank[0],
+  //             y: 2
+  //           },{
+  //             name: "凡情蒂诺巧克力",
+  //             color: colorBank[0],
+  //             y: 1603
+  //           },{
+  //             name: "快乐柠檬",
+  //             color: colorBank[0],
+  //             y: 2326
+  //           },{
+  //             name: "满记甜品",
+  //             color: colorBank[0],
+  //             y: 228
+  //           },{
+  //             name: "漫果工坊",
+  //             color: colorBank[0],
+  //             y: 256
+  //           },{
+  //             name: "摩提工坊",
+  //             color: colorBank[0],
+  //             y: 169
+  //           }]
+  //         }
+  //       },{
+  //         name: "西餐",
+  //         color: colorBank[0],
+  //         y: 18005,
+  //         drilldown: {
+  //           name: "甜品",
+  //           data: [{
+  //             name: "星巴克",
+  //             color: colorBank[0],
+  //             y: 15388
+  //           },{
+  //             name: "太平洋咖啡",
+  //             color: colorBank[0],
+  //             y: 2617
+  //           }]
+  //         }
+  //       },{
+  //         name: "中餐",
+  //         y: 76656,
+  //         drilldown: {
+  //           name: "中餐",
+  //           color: colorBank[0],
+  //           data: [{
+  //             name: "巴贝拉",
+  //             color: colorBank[0],
+  //             y: 1322
+  //           },{
+  //             name: "北京小王府红茶餐厅",
+  //             color: colorBank[0],
+  //             y: 1093
+  //           },{
+  //             name: "避风塘",
+  //             color: colorBank[0],
+  //             y: 6809
+  //           },{
+  //             name: "边境共和国",
+  //             color: colorBank[0],
+  //             y: 8361
+  //           },{
+  //             name: "川辣汇",
+  //             color: colorBank[0],
+  //             y: 4455
+  //           },{
+  //             name: "豆捞坊",
+  //             color: colorBank[0],
+  //             y: 7134
+  //           },{
+  //             name: "沸腾夜话",
+  //             color: colorBank[0],
+  //             y: 1483
+  //           },{
+  //             name: "呷哺呷哺",
+  //             color: colorBank[0],
+  //             y: 1288
+  //           },{
+  //             name: "港丽餐厅",
+  //             color: colorBank[0],
+  //             y: 2658
+  //           },{
+  //             name: "蕉叶",
+  //             color: colorBank[0],
+  //             y: 2490
+  //           },{
+  //             name: "井格老灶火锅",
+  //             color: colorBank[0],
+  //             y: 4005
+  //           },{
+  //             name: "咖喱虎",
+  //             color: colorBank[0],
+  //             y: 595
+  //           },{
+  //             name: "鹿港小镇",
+  //             color: colorBank[0],
+  //             y: 13620
+  //           },{
+  //             name: "拿渡麻辣香锅",
+  //             color: colorBank[0],
+  //             y: 3352
+  //           },{
+  //             name: "南小馆",
+  //             color: colorBank[0],
+  //             y: 208
+  //           },{
+  //             name: "味千拉面",
+  //             color: colorBank[0],
+  //             y: 10404
+  //           },{
+  //             name: "一味一诚",
+  //             color: colorBank[0],
+  //             y: 7290
+  //           },{
+  //             name: "印巷小馆",
+  //             color: colorBank[0],
+  //             y: 89
+  //           }]
+  //         }
+  //       }]
+  //     }
+  //   },{
+  //     name:'零售专卖',
+  //     color: colorBank[1],
+  //     y:745321,
+  //     drilldown:{
+  //       name: '零售专卖',
+  //       data: [{
+  //         name: "儿童用品",
+  //         color: colorBank[1],
+  //         y: 435,
+  //         dilldown:{
+  //           name: "儿童用品",
+  //           data:[{
+  //             name: "NICI",
+  //             color: colorBank[1],
+  //             y:174
+  //           },{
+  //             name: "全棉时代",
+  //             color: colorBank[1],
+  //             y:111
+  //           },{
+  //             name: "GC",
+  //             color: colorBank[1],
+  //             y: 150
+  //           }]
+  //         }
+  //       },{
+  //         name: "化妆品",
+  //         color: colorBank[1],
+  //         y:40773,
+  //         drilldown:{
+  //           name: "化妆品",
+  //           data:[{
+  //             name: "BObbi Brown",
+  //             color: colorBank[1],
+  //             y:2968,
+  //           },{
+  //             name: "CK香水",
+  //             color: colorBank[1],
+  //             y:415,
+  //           },{
+  //             name: "CK香水",
+  //             color: colorBank[1],
+  //             y:1149,
+  //           },{
+  //             name: "innisfree",
+  //             color: colorBank[1],
+  //             y:338,
+  //           },{
+  //             name: "Jurlique",
+  //             color: colorBank[1],
+  //             y:5687,
+  //           },{
+  //             name: "KIEHLS",
+  //             color: colorBank[1],
+  //             y:2450,
+  //           },{
+  //             name: "LAVIN香水",
+  //             color: colorBank[1],
+  //             y:1237,
+  //           },{
+  //             name: "LOCCITANE",
+  //             color: colorBank[1],
+  //             y:1105,
+  //           },{
+  //             name: "MAC",
+  //             color: colorBank[1],
+  //             y:4940,
+  //           },{
+  //             name: "MAX FACTOR",
+  //             color: colorBank[1],
+  //             y:447,
+  //           },{
+  //             name: "ORIGINS",
+  //             color: colorBank[1],
+  //             y:5735,
+  //           },{
+  //             name: "Roger&Gallet",
+  //             color: colorBank[1],
+  //             y:1380,
+  //           },{
+  //             name: "SEPHORA",
+  //             color: colorBank[1],
+  //             y:9403,
+  //           },{
+  //             name: "大长今",
+  //             color: colorBank[1],
+  //             y:3519,
+  //           }]
+  //         }
+  //       },{
+  //         name: "黄金珠宝",
+  //         color: colorBank[1],
+  //         y:16792,
+  //         drilldown:{
+  //           name: "黄金珠宝",
+  //           data:[{
+  //             name: "I gold",
+  //             color: colorBank[1],
+  //             y:2129
+  //           },{
+  //             name: "LOVE&LOVE",
+  //             color: colorBank[1],
+  //             y:13036
+  //           },{
+  //             name: "PANDORA",
+  //             color: colorBank[1],
+  //             y:661
+  //           },{
+  //             name: "施华洛世奇",
+  //             color: colorBank[1],
+  //             y:966
+  //           }]
+  //         }
+  //       },{
+  //         name: "家居",
+  //         color: colorBank[1],
+  //         y:11777,
+  //         drilldown:{
+  //           name: "家居",
+  //           data:[{
+  //             name: "MUJI",
+  //             color: colorBank[1],
+  //             y:11777 
+  //           }]
+  //         }
+  //       },{
+  //         name: "居家生活",
+  //         color: colorBank[1],
+  //         y:12881,
+  //         drilldown:{
+  //           name: "居家生活",
+  //           color: colorBank[1],
+  //           data:[{
+  //             y:3729,
+  //             color: colorBank[1],
+  //             name: "阿芙香薰"
+  //           },{
+  //             y:3209,
+  //             color: colorBank[1],
+  //             name: "万宁"
+  //           },{
+  //             y:122,
+  //             color: colorBank[1],
+  //             name: "名创优品"
+  //           },{
+  //             y:5821,
+  //             color: colorBank[1],
+  //             name: "品阁"
+  //           }]
+  //         }
+  //       },{
+  //         name: "快销集合店",
+  //         color: colorBank[1],
+  //         y:18572,
+  //         drilldown:{
+  //           name: "快销集合店",
+  //           data:[{
+  //             y:18572,
+  //             color: colorBank[1],
+  //             name: "BHG"
+  //           }]
+  //         }
+  //       },{
+  //         name: "男女装",
+  //         y:207244,
+  //         color: colorBank[1],
+  //         drilldown:{
+  //           name: "快销集合店",
+  //           data:[{
+  //             y:4816,
+  //             color: colorBank[1],
+  //             name: "Calvin Klein"
+  //           },{
+  //             y:396,
+  //             color: colorBank[1],
+  //             name: "Calvin Klein Jeans"
+  //           },{
+  //             y:2096,
+  //             color: colorBank[1],
+  //             name: "Calvin Klein underwear"
+  //           },{
+  //             y:277,
+  //             color: colorBank[1],
+  //             name: "cheap monday"
+  //           },{
+  //             y:1913,
+  //             color: colorBank[1],
+  //             name: "CK JEANS"
+  //           },{
+  //             y:1954,
+  //             color: colorBank[1],
+  //             name: "ecco"
+  //           },{
+  //             y:3266,
+  //             color: colorBank[1],
+  //             name: "ED hardy"
+  //           },{
+  //             y:1434,
+  //             color: colorBank[1],
+  //             name: "EMPORIO ARMANI"
+  //           },{
+  //             y:575,
+  //             color: colorBank[1],
+  //             name: "EVISU"
+  //           },{
+  //             y:2248,
+  //             color: colorBank[1],
+  //             name: "G·STAR RAW"
+  //           },{
+  //             y:3187,
+  //             color: colorBank[1],
+  //             name: "G2000"
+  //           },{
+  //             y:14760,
+  //             color: colorBank[1],
+  //             name: "GAP"
+  //           },{
+  //             y:3502,
+  //             color: colorBank[1],
+  //             name: "GUESS"
+  //           },{
+  //             y:18485,
+  //             color: colorBank[1],
+  //             name: "i.t"
+  //           },{
+  //             y:1423,
+  //             color: colorBank[1],
+  //             name: "IZZUE"
+  //           },{
+  //             y:12204,
+  //             color: colorBank[1],
+  //             name: "JACK JONES"
+  //           },{
+  //             y:7813,
+  //             color: colorBank[1],
+  //             name: "Juicy Couture"
+  //           },{
+  //             y:480,
+  //             color: colorBank[1],
+  //             name: "Lee"
+  //           },{
+  //             y:1498,
+  //             color: colorBank[1],
+  //             name: "levis"
+  //           },{
+  //             y:80,
+  //             color: colorBank[1],
+  //             name: "pancoat"
+  //           },{
+  //             y:299,
+  //             color: colorBank[1],
+  //             name: "PRICH"
+  //           },{
+  //             y:2553,
+  //             color: colorBank[1],
+  //             name: "REPLAY"
+  //           },{
+  //             y:3592,
+  //             color: colorBank[1],
+  //             name: "STAY REAL"
+  //           },{
+  //             y:20067,
+  //             color: colorBank[1],
+  //             name: "UNIQLO"
+  //           },{
+  //             y:97007,
+  //             color: colorBank[1],
+  //             name: "ZARA"
+  //           },{
+  //             y:1319,
+  //             color: colorBank[1],
+  //             name: "速写"
+  //           }]
+  //         }
+  //       },{
+  //         name: "男装",
+  //         y:31959,
+  //         color: colorBank[1],
+  //         dilldown: {
+  //           name: "男装",
+  //           data: [{
+  //             y:5786,
+  //             color: colorBank[1],
+  //             name: "6IXTY 8IGHT"
+  //           },{
+  //             y:2276,
+  //             color: colorBank[1],
+  //             name: "Aape"
+  //           },{
+  //             y:9600,
+  //             color: colorBank[1],
+  //             name: "aojo"
+  //           },{
+  //             y:395,
+  //             color: colorBank[1],
+  //             name: "b+ab"
+  //           },{
+  //             y:911,
+  //             color: colorBank[1],
+  //             name: "BOY"
+  //           },{
+  //             y:1145,
+  //             color: colorBank[1],
+  //             name: "GXG"
+  //           },{
+  //             y:1204,
+  //             color: colorBank[1],
+  //             name: "gxg.jeans"
+  //           },{
+  //             y:6027,
+  //             color: colorBank[1],
+  //             name: "GXG特卖"
+  //           },{
+  //             y:1545,
+  //             color: colorBank[1],
+  //             name: "IM DAVID"
+  //           },{
+  //             y:278,
+  //             color: colorBank[1],
+  //             name: "SELECTED"
+  //           },{
+  //             y:2792,
+  //             color: colorBank[1],
+  //             name: "trendiano"
+  //           }]
+  //         }
+  //       },{
+  //         name: "内衣",
+  //         y:3270,
+  //         color: colorBank[1],
+  //         dilldown: {
+  //           name: "内衣",
+  //           data: [{
+  //             y:763,
+  //             color: colorBank[1],
+  //             name: "Blumenovum"
+  //           },{
+  //             y:979,
+  //             color: colorBank[1],
+  //             name: "PEACH JOHN"
+  //           },{
+  //             y:481,
+  //             color: colorBank[1],
+  //             name: "PRIVATE STRUCTURE"
+  //           },{
+  //             y:1,
+  //             color: colorBank[1],
+  //             name: "Rime"
+  //           },{
+  //             y:232,
+  //             color: colorBank[1],
+  //             name: "TUTUANNA"
+  //           },{
+  //             y:814,
+  //             color: colorBank[1],
+  //             name: "爱美丽"
+  //           }]
+  //         }
+  //       },{
+  //         name: "女装",
+  //         y:149912,
+  //         color: colorBank[1],
+  //         drilldown:{
+  //           name: "女装",
+  //           data: [{
+  //             y:2796,
+  //             color: colorBank[1],
+  //             name: "AVVN"
+  //           },{
+  //             y:653,
+  //             color: colorBank[1],
+  //             name: "Bout hent ique"
+  //           },{
+  //             y:81,
+  //             color: colorBank[1],
+  //             name: "COCO DEAL"
+  //           },{
+  //             y:772,
+  //             color: colorBank[1],
+  //             name: "CR?Z！"
+  //           },{
+  //             y:1899,
+  //             color: colorBank[1],
+  //             name: "DAZZLE"
+  //           },{
+  //             y:11394,
+  //             color: colorBank[1],
+  //             name: "DKNY"
+  //           },{
+  //             y:3838,
+  //             color: colorBank[1],
+  //             name: "E·LAND"
+  //           },{
+  //             y:2997,
+  //             color: colorBank[1],
+  //             name: "earth music&ecolog"
+  //           },{
+  //             y:1609,
+  //             color: colorBank[1],
+  //             name: "ENO"
+  //           },{
+  //             y:5977,
+  //             color: colorBank[1],
+  //             name: "Five Plus"
+  //           },{
+  //             y:5248,
+  //             color: colorBank[1],
+  //             name: "Hello Kitty"
+  //           },{
+  //             y:5973,
+  //             color: colorBank[1],
+  //             name: "III VIVINIKO"
+  //           },{
+  //             y:2717,
+  //             color: colorBank[1],
+  //             name: "Initial"
+  //           },{
+  //             y:1064,
+  //             color: colorBank[1],
+  //             name: "JNBY"
+  //           },{
+  //             y:10486,
+  //             color: colorBank[1],
+  //             name: "JUCY JUDY"
+  //           },{
+  //             y:3041,
+  //             color: colorBank[1],
+  //             name: "KODICE"
+  //           },{
+  //             y:9,
+  //             color: colorBank[1],
+  //             name: "lily"
+  //           },{
+  //             y:1193,
+  //             color: colorBank[1],
+  //             name: "marie n°mary"
+  //           },{
+  //             y:8387,
+  //             color: colorBank[1],
+  //             name: "MAX&Co."
+  //           },{
+  //             y:1118,
+  //             color: colorBank[1],
+  //             name: "MIGAINO"
+  //           },{
+  //             y:1412,
+  //             color: colorBank[1],
+  //             name: "MISS SIXTY"
+  //           },{
+  //             y:551,
+  //             color: colorBank[1],
+  //             name: "missoul"
+  //           },{
+  //             y:8704,
+  //             color: colorBank[1],
+  //             name: "MO&Co."
+  //           },{
+  //             y:884,
+  //             color: colorBank[1],
+  //             name: "MOUSSY"
+  //           },{
+  //             y:2446,
+  //             color: colorBank[1],
+  //             name: "NANCY K"
+  //           },{
+  //             y:12018,
+  //             color: colorBank[1],
+  //             name: "Ochirly"
+  //           },{
+  //             y:15456,
+  //             color: colorBank[1],
+  //             name: "PLAYLOUNGE"
+  //           },{
+  //             y:4241,
+  //             color: colorBank[1],
+  //             name: "snidel"
+  //           },{
+  //             y:1091,
+  //             color: colorBank[1],
+  //             name: "tanni"
+  //           },{
+  //             y:1070,
+  //             color: colorBank[1],
+  //             name: "test-tube"
+  //           },{
+  //             y:12947,
+  //             color: colorBank[1],
+  //             name: "Vero moda"
+  //           },{
+  //             y:10649,
+  //             color: colorBank[1],
+  //             name: "ZCZZ"
+  //           },{
+  //             y:466,
+  //             color: colorBank[1],
+  //             name: "ZUCZUG"
+  //           },{
+  //             y:2442,
+  //             color: colorBank[1],
+  //             name: "百家好"
+  //           },{
+  //             y:2254,
+  //             color: colorBank[1],
+  //             name: "播"
+  //           },{
+  //             y:479,
+  //             color: colorBank[1],
+  //             name: "乐町"
+  //           },{
+  //             y:1402,
+  //             color: colorBank[1],
+  //             name: "斯琴"
+  //           },{
+  //             y:148,
+  //             color: colorBank[1],
+  //             name: "再尚秀"
+  //           }]
+  //         }
+  //       },{
+  //         name: "配饰",
+  //         y: 75327,
+  //         color: colorBank[1],
+  //         drilldown:{
+  //           name: "配饰",
+  //           data: [{
+  //             name: "CK WATCH",
+  //             color: colorBank[1],
+  //             y:670
+  //           },{
+  //             y: 2217,
+  //             color: colorBank[1],
+  //             name: "crocs"
+  //           },{
+  //             y: 242,
+  //             color: colorBank[1],
+  //             name: "FESSURA"
+  //           },{
+  //             y: 1470,
+  //             color: colorBank[1],
+  //             name: "FOLLIE"
+  //           },{
+  //             y: 22,
+  //             color: colorBank[1],
+  //             name: "HAT'S ON"
+  //           },{
+  //             y: 8,
+  //             color: colorBank[1],
+  //             name: "Hitomi Optician"
+  //           },{
+  //             y: 2957,
+  //             color: colorBank[1],
+  //             name: "hotwind"
+  //           },{
+  //             y: 2315,
+  //             color: colorBank[1],
+  //             name: "ipanema"
+  //           },{
+  //             y: 5853,
+  //             color: colorBank[1],
+  //             name: "J&M"
+  //           },{
+  //             y: 3214,
+  //             color: colorBank[1],
+  //             name: "kate spade"
+  //           },{
+  //             y: 408,
+  //             color: colorBank[1],
+  //             name: "Kipling"
+  //           },{
+  //             y: 30,
+  //             color: colorBank[1],
+  //             name: "La pa Y-P"
+  //           },{
+  //             y: 6950,
+  //             color: colorBank[1],
+  //             name: "MAP"
+  //           },{
+  //             y: 15997,
+  //             color: colorBank[1],
+  //             name: "MICHAEL KORS"
+  //           },{
+  //             y: 656,
+  //             color: colorBank[1],
+  //             name: "reemoor"
+  //           },{
+  //             y: 723,
+  //             color: colorBank[1],
+  //             name: "Samantha Thavasa"
+  //           },{
+  //             y: 776,
+  //             color: colorBank[1],
+  //             name: "SUUNTO"
+  //           },{
+  //             y: 3,
+  //             color: colorBank[1],
+  //             name: "SWATCH"
+  //           },{
+  //             y: 322,
+  //             color: colorBank[1],
+  //             name: "TUSCANS"
+  //           },{
+  //             y: 2998,
+  //             color: colorBank[1],
+  //             name: "UGG"
+  //           },{
+  //             y: 4542,
+  //             color: colorBank[1],
+  //             name: "Vivi tix"
+  //           },{
+  //             y: 1929,
+  //             color: colorBank[1],
+  //             name: "阿吉豆"
+  //           },{
+  //             y: 6958,
+  //             color: colorBank[1],
+  //             name: "宝岛眼镜"
+  //           },{
+  //             y: 364,
+  //             color: colorBank[1],
+  //             name: "靓佩"
+  //           },{
+  //             y: 7006,
+  //             color: colorBank[1],
+  //             name: "木九十"
+  //           },{
+  //             y: 1102,
+  //             color: colorBank[1],
+  //             name: "瑞士军刀、ZIPPO"
+  //           },{
+  //             y: 5595,
+  //             color: colorBank[1],
+  //             name: "西遇"
+  //           }]
+  //         }
+  //       },{
+  //         name: "饰品",
+  //         y: 666,
+  //         color: colorBank[1],
+  //         drilldown:{
+  //           name: "饰品",
+  //           data: [{
+  //             name: "KING BABY",
+  //             color: colorBank[1],
+  //             y: 666
+  //           }]
+  //         }
+  //       },{
+  //         name: "数码电器",
+  //         color: colorBank[1],
+  //         y: 31874,
+  //         drilldown:{
+  //           name: "数码电器",
+  //           data: [{
+  //             y:85,
+  //             color: colorBank[1],
+  //             name: "ALIENWARE"
+  //           },{
+  //             y:662,
+  //             color: colorBank[1],
+  //             name: "Apple Store"
+  //           },{
+  //             y:2245,
+  //             color: colorBank[1],
+  //             name: "CYO VAPE"
+  //           },{
+  //             y:1571,
+  //             color: colorBank[1],
+  //             name: "HS"
+  //           },{
+  //             y:2513,
+  //             color: colorBank[1],
+  //             name: "HUAWEI"
+  //           },{
+  //             y:5886,
+  //             color: colorBank[1],
+  //             name: "iPhone"
+  //           },{
+  //             y:2147,
+  //             color: colorBank[1],
+  //             name: "Microsoft"
+  //           },{
+  //             y:354,
+  //             color: colorBank[1],
+  //             name: "迪信通"
+  //           },{
+  //             y:6763,
+  //             color: colorBank[1],
+  //             name: "卡乐时代"
+  //           },{
+  //             y:1592,
+  //             color: colorBank[1],
+  //             name: "魅族手机"
+  //           },{
+  //             y:8056,
+  //             color: colorBank[1],
+  //             name: "三星手机"
+  //           }]
+  //         }
+  //       },{
+  //         name: "文化用品",
+  //         y: 755,
+  //         color: colorBank[1],
+  //         drilldown:{
+  //           name: "文化用品",
+  //           data: [{
+  //             y:755,
+  //             color: colorBank[1],
+  //             name: "LAMY"
+  //           }]
+  //         }
+  //       },{
+  //         name: "眼镜",
+  //         y: 107,
+  //         color: colorBank[1],
+  //         drilldown:{
+  //           name: "文化用品",
+  //           data: [{
+  //             y:107,
+  //             color: colorBank[1],
+  //             name: "LOHO"
+  //           }]
+  //         }
+  //       },{
+  //         name: "运动休闲",
+  //         y: 142977,
+  //         color: colorBank[1],
+  //         drilldown:{
+  //           name: "运动休闲",
+  //           data: [{
+  //             y:237,
+  //             color: colorBank[1],
+  //             name: "adidas Originals"
+  //           },{
+  //             y:5824,
+  //             color: colorBank[1],
+  //             name: "Baleno"
+  //           },{
+  //             y:10243,
+  //             color: colorBank[1],
+  //             name: "CONVERSE"
+  //           },{
+  //             y:84331,
+  //             color: colorBank[1],
+  //             name: "H&M"
+  //           },{
+  //             y:902,
+  //             color: colorBank[1],
+  //             name: "HIPANDA"
+  //           },{
+  //             y:13513,
+  //             color: colorBank[1],
+  //             name: "LALABOBO"
+  //           },{
+  //             y:1730,
+  //             color: colorBank[1],
+  //             name: "MLB"
+  //           },{
+  //             y:679,
+  //             color: colorBank[1],
+  //             name: "Monki"
+  //           },{
+  //             y:1780,
+  //             color: colorBank[1],
+  //             name: "new balance"
+  //           },{
+  //             y:645,
+  //             color: colorBank[1],
+  //             name: "NIKE"
+  //           },{
+  //             y:3876,
+  //             color: colorBank[1],
+  //             name: "Onit suka eTiger"
+  //           },{
+  //             y:93,
+  //             color: colorBank[1],
+  //             name: "Paul Frank"
+  //           },{
+  //             y:1303,
+  //             color: colorBank[1],
+  //             name: "PUMA 黑标"
+  //           },{
+  //             y:536,
+  //             color: colorBank[1],
+  //             name: "ROBINHOOD"
+  //           },{
+  //             y:2,
+  //             color: colorBank[1],
+  //             name: "THE NORTH FACE"
+  //           },{
+  //             y:12,
+  //             color: colorBank[1],
+  //             name: "Tous"
+  //           },{
+  //             y:7224,
+  //             color: colorBank[1],
+  //             name: "UNDER ARMOUR"
+  //           },{
+  //             y:6926,
+  //             color: colorBank[1],
+  //             name: "VANS"
+  //           },{
+  //             y:973,
+  //             color: colorBank[1],
+  //             name: "WAKE UP"
+  //           },{
+  //             y:2148,
+  //             color: colorBank[1],
+  //             name: "航海王"
+  //           }]
+  //         }
+  //       }]
+  //     }
+  //   },{
+  //     name:'生活配套',
+  //     y: 327,
+  //     color: colorBank[2],
+  //     drilldown:{
+  //       name: "生活配套",
+  //       data: [{
+  //         y:327,
+  //         color: colorBank[2],
+  //         name: "洗车",
+  //         drilldown:{
+  //           name: "洗车",
+  //           data: [{
+  //             y:327,
+  //             color: colorBank[2],
+  //             name: "Cars one"
+  //           }]
+  //         }
+  //       }]
+  //     }
+  //   },{
+  //     name:'休闲娱乐',
+  //     y: 2862,
+  //     color: colorBank[3],
+  //     drilldown:{
+  //       name: "休闲娱乐",
+  //       data: [{
+  //         y:1064,
+  //         color: colorBank[3],
+  //         name: "KTV",
+  //         drilldown:{
+  //           name: "KTV",
+  //           data: [{
+  //             color: colorBank[3],
+  //             y:1064,
+  //             name: "XOXO"
+  //           }]
+  //         }
+  //       },{
+  //         y:1798,
+  //         color: colorBank[3],
+  //         name: "美发美甲",
+  //         drilldown:{
+  //           name: "美发美甲",
+  //           data: [{
+  //             y:1064,
+  //             color: colorBank[3],
+  //             name: "BHG SALON"
+  //           }]
+  //         }
+  //       }]
+  //     }
+  //   }],
+  //   _d_value: 698165,
+  //   doD: -14.18,
+  //   cgEnable: true,
+  //   up: false,
+  //   data: [840, 872, 914]
+  // },{
+  //   id:5,
+  //   name:"空间范围",
+  //   values: [{
+  //     name:'B1',
+  //     y:60953
+  //   },{
+  //     name:'B2',
+  //     y:86275,
+  //   },{
+  //     name:'B3',
+  //     y: 327,
+  //   },{
+  //     name:'F1',
+  //     y: 195276,
+  //   },{
+  //     name:'F2',
+  //     y: 152830,
+  //   },{
+  //     name:'F3',
+  //     y: 115254,
+  //   },{
+  //     name:'F4',
+  //     y: 106638,
+  //   },{
+  //     name:'F5',
+  //     y: 76124,
+  //   },{
+  //     name:'F6',
+  //     y: 34052,
+  //   },{
+  //     name:'F7',
+  //     y: 30597,
+  //   },{
+  //     name:'F8',
+  //     y: 33960,
+  //   }],
+  //   _d_value: 698165,
+  //   doD: -14.18,
+  //   cgEnable: true,
+  //   up: false,
+  //   data: [840, 872, 914]
   }];
 
   this.selectedIndex = this.indexData[0];
@@ -2666,15 +2985,13 @@ function indexDetailsCtrl($rootScope, $state, todoService, $injector, $timeout) 
         classData = classData.concat(typeData[i].drilldown.data);
         if(typeData[i].drilldown.data){
           for(var j=0; j<typeData[i].drilldown.data.length; j++){
-            if(typeData[i].drilldown.data[j].drilldown.data){
+            if(typeData[i].drilldown.data[j].drilldown){
               brandData = brandData.concat(typeData[i].drilldown.data[j].drilldown.data);
             }
           }
         }
       }
     }
-    console.log(classData);
-    console.log(brandData);
     widths = ['100%', '0%', '0%'];
     if(classData.length && brandData.length){
       widths = ['50%', '80%', '100%'];
@@ -2698,41 +3015,38 @@ function indexDetailsCtrl($rootScope, $state, todoService, $injector, $timeout) 
 
   this.chartPieConfig = {
     options: {
-        chart: {
-            type: 'pie'
-        }
+      chart: {
+          type: 'pie'
+      }
     },
     series: [{
-      name: '业态',
       data: typeData,
       size: widths[0],
       dataLabels: {
           formatter: function () {
-              return this.y > 5 ? this.point.name : null;
+              return this.percentage > 5 ? this.point.name : null;
           },
-          color: '#ffffff',
-          distance: -30
+          distance: -50
       }
     },{
-      name: '业种',
       data: classData,
       size: widths[1],
       innerSize: widths[0],
       dataLabels: {
           formatter: function () {
               // display only if larger than 1
-              return this.y > 1 ? '<b>' + this.point.name + ':</b> ' + this.y + '%' : null;
-          }
+              return this.percentage > 2  ? '<b>' + this.point.name: null;
+          },
+          distance: -40
       }
     },{
-      name: '品牌',
       data: brandData,
       size: widths[2],
       innerSize: widths[1],
       dataLabels: {
           formatter: function () {
               // display only if larger than 1
-              return this.y > 1 ? '<b>' + this.point.name + ':</b> ' + this.y + '%' : null;
+              return this.percentage > 0.5  ? '<b>' + this.point.name: null;
           }
       }
     }],
@@ -2781,6 +3095,45 @@ function indexDetailsCtrl($rootScope, $state, todoService, $injector, $timeout) 
     dataset: self.indexList
   });
   
+  self.tableParams1 = new ngTableParams({}, {
+    dataset: [{
+      date:'2016-08-08 10',
+      value: 2000
+    },{
+      date:'2016-08-08 11',
+      value: 2000
+    },{
+      date:'2016-08-08 12',
+      value: 2000
+    }]
+  });
+  self.tableParams2 = new ngTableParams({}, {
+    dataset: [{
+      dim:'维度',
+      value: 2000
+    },{
+      dim:'维度',
+      value: 2000
+    },{
+      dim:'维度',
+      value: 2000
+    }]
+  });
+  self.tableParams3 = new ngTableParams({}, {
+    dataset: [{
+      date:'2016-08-08 10',
+      value: 2000,
+      value2: 2000
+    },{
+      date:'2016-08-08 11',
+      value: 2000,
+      value2: 2000
+    },{
+      date:'2016-08-08 12',
+      value: 2000,
+      value2: 2000
+    }]
+  });
   self.isLastPage = isLastPage;
   
   function isLastPage(){

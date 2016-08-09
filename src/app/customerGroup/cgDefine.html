@@ -1,0 +1,152 @@
+<script type="text/ng-template" id="myModalContent.html">
+  <div class="modal-header">
+    <h3 class="modal-title">客群定义</h3>
+  </div>
+  <div style="padding: 0 40px;max-height:600px;overflow:auto;">
+    <div style="margin-bottom:20px;margin-top:20px;">
+      客群名称 <input type="text" style="width:100px;">
+    </div>
+    <div style="margin-bottom:20px;margin-top:20px;position:relative;padding:20px;border:1px #ccc solid;border-radius:4px;">
+      <div style="background:#ccc;position:absolute;bottom:-20px;right:20px;height:20px;width:30px;line-height:20px;text-align:center;cursor: pointer;" ng-click="$ctrl.up = !$ctrl.up">
+        <i class="glyphicon glyphicon-chevron-down" ng-show="!$ctrl.up"></i>
+        <i class="glyphicon glyphicon-chevron-up" ng-show="$ctrl.up"></i>
+      </div>
+      <div>
+        <mj-selectpanel></mj-selectpanel>
+        <mj-date-picker dropdown-lift="-330px"></mj-date-picker>
+      </div>
+      <div ng-show="$ctrl.up" class="row" style="margin:20px 0;border-bottom: 1px #ccc solid;">
+        <div class="pull-left">常去场所类型</div>
+        <ul style="margin-left:100px;">
+          <li  class="pull-left select-item" style="margin-left:10px;">所有</li>
+          <li  class="pull-left select-item" style="margin-left:10px;">高端场所</li>
+          <li  class="pull-left select-item" style="margin-left:10px;">交通枢纽</li>
+          <li  class="pull-left select-item" style="margin-left:10px;">科教文化</li>
+          <li  class="pull-left select-item" style="margin-left:10px;">旅游景区</li>
+          <li  class="pull-left select-item" style="margin-left:10px;">医院</li>
+        </ul>
+      </div>
+      <div ng-show="$ctrl.up" class="row" style="margin:20px 0;border-bottom: 1px #ccc solid;">
+        <div class="pull-left">工作地</div>
+        <ul style="margin-left:100px;">
+          <li  class="pull-left select-item">所有</li>
+          <li  class="pull-left select-item">黄埔区</li>
+          <li  class="pull-left select-item">卢湾区</li>
+          <li  class="pull-left select-item">徐汇区</li>
+          <li  class="pull-left select-item">长宁区</li>
+          <li  class="pull-left select-item">静安区</li>
+          <li  class="pull-left select-item">普陀区</li>
+          <li  class="pull-left select-item">闸北区</li>
+          <li  class="pull-left select-item">静安区</li>
+          <li  class="pull-left select-item">静安区</li>
+          <li  class="pull-left select-item">静安区</li>
+          <li  class="pull-left select-item">静安区</li>
+          <li  class="pull-left select-item">静安区</li>
+          <li  class="pull-left select-item">静安区</li>
+          <li  class="pull-left select-item">静安区</li>
+          <li  class="pull-left select-item">静安区</li>
+          <li  class="pull-left select-item">静安区</li>
+        </ul>
+      </div>
+      <div ng-show="$ctrl.up" class="row" style="margin:20px 0;border-bottom: 1px #ccc solid;">
+        <div class="pull-left">居住地</div>
+        <ul style="margin-left:100px;">
+          <li  class="pull-left select-item">所有</li>
+          <li  class="pull-left select-item">黄埔区</li>
+          <li  class="pull-left select-item">卢湾区</li>
+          <li  class="pull-left select-item">徐汇区</li>
+          <li  class="pull-left select-item">长宁区</li>
+          <li  class="pull-left select-item">静安区</li>
+          <li  class="pull-left select-item">普陀区</li>
+          <li  class="pull-left select-item">闸北区</li>
+          <li  class="pull-left select-item">静安区</li>
+          <li  class="pull-left select-item">静安区</li>
+          <li  class="pull-left select-item">静安区</li>
+          <li  class="pull-left select-item">静安区</li>
+          <li  class="pull-left select-item">静安区</li>
+          <li  class="pull-left select-item">静安区</li>
+          <li  class="pull-left select-item">静安区</li>
+          <li  class="pull-left select-item">静安区</li>
+          <li  class="pull-left select-item">静安区</li>
+        </ul>
+      </div>
+      <div ng-show="$ctrl.up" class="row" style="margin:20px 0;border-bottom: 1px #ccc solid;">
+        <div class="pull-left">其他筛选</div>
+        <ul style="margin-left:100px;">
+          <li  class="pull-left select-input">
+            生理性别
+            <select>
+              <option>所有</option>
+              <option>男</option>
+              <option>女</option>
+              <option>未知</option>
+            </select>
+          </li>
+          <li  class="pull-left select-input">
+            婚育阶段
+            <select>
+              <option>所有</option>
+              <option>已婚</option>
+              <option>未婚</option>
+              <option>未知</option>
+            </select>
+          </li>
+          <li  class="pull-left select-input">
+            车辆情况
+            <select>
+              <option>所有</option>
+              <option>有车</option>
+              <option>无车</option>
+              <option>未知</option>
+            </select>
+          </li>
+          <li  class="pull-left select-input">
+            是否工作人员
+            <select>
+              <option>所有</option>
+              <option>是</option>
+              <option>否</option>
+              <option>未知</option>
+            </select>
+          </li>
+          <li  class="pull-left select-input">
+            手机号码归属地
+            <select>
+              <option>所有</option>
+              <option>北京</option>
+              <option>河北省</option>
+              <option>天津</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+
+      <div style="margin:20px 0;height:34px;" class="row"><button class="btn btn-primary pull-right" style="display:block;">查询</button></div>
+    </div>
+    <div>
+      <div style="margin-bottom:100px;">
+        <div style="margin-bottom:20px;">本分群人数: 1213</div>
+        <table ng-table-dynamic="tableParams with cols" class="mj-table table table-condensed table-bordered table-hover">
+          <colgroup>
+            <col width="25%" />
+            <col width="20%" />
+            <col width="20%" />
+            <col width="15%" />
+            <col width="20%" />
+          </colgroup>
+          <tr ng-repeat="row in $data track by $index" style="cursor:pointer;">
+            <td data-title="cols[0]">{{ row.id }}</td>
+            <td data-title="cols[1]">{{ row.first }}</td>
+            <td data-title="cols[2]">{{ row.last }}</td>
+            <td data-title="cols[3]">{{ row.visitcount }}</td>
+            <td data-title="cols[4]">{{ row.timecount }}分钟</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">新建</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">取消</button>
+  </div>
+</script>

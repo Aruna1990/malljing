@@ -13,7 +13,7 @@ function reportExportCtrl($rootScope, $state, todoService) {
   this.code = '';
 
   this.commercial = {
-    tabs:['业态', '业种', '品牌'],
+    tabs:['业态', '品类', '细分'],
     data:[{
       id: '0',
       name: "餐饮",
@@ -22,153 +22,66 @@ function reportExportCtrl($rootScope, $state, todoService) {
         name: "吧台",
         children: [{
           id:'0_0_0',
-          name: "浆宝"
+          name: "茶吧"
         },{
           id:'0_0_1',
-          name: "鲜饮空间"
+          name: "水吧"
         },{
           id:'0_0_1',
-          name: "鲜芋仙"
+          name: "饮品店"
         },{
           id:'0_0_1',
-          name: "鲜元素"
-        },{
-          id:'0_0_1',
-          name: "找茶"
-        },{
-          id:'0_0_1',
-          name: "珍仕菓"
+          name: "其他"
         }]
       },{
         id:'0_1',
         name: "快餐",
         children: [{
           id:'0_0_0',
-          name: "大快活"
-        },{
-          id:'0_0_1',
-          name: "汉堡王"
-        },{
-          id:'0_0_1',
-          name: "吉野家"
-        },{
-          id:'0_0_1',
-          name: "肯德基"
+          name: "其他"
         }]
       },{
         id:'0_1',
         name: "料理",
         children: [{
-          id:'0_1_0',
-          name: "池田回转寿司"
-        },{
-          id:'0_1_1',
-          name: "池田寿司"
-        },{
-          id:'0_1_1',
-          name: "禾绿回转寿司"
-        },{
-          id:'0_1_1',
-          name: "惠比寿 杏"
+          id:'0_0_0',
+          name: "其他"
         }]
       },{
         id:'0_1',
         name: "甜品",
         children: [{
           id:'0_1_0',
-          name: "DQ"
+          name: "冰激凌"
         },{
           id:'0_1_1',
-          name: "Eimio"
+          name: "糖果"
         },{
           id:'0_1_1',
-          name: "Gandy Lab"
-        },{
-          id:'0_1_1',
-          name: "Stick house"
-        },{
-          id:'0_1_1',
-          name: "凡情蒂诺巧克力"
-        },{
-          id:'0_1_1',
-          name: "快乐柠檬"
-        },{
-          id:'0_1_1',
-          name: "满记甜品"
-        },{
-          id:'0_1_1',
-          name: "漫果工坊"
-        },{
-          id:'0_1_1',
-          name: "摩提工坊"
+          name: "其他"
         }]
       },{
         id:'0_1',
         name: "西餐",
         children: [{
-          id:'0_1_0',
-          name: "星巴克"
-        },{
           id:'0_1_1',
-          name: "太平洋咖啡"
+          name: "其他"
         }]
       },{
         id:'0_1',
         name: "中餐",
         children: [{
           id:'0_1_0',
-          name: "巴贝拉"
+          name: "火锅"
         },{
           id:'0_1_1',
-          name: "北京小王府红茶餐厅"
+          name: "烤鱼"
         },{
           id:'0_1_1',
-          name: "避风塘"
+          name: "泰国"
         },{
           id:'0_1_1',
-          name: "边境共和国"
-        },{
-          id:'0_1_1',
-          name: "川辣汇"
-        },{
-          id:'0_1_1',
-          name: "豆捞坊"
-        },{
-          id:'0_1_1',
-          name: "沸腾夜话"
-        },{
-          id:'0_1_1',
-          name: "呷哺呷哺"
-        },{
-          id:'0_1_1',
-          name: "港丽餐厅"
-        },{
-          id:'0_1_1',
-          name: "蕉叶"
-        },{
-          id:'0_1_1',
-          name: "井格老灶火锅"
-        },{
-          id:'0_1_1',
-          name: "咖喱虎"
-        },{
-          id:'0_1_1',
-          name: "鹿港小镇"
-        },{
-          id:'0_1_1',
-          name: "拿渡麻辣香锅"
-        },{
-          id:'0_1_1',
-          name: "拿渡麻辣香锅"
-        },{
-          id:'0_1_1',
-          name: "味千拉面"
-        },{
-          id:'0_1_1',
-          name: "一味一诚"
-        },{
-          id:'0_1_1',
-          name: "印巷小馆"
+          name: "其他"
         }]
       }]
     },{
@@ -179,574 +92,217 @@ function reportExportCtrl($rootScope, $state, todoService) {
         name: "儿童用品",
         children: [{
           id:'0_0_0',
-          name: "NICI"
+          name: "母婴"
         },{
           id:'0_0_1',
-          name: "全棉时代"
+          name: "玩具"
         },{
           id:'0_0_1',
-          name: "GC"
+          name: "其他"
         }]
       },{
         id:'0_1',
         name: "化妆品",
         children: [{
           id:'0_0_0',
-          name: "BObbi Brown"
+          name: "香水"
         },{
           id:'0_0_1',
-          name: "CK香水"
-        },{
-          id:'0_0_1',
-          name: "CK香水"
-        },{
-          id:'0_0_1',
-          name: "innisfree"
-        },{
-          id:'0_0_1',
-          name: "Jurlique"
-        },{
-          id:'0_0_1',
-          name: "KIEHLS"
-        },{
-          id:'0_0_1',
-          name: "LAVIN香水"
-        },{
-          id:'0_0_1',
-          name: "LOCCITANE"
-        },{
-          id:'0_0_1',
-          name: "MAC"
-        },{
-          id:'0_0_1',
-          name: "MAX FACTOR"
-        },{
-          id:'0_0_1',
-          name: "ORIGINS"
-        },{
-          id:'0_0_1',
-          name: "Roger&Gallet"
-        },{
-          id:'0_0_1',
-          name: "SEPHORA"
-        },{
-          id:'0_0_1',
-          name: "大长今"
+          name: "其他"
         }]
       },{
         id:'0_1',
         name: "黄金珠宝",
         children: [{
           id:'0_0_0',
-          name: "I gold"
-        },{
-          id:'0_0_1',
-          name: "LOVE&LOVE"
-        },{
-          id:'0_0_1',
-          name: "PANDORA"
-        },{
-          id:'0_0_1',
-          name: "施华洛世奇"
+          name: "其他"
         }]
       },{
         id:'0_1',
         name: "家居",
         children: [{
           id:'0_0_0',
-          name: "MUJI"
+          name: "其他"
         }]
       },{
         id:'0_1',
         name: "居家生活",
         children: [{
           id:'0_0_0',
-          name: "阿芙香薰"
+          name: "香薰"
         },{
           id:'0_0_1',
-          name: "万宁"
-        },{
-          id:'0_0_1',
-          name: "名创优品"
-        },{
-          id:'0_0_1',
-          name: "品阁"
+          name: "其他"
         }]
       },{
         id:'0_1',
         name: "快销集合店",
         children: [{
-          id:'0_0_0',
-          name: "BHG"
+          id:'0_0_1',
+          name: "其他"
         }]
       },{
         id:'0_1',
         name: "男女装",
         children: [{
           id:'0_0_0',
-          name: "Calvin Klein"
+          name: "潮牌"
         },{
           id:'0_0_0',
-          name: "Calvin Klein Jeans"
+          name: "牛仔"
         },{
           id:'0_0_0',
-          name: "Calvin Klein underwear"
+          name: "牛仔裤"
         },{
           id:'0_0_0',
-          name: "cheap monday"
-        },{
-          id:'0_0_0',
-          name: "CK JEANS"
-        },{
-          id:'0_0_0',
-          name: "ecco"
-        },{
-          id:'0_0_0',
-          name: "ED hardy"
-        },{
-          id:'0_0_0',
-          name: "EMPORIO ARMANI"
-        },{
-          id:'0_0_0',
-          name: "EVISU"
-        },{
-          id:'0_0_0',
-          name: "G·STAR RAW"
-        },{
-          id:'0_0_0',
-          name: "G2000"
-        },{
-          id:'0_0_0',
-          name: "GAP"
-        },{
-          id:'0_0_0',
-          name: "GUESS"
-        },{
-          id:'0_0_0',
-          name: "i.t"
-        },{
-          id:'0_0_0',
-          name: "IZZUE"
-        },{
-          id:'0_0_0',
-          name: "JACK JONES"
-        },{
-          id:'0_0_0',
-          name: "Juicy Couture"
-        },{
-          id:'0_0_0',
-          name: "Lee"
-        },{
-          id:'0_0_0',
-          name: "levis"
-        },{
-          id:'0_0_0',
-          name: "pancoat"
-        },{
-          id:'0_0_0',
-          name: "PRICH"
-        },{
-          id:'0_0_0',
-          name: "REPLAY"
-        },{
-          id:'0_0_0',
-          name: "STAY REAL"
-        },{
-          id:'0_0_0',
-          name: "UNIQLO"
-        },{
-          id:'0_0_0',
-          name: "ZARA"
-        },{
-          id:'0_0_0',
-          name: "速写"
+          name: "其他"
         }]
       },{
         id:'0_1',
         name: "男装",
         children: [{
           id:'0_0_0',
-          name: "6IXTY 8IGHT"
+          name: "潮牌"
         },{
           id:'0_0_0',
-          name: "Aape"
+          name: "时尚"
         },{
           id:'0_0_0',
-          name: "aojo"
+          name: "商务"
         },{
           id:'0_0_0',
-          name: "b+ab"
-        },{
-          id:'0_0_0',
-          name: "BOY"
-        },{
-          id:'0_0_0',
-          name: "GXG"
-        },{
-          id:'0_0_0',
-          name: "gxg.jeans"
-        },{
-          id:'0_0_0',
-          name: "GXG特卖"
-        },{
-          id:'0_0_0',
-          name: "IM DAVID"
-        },{
-          id:'0_0_0',
-          name: "SELECTED"
-        },{
-          id:'0_0_0',
-          name: "trendiano"
+          name: "其他"
         }]
       },{
         id:'0_1',
         name: "内衣",
         children: [{
           id:'0_0_0',
-          name: "Blumenovum"
+          name: "袜子"
         },{
           id:'0_0_0',
-          name: "PEACH JOHN"
-        },{
-          id:'0_0_0',
-          name: "PRIVATE STRUCTURE"
-        },{
-          id:'0_0_0',
-          name: "Rime"
-        },{
-          id:'0_0_0',
-          name: "TUTUANNA"
-        },{
-          id:'0_0_0',
-          name: "爱美丽"
+          name: "其他"
         }]
       },{
         id:'0_1',
         name: "女装",
         children: [{
           id:'0_0_0',
-          name: "AVVN"
+          name: "潮牌"
         },{
           id:'0_0_0',
-          name: "Bout hent ique"
+          name: "法国"
         },{
           id:'0_0_0',
-          name: "COCO DEAL"
+          name: "少淑"
         },{
           id:'0_0_0',
-          name: "CR?Z！"
-        },{
-          id:'0_0_0',
-          name: "DAZZLE"
-        },{
-          id:'0_0_0',
-          name: "DKNY"
-        },{
-          id:'0_0_0',
-          name: "E·LAND"
-        },{
-          id:'0_0_0',
-          name: "earth music&ecolog"
-        },{
-          id:'0_0_0',
-          name: "ENO"
-        },{
-          id:'0_0_0',
-          name: "Five Plus"
-        },{
-          id:'0_0_0',
-          name: "Hello Kitty"
-        },{
-          id:'0_0_0',
-          name: "III VIVINIKO"
-        },{
-          id:'0_0_0',
-          name: "Initial"
-        },{
-          id:'0_0_0',
-          name: "JNBY"
-        },{
-          id:'0_0_0',
-          name: "JUCY JUDY"
-        },{
-          id:'0_0_0',
-          name: "KODICE"
-        },{
-          id:'0_0_0',
-          name: "lily"
-        },{
-          id:'0_0_0',
-          name: "marie n°mary"
-        },{
-          id:'0_0_0',
-          name: "MAX&Co."
-        },{
-          id:'0_0_0',
-          name: "MIGAINO"
-        },{
-          id:'0_0_0',
-          name: "MISS SIXTY"
-        },{
-          id:'0_0_0',
-          name: "missoul"
-        },{
-          id:'0_0_0',
-          name: "MO&Co."
-        },{
-          id:'0_0_0',
-          name: "MOUSSY"
-        },{
-          id:'0_0_0',
-          name: "NANCY K"
-        },{
-          id:'0_0_0',
-          name: "Ochirly"
-        },{
-          id:'0_0_0',
-          name: "PLAYLOUNGE"
-        },{
-          id:'0_0_0',
-          name: "snidel"
-        },{
-          id:'0_0_0',
-          name: "tanni"
-        },{
-          id:'0_0_0',
-          name: "test-tube"
-        },{
-          id:'0_0_0',
-          name: "Vero moda"
-        },{
-          id:'0_0_0',
-          name: "ZCZZ"
-        },{
-          id:'0_0_0',
-          name: "ZUCZUG"
-        },{
-          id:'0_0_0',
-          name: "百家好"
-        },{
-          id:'0_0_0',
-          name: "播"
-        },{
-          id:'0_0_0',
-          name: "乐町"
-        },{
-          id:'0_0_0',
-          name: "斯琴"
-        },{
-          id:'0_0_0',
-          name: "再尚秀"
+          name: "其他"
         }]
       },{
         id:'0_1',
         name: "配饰",
         children: [{
           id:'0_0_0',
-          name: "CK WATCH"
+          name: "MK包"
         },{
           id:'0_0_0',
-          name: "crocs"
+          name: "顶级拖鞋"
         },{
           id:'0_0_0',
-          name: "FESSURA"
+          name: "韩国帽子"
         },{
           id:'0_0_0',
-          name: "FOLLIE"
+          name: "美国鞋、包"
         },{
           id:'0_0_0',
-          name: "HAT'S ON"
+          name: "美瞳"
         },{
           id:'0_0_0',
-          name: "Hitomi Optician"
+          name: "时尚手袋"
         },{
           id:'0_0_0',
-          name: "hotwind"
+          name: "饰品"
         },{
           id:'0_0_0',
-          name: "ipanema"
+          name: "手表"
         },{
           id:'0_0_0',
-          name: "J&M"
+          name: "箱包"
         },{
           id:'0_0_0',
-          name: "kate spade"
+          name: "鞋"
         },{
           id:'0_0_0',
-          name: "Kipling"
+          name: "鞋集合店"
         },{
           id:'0_0_0',
-          name: "La pa Y-P"
+          name: "鞋帽"
         },{
           id:'0_0_0',
-          name: "MAP"
+          name: "休闲包"
         },{
           id:'0_0_0',
-          name: "MICHAEL KORS"
+          name: "眼镜"
         },{
           id:'0_0_0',
-          name: "reemoor"
+          name: "钟表"
         },{
           id:'0_0_0',
-          name: "Samantha Thavasa"
-        },{
-          id:'0_0_0',
-          name: "SUUNTO"
-        },{
-          id:'0_0_0',
-          name: "SWATCH"
-        },{
-          id:'0_0_0',
-          name: "TUSCANS"
-        },{
-          id:'0_0_0',
-          name: "UGG"
-        },{
-          id:'0_0_0',
-          name: "Vivi tix"
-        },{
-          id:'0_0_0',
-          name: "阿吉豆"
-        },{
-          id:'0_0_0',
-          name: "宝岛眼镜"
-        },{
-          id:'0_0_0',
-          name: "靓佩"
-        },{
-          id:'0_0_0',
-          name: "木九十"
-        },{
-          id:'0_0_0',
-          name: "木九十"
-        },{
-          id:'0_0_0',
-          name: "PLAYLOUNGE"
-        },{
-          id:'0_0_0',
-          name: "西遇"
+          name: "其他"
         }]
       },{
         id:'0_1',
         name: "饰品",
         children: [{
           id:'0_0_0',
-          name: "KING BABY"
+          name: "高端手工饰品"
         }]
       },{
         id:'0_1',
         name: "数码电器",
         children: [{
           id:'0_0_0',
-          name: "ALIENWARE"
+          name: "IT"
         },{
           id:'0_0_0',
-          name: "Apple Store"
+          name: "行车记录仪"
         },{
           id:'0_0_0',
-          name: "CYO VAPE"
+          name: "集合店"
         },{
           id:'0_0_0',
-          name: "HS"
-        },{
-          id:'0_0_0',
-          name: "HUAWEI"
-        },{
-          id:'0_0_0',
-          name: "iPhone"
-        },{
-          id:'0_0_0',
-          name: "Microsoft"
-        },{
-          id:'0_0_0',
-          name: "迪信通"
-        },{
-          id:'0_0_0',
-          name: "卡乐时代"
-        },{
-          id:'0_0_0',
-          name: "魅族手机"
-        },{
-          id:'0_0_0',
-          name: "三星手机"
+          name: "其他"
         }]
       },{
         id:'0_1',
         name: "文化用品",
         children: [{
           id:'0_0_0',
-          name: "LAMY"
+          name: "钢笔"
         }]
       },{
         id:'0_1',
         name: "眼镜",
         children: [{
           id:'0_0_0',
-          name: "LOHO"
+          name: "其他"
         }]
       },{
         id:'0_1',
         name: "运动休闲",
         children: [{
           id:'0_0_0',
-          name: "adidas Originals"
+          name: "海贼王"
         },{
           id:'0_0_0',
-          name: "Baleno"
+          name: "休闲"
         },{
           id:'0_0_0',
-          name: "CONVERSE"
+          name: "运动"
         },{
           id:'0_0_0',
-          name: "H&M"
-        },{
-          id:'0_0_0',
-          name: "HIPANDA"
-        },{
-          id:'0_0_0',
-          name: "LALABOBO"
-        },{
-          id:'0_0_0',
-          name: "MLB"
-        },{
-          id:'0_0_0',
-          name: "Monki"
-        },{
-          id:'0_0_0',
-          name: "new balance"
-        },{
-          id:'0_0_0',
-          name: "NIKE"
-        },{
-          id:'0_0_0',
-          name: "Onit suka eTiger"
-        },{
-          id:'0_0_0',
-          name: "Paul Frank"
-        },{
-          id:'0_0_0',
-          name: "PUMA 黑标"
-        },{
-          id:'0_0_0',
-          name: "ROBINHOOD"
-        },{
-          id:'0_0_0',
-          name: "THE NORTH FACE"
-        },{
-          id:'0_0_0',
-          name: "Tous"
-        },{
-          id:'0_0_0',
-          name: "UNDER ARMOUR"
-        },{
-          id:'0_0_0',
-          name: "VANS"
-        },{
-          id:'0_0_0',
-          name: "WAKE UP"
-        },{
-          id:'0_0_0',
-          name: "航海王"
+          name: "其他"
         }]
       }]
     },{
@@ -757,7 +313,7 @@ function reportExportCtrl($rootScope, $state, todoService) {
         name: "洗车",
         children: [{
           id:'0_0_0',
-          name: "Cars one"
+          name: "其他"
         }]
       }]
     },{
@@ -768,16 +324,19 @@ function reportExportCtrl($rootScope, $state, todoService) {
         name: "美发美甲",
         children: [{
           id:'0_0_0',
-          name: "BHG SALON"
+          name: "其他"
         }]
       },{
         id:'0_1',
         name: "KTV",
         children: [{
           id:'0_1_0',
-          name: "XOXO"
+          name: "其他"
         }]
       }]
+    },{
+      id: '0',
+      name: "其他"
     }]
   };
 

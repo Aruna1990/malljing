@@ -7,15 +7,16 @@
       客群名称 <input type="text" style="width:100px;">
     </div>
     <div style="margin-bottom:20px;margin-top:20px;position:relative;padding:20px;border:1px #ccc solid;border-radius:4px;">
-      <div style="background:#ccc;position:absolute;bottom:-20px;right:20px;height:20px;width:30px;line-height:20px;text-align:center;cursor: pointer;" ng-click="$ctrl.up = !$ctrl.up">
+      <mj-selectpanel></mj-selectpanel>
+      <mj-date-picker dropdown-lift="-330px"></mj-date-picker>
+      <button class="btn btn-primary pull-right" style="display:block;">查询</button>
+    </div>
+    <div style="margin-bottom:20px;margin-top:20px;position:relative;padding:20px;border:1px #ccc solid;border-radius:4px;">
+      <div class="dropdown-btn" ng-click="$ctrl.up = !$ctrl.up">
         <i class="glyphicon glyphicon-chevron-down" ng-show="!$ctrl.up"></i>
         <i class="glyphicon glyphicon-chevron-up" ng-show="$ctrl.up"></i>
       </div>
-      <div>
-        <mj-selectpanel></mj-selectpanel>
-        <mj-date-picker dropdown-lift="-330px"></mj-date-picker>
-      </div>
-      <div ng-show="$ctrl.up" class="row" style="margin:20px 0;border-bottom: 1px #ccc solid;">
+      <div class="row" style="margin:20px 0;border-bottom: 1px #ccc solid;">
         <div class="pull-left">常去场所类型</div>
         <ul style="margin-left:100px;">
           <li  class="pull-left select-item" style="margin-left:10px;">所有</li>
@@ -26,7 +27,7 @@
           <li  class="pull-left select-item" style="margin-left:10px;">医院</li>
         </ul>
       </div>
-      <div ng-show="$ctrl.up" class="row" style="margin:20px 0;border-bottom: 1px #ccc solid;">
+      <div class="row" style="margin:20px 0;border-bottom: 1px #ccc solid;">
         <div class="pull-left">工作地</div>
         <ul style="margin-left:100px;">
           <li  class="pull-left select-item">所有</li>
@@ -48,7 +49,7 @@
           <li  class="pull-left select-item">静安区</li>
         </ul>
       </div>
-      <div ng-show="$ctrl.up" class="row" style="margin:20px 0;border-bottom: 1px #ccc solid;">
+      <div class="row" style="margin:20px 0;border-bottom: 1px #ccc solid;">
         <div class="pull-left">居住地</div>
         <ul style="margin-left:100px;">
           <li  class="pull-left select-item">所有</li>
@@ -120,12 +121,10 @@
           </li>
         </ul>
       </div>
-
-      <div style="margin:20px 0;height:34px;" class="row"><button class="btn btn-primary pull-right" style="display:block;">查询</button></div>
     </div>
     <div>
       <div style="margin-bottom:100px;">
-        <div style="margin-bottom:20px;">本分群人数: 1213</div>
+      <div style="margin-bottom:20px;"><span>查询结果</span><br>本分群人数: 1213</div>
         <table ng-table-dynamic="tableParams with cols" class="mj-table table table-condensed table-bordered table-hover">
           <colgroup>
             <col width="25%" />

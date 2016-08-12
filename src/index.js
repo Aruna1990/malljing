@@ -1,5 +1,5 @@
 angular
-  .module('app', ['ui.router', 'ui.bootstrap', 'ngTable','highcharts-ng'])
+  .module('app', ['ui.router', 'ui.bootstrap', 'ui.tree', 'ngTable','highcharts-ng'])
   .service('todoService', TodoService)
   // .service('navService', NavService);
 

@@ -2,8 +2,8 @@
   <div>
     <view-header tips="'每5分钟统计一次客流指数'" text="'实时客流指标'"></view-header>
     <div style="clear:both;margin-bottom:20px;">
-      <mj-tree-tab tabs="$ctrl.commercial.tabs" data="$ctrl.commercial.data" width="300"></mj-tree-tab>
-      <mj-tree-tab tabs="$ctrl.space.tabs" data="$ctrl.space.data" width="400"></mj-tree-tab>
+      <mj-tree-tab tabs="$ctrl.commercial.tabs" data="$ctrl.commercial.data" width="300" title="商业类型"></mj-tree-tab>
+      <mj-tree-tab tabs="$ctrl.space.tabs" data="$ctrl.space.data" width="400" title="空间范围"></mj-tree-tab>
       <input type="text" ng-model="$ctrl.selected" uib-typeahead="state for state in $ctrl.states | filter:$viewValue | limitTo:8" class="form-control" style="display:inline-block;width: 200px;">
     </div>
 

@@ -6,7 +6,8 @@ angular
     bindings: {
       data: '<',
       tabs: '<',
-      width: '<'
+      width: '<',
+      title: '@'
     }
   });
 
@@ -25,7 +26,7 @@ function DatePicker($filter) {
   console.log(this.tabs);
   
   this.paths = [{
-    name: '所有'
+    name: '所有'+ this.title
   }];
   console.log(this.data);
   console.log(this.tabs);

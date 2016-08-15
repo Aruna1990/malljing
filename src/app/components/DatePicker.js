@@ -72,7 +72,7 @@ function DatePicker($filter) {
     rangeStart: true,
     rangeEnd: true
   }];
-  this.toActiveType(1);
+  this.toActiveType(0);
   this.range = {
     isopen: false
   }

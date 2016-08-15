@@ -12,6 +12,7 @@ function rtMonitorCtrl($rootScope, $state, todoService, $interval) {
   this.password = '1';
   this.code = '';
 
+  this.states = ['a','ab','bc', 'ccd'];
   this.commercial = {
     tabs:['业态', '品类', '细分'],
     data:[{
@@ -1069,6 +1070,11 @@ function rtMonitorCtrl($rootScope, $state, todoService, $interval) {
    }]
   };
 
+  this.openAddIndex = function(){
+    console.log("openAddIndex");
+    this.showAddIndex = true;
+  }
+  
   var getThredConfig = function(data, unit){
     return {
       options: {

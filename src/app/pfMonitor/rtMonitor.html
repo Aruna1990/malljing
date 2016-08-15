@@ -1,16 +1,17 @@
-<div style="padding: 0 40px;margin-left: 200px;clear:both;">
+<div style="padding: 0 40px;clear:both;">
   <div>
     <view-header tips="'每5分钟统计一次客流指数'" text="'实时客流指标'"></view-header>
     <div style="clear:both;margin-bottom:20px;">
       <mj-tree-tab tabs="$ctrl.commercial.tabs" data="$ctrl.commercial.data" width="300" title="商业类型"></mj-tree-tab>
       <mj-tree-tab tabs="$ctrl.space.tabs" data="$ctrl.space.data" width="400" title="空间范围"></mj-tree-tab>
       <input type="text" ng-model="$ctrl.selected" uib-typeahead="state for state in $ctrl.states | filter:$viewValue | limitTo:8" class="form-control" style="display:inline-block;width: 200px;">
+      <span class="glyphicon glyphicon-search" style="margin-left:-25px;"></span>
     </div>
 
     <div>
       <ul style="padding:0;height: 100px;">
         <li class="col-md-2 index-card" ng-repeat="index in $ctrl.indexList" ng-click="$ctrl.onSelecteIndex(index)">
-          <div>{{index.name}}</div>
+          <div class="title">{{index.name}}</div>
           <div>{{index.value}}{{index.unit}}</div>
           <div>{{index.doD}}<span class="glyphicon" ng-class="{'glyphicon-arrow-up':index.up, 'glyphicon-arrow-down':!index.up}"></span></div>
           <div class="tool-bar">
@@ -20,18 +21,8 @@
           <div class="remove-btn"><span class="glyphicon glyphicon-remove mj-icon" ng-click="$ctrl.delete($index)"></span></div>
         </li>
 
-        <li class="col-md-2" ng-if="$ctrl.indexList.length!=6" style="
-          list-style: none;
-          border: 1px black solid;
-          height: 100px;
-          padding: 0;">
-          <i class="glyphicon glyphicon-plus" style="
-            font-size: 50px;
-            color: #ccc;
-            text-align: center;
-            width: 100%;
-            padding: 25px;
-          "></i>
+        <li class="col-md-2 index-card add-index" ng-if="$ctrl.indexList.length!=6" ng-click="$ctrl.openAddIndex();">
+          <i class="glyphicon glyphicon-plus"></i>
         </li>
       </ul>
     </div>
@@ -44,7 +35,7 @@
   <div>
     <view-header tips="'每5分钟更新一次客流分布与热度。'" text="'实时客流地图'"></view-header>
     <div style="clear:both;margin-bottom:20px;">
-      <mj-tree-tab tabs="$ctrl.space.tabs" data="$ctrl.space.data" width="400"></mj-tree-tab>
+      <mj-tree-tab tabs="$ctrl.space.tabs" data="$ctrl.space.data" width="400" title="空间范围"></mj-tree-tab>
       <div class="btn btn-primary pull-right" ng-click="$ctrl.play()" style="margin:auto 10px;"><i class="glyphicon" ng-class="{'glyphicon-play': !$ctrl.played, 'glyphicon-stop': $ctrl.played}"></i></div>
       <div class="btn-group pull-right" style="margin:auto 10px;">
           <label class="btn btn-primary" ng-model="mapStatus" uib-btn-radio="'Distribute'">分布</label>
@@ -62,3 +53,6 @@
     </div>
   </div>
 </div>
+
+
+<add-index ng-if="$ctrl.showAddIndex" show="$ctrl.showAddIndex"></add-index>

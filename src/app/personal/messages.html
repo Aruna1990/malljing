@@ -1,4 +1,4 @@
-<div class="container">
+<div class="">
   <span><input type="checkbox" name="checkall" id="checkall"><label for="checkall">全选</label></span>
   <span><a href="">删除</a></span>
   <span><a href="">标记已读</a></span>
@@ -24,7 +24,7 @@
           </td>
         </tr>
         <tr ng-hide="!row.showDetails" ng-repeat-end>
-          <td colspan="3">{{ row.body }}</td>
+          <td colspan="3" style="padding:20px;">{{ row.body }}</td>
         </tr>
         <tfoot ng-if="$ctrl.isLastPage()">
           <tr>

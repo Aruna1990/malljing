@@ -5,7 +5,7 @@
   <div class="row" style="padding: 0 40px;height:500px;overflow:auto;margin: 20px 0;">
     <div class="pull-left col-md-6">
       <div>指标列表</div>
-      <div>
+      <div style="height:400px;overflow:auto;margin: 20px 0;">
         <div ui-tree>
           <ol ui-tree-nodes="" ng-model="list">
             <li ng-repeat="item in list" ui-tree-node>
@@ -18,8 +18,18 @@
               <ol ui-tree-nodes="" ng-model="item.nodes">
                 <li ng-repeat="subItem in item.nodes" ui-tree-node>
                   <div ui-tree-handle>
+                    <a class="btn btn-success btn-xs" data-nodrag="" ng-click="toggle()">
+                      <span class="glyphicon glyphicon-chevron-down" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span>
+                    </a>
                     {{subItem.title}}
                   </div>
+                  <ol ui-tree-nodes="" ng-model="subItem.nodes">
+                    <li ng-repeat="sub2Item in subItem.nodes" ui-tree-node>
+                      <div ui-tree-handle>
+                        {{sub2Item.title}}
+                      </div>
+                    </li>
+                  </ol>
                 </li>
               </ol>
             </li>
@@ -29,7 +39,7 @@
     </div>
     <div class="pull-left col-md-6">
       <div>已经关注指标</div>
-      <div>
+      <div style="height:400px;overflow:auto;margin: 20px 0;">
         <table ui-tree="" id="index-list" class="table table-responsive angular-ui-tree">
           <thead>
             <tr>

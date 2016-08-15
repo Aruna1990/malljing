@@ -12,6 +12,7 @@ function indexDetailsCtrl($rootScope, $state, todoService, $injector, $timeout) 
 
   ngTableParams = $injector.get('NgTableParams');
 
+  this.states = ['a','ab','bc', 'ccd'];
   this.commercial = {
     tabs:['业态', '品类', '细分'],
     data:[{

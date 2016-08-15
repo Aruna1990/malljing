@@ -1080,6 +1080,7 @@ function watchlistCtrl($rootScope, $state, todoService, $injector, $location) {
   }
 
   var self = this;
+  this.states = ['a','ab','bc', 'ccd'];
   self.cols = [{
     field: "id",
     title: 'ID',

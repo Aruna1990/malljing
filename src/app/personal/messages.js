@@ -38,34 +38,34 @@ function messagesCtrl($rootScope, $state, todoService, $injector) {
     self.tableParams = new ngTableParams({}, {
       dataset: [{
         id:0,
-        from:"Czech Republic",
-        title:798,
-        date:"Karen",
-        body:"hahaha",
+        from:"用户管理系统",
+        title: "消息标题",
+        date:"2016/08/15",
+        body:"消息主体",
       },{
         id:1,
-        from:"Czech Republic",
-        title:798,
-        date:"Karen",
-        body:"hahaha"
+        from:"用户管理系统",
+        title: "消息标题",
+        date:"2016/08/15",
+        body:"消息主体"
       },{
         id:2,
-        from:"Czech Republic",
-        title:798,
-        date:"Karen",
-        body:"hahaha"
+        from:"用户管理系统",
+        title: "消息标题",
+        date:"2016/08/15",
+        body:"消息主体"
       },{
         id:3,
-        from:"Czech Republic",
-        title:798,
-        date:"Karen",
-        body:"hahaha"
+        from:"用户管理系统",
+        title: "消息标题",
+        date:"2016/08/15",
+        body:"消息主体"
       },{
         id:4,
-        from:"Czech Republic",
-        title:798,
-        date:"Karen",
-        body:"hahaha"
+        from:"用户管理系统",
+        title: "消息标题",
+        date:"2016/08/15",
+        body:"消息主体"
       }]
     });
     

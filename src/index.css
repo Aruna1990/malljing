@@ -38,6 +38,17 @@
   cursor: pointer;
   padding: 0;
   position:relative;
+  text-align: center;
+}
+.index-card .title{
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.glyphicon-arrow-up{
+  color: green;
+}
+.glyphicon-arrow-down{
+  color: red;
 }
 .index-card .tool-bar{
   position:absolute;
@@ -135,17 +146,35 @@
 .dropdown-btn:hover{
   font-size: 1.5em;
 }
+.index-card.add-index{
+  list-style: none;
+  border: 1px black solid;
+  height: 100px;
+  padding: 0;
+  cursor: pointer;
+}
+.index-card.add-index .glyphicon{
+  font-size: 50px;
+  color: #ccc;
+  text-align: center;
+  width: 100%;
+  padding: 25px;
+}
+
+.add-index  .glyphicon:hover{
+  color: green;
+}
 /*custom define end*/
 
-.mj-icon:hover{
+/*.mj-icon:hover{
   font-size: 1.5em;
-}
+}*/
 
 
 /*index tree start*/
-.btn {
+/*.btn {
     margin-right: 8px;
-}
+}*/
 
 .angular-ui-tree-handle {
     background: #f8faff;
@@ -190,7 +219,7 @@ tr.angular-ui-tree-empty {
 }
 
 .tree-node-content {
-    margin: 10px;
+    /*margin: 10px;*/
 }
 .tree-handle {
     padding: 10px;

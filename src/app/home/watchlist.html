@@ -21,7 +21,7 @@
           <col width="5%" />
         </colgroup>
         <tr ng-repeat="row in $ctrl.indexList track by $index">
-          <td data-title="$ctrl.cols[0]" style="text-align:center;position:relative; line-height: 50px;">
+          <td data-title="$ctrl.cols[0]" style="text-align:left;position:relative;padding-left: 10px; line-height: 50px;">
             {{ row.name }}
             <span class="pull-right tool-bar">
               <span class="glyphicon glyphicon-stats mj-icon" style="color:#1b809e;" title="指标分析" ng-click="$ctrl.showDetails(row)"></span>

@@ -92,7 +92,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
     })
     .state('app.home.indexdetails', {
       abstract: false,
-      url: '/indexdetails',
+      url: '/indexdetails/:selectedId',
       template: '<index-details></index-details>',
       data: {
         requireLogin: false
@@ -124,7 +124,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
     })
     .state('app.mall.indexdetails', {
       abstract: false,
-      url: '/indexdetails',
+      url: '/indexdetails/:selectedId',
       template: '<index-details></index-details>',
       data: {
         requireLogin: false
@@ -150,6 +150,14 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
       abstract: false,
       url: '/pfanalysis',
       template: '<h1 style="text-align:center;"><i class="glyphicon glyphicon-gift" style="color:#3c763d;"></i>客流分析，敬请期待。</h1>',
+      data: {
+        requireLogin: false
+      }
+    })
+    .state('app.operator', {
+      abstract: false,
+      url: '/operator',
+      template: '<operation></operation>',
       data: {
         requireLogin: false
       }

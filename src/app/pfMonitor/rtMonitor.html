@@ -10,13 +10,13 @@
 
     <div>
       <ul style="padding:0;height: 100px;">
-        <li class="col-md-2 index-card" ng-repeat="index in $ctrl.indexList" ng-click="$ctrl.onSelecteIndex(index)">
+        <li class="col-md-2 index-card" ng-class="{selected: index.selected}" ng-repeat="index in $ctrl.indexList" ng-click="$ctrl.onSelecteIndex(index)">
           <div class="title">{{index.name}}</div>
           <div>{{index.value}}{{index.unit}}</div>
           <div>{{index.doD}}<span class="glyphicon" ng-class="{'glyphicon-arrow-up':index.up, 'glyphicon-arrow-down':!index.up}"></span></div>
           <div class="tool-bar">
-            <span class="glyphicon glyphicon-stats mj-icon" style="color:#1b809e;" ng-click="$ctrl.showDetails(row);$event.stopPropagation();"></span>
-            <span class="glyphicon glyphicon-eye-open mj-icon" style="color:#1b809e;" ng-click="$ctrl.showCgAnalysis(row);$event.stopPropagation();"></span>
+            <span class="glyphicon glyphicon-stats mj-icon" style="color:#1b809e;" ng-click="$ctrl.showDetails(index);$event.stopPropagation();"></span>
+            <span ng-if="index.cgEnable" class="glyphicon glyphicon-eye-open mj-icon" style="color:#1b809e;" ng-click="$ctrl.showCgAnalysis(index);$event.stopPropagation();"></span>
           </div>
           <div class="remove-btn"><span class="glyphicon glyphicon-remove mj-icon" ng-click="$ctrl.delete($index)"></span></div>
         </li>
@@ -26,7 +26,7 @@
         </li>
       </ul>
     </div>
-    <div style="padding-top:30px;" ng-repeat="index in $ctrl.indexList track by $index" ng-show="index.selected">
+    <div style="padding-top:30px; border: 1px #ccc solid; border-top: none;margin-top:-10px;" ng-repeat="index in $ctrl.indexList track by $index" ng-show="index.selected">
       <highchart id="chart_thred_{{$index}}" config="index.trend"></highchart>
     </div>
   </div>

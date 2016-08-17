@@ -14,19 +14,19 @@
       <tr>
         <td style="padding: 0px;" class="ng-scope">
           <div class="pull-left ng-binding" style="padding: 8px;background: #F3F7FA;">当日值</div>
-          <div class="pull-left ng-binding" style="padding: 8px;">3994人数</div>
+          <div class="pull-left ng-binding" style="padding: 8px;">{{$ctrl.selectedIndex.value}}{{$ctrl.selectedIndex.unit}}</div>
         </td>
         <td style="padding: 0;" class="ng-scope">
           <div class="pull-left ng-binding" style="padding: 8px;background: #F3F7FA;">前日值</div>
-          <div class="pull-left ng-binding" style="padding: 8px;">4655人数</div>
+          <div class="pull-left ng-binding" style="padding: 8px;">{{$ctrl.selectedIndex._d_value}}{{$ctrl.selectedIndex.unit}}</div>
         </td>
         <td style="padding: 0;" class="ng-scope">
           <div class="pull-left ng-binding" style="padding: 8px;background: #F3F7FA;">日环比</div>
-          <div class="pull-left ng-binding" style="padding: 8px;">-0.142%</div>
+          <div class="pull-left ng-binding" style="padding: 8px;">{{$ctrl.selectedIndex.doD}}%</div>
         </td>
         <td style="padding: 0;" class="ng-scope">
           <div class="pull-left ng-binding" style="padding: 8px;background: #F3F7FA;">周同期值</div>
-          <div class="pull-left ng-binding" style="padding: 8px;">0人数</div>
+          <div class="pull-left ng-binding" style="padding: 8px;">0{{$ctrl.selectedIndex.unit}}</div>
         </td>
         <td style="padding: 0;" class="ng-scope">
           <div class="pull-left ng-binding" style="padding: 8px;background: #F3F7FA;">周同比</div>
@@ -34,7 +34,7 @@
         </td>
         <td style="padding: 0;" class="ng-scope">
           <div class="pull-left ng-binding" style="padding: 8px;background: #F3F7FA;">月同期值</div>
-          <div class="pull-left ng-binding" style="padding: 8px;">26531人数</div>
+          <div class="pull-left ng-binding" style="padding: 8px;">26531{{$ctrl.selectedIndex.unit}}</div>
         </td>
         <td style="padding: 0;" class="ng-scope">
           <div class="pull-left ng-binding" style="padding: 8px;background: #F3F7FA;">月同比</div>

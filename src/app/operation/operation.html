@@ -1,0 +1,38 @@
+<div style="padding: 0 40px;">
+  <view-header tips="'数据统计截止到2016年8月15日'" text="'运营监控统计'"></view-header>
+  <div style="clear:both;margin-bottom:20px;">
+    <mj-date-picker></mj-date-picker>
+    <button class="btn btn-primary" ng-click="">查询</button>
+  </div>
+  <div>
+    <div>
+      <table ng-table-dynamic="$ctrl.tableParams with $ctrl.cols" class="mj-table table table-condensed table-bordered table-hover">
+        <colgroup>
+          <col width="20%" />
+          <col width="20%" />
+          <col width="20%" />
+          <col width="10%" />
+          <col width="10%" />
+          <col width="10%" />
+          <col width="10%" />
+        </colgroup>
+        <tr ng-repeat="row in $ctrl.indexList track by $index">
+          <td data-title="$ctrl.cols[0]" style="text-align:center;position:relative; line-height: 50px;">{{ row.time }}</td>
+          <td data-title="$ctrl.cols[1]" style="text-align:center;line-height: 50px;">{{ row.mallName }}</td>
+          <td data-title="$ctrl.cols[2]" style="text-align:center;line-height: 50px;">{{row.class}}</td>
+          <td data-title="$ctrl.cols[3]" style="text-align:center;line-height: 50px;">{{ row.name }}</td>
+          <td data-title="$ctrl.cols[4]" style="text-align:center;line-height: 50px;"><a ng-if="row.closed" style="cursor:pointer;padding:10px;" ng-click="$ctrl.openAlertDialog(row, 'closed')" title="点击查看详情">{{ row.closed?row.closed:"" }}</a></td>
+          <td data-title="$ctrl.cols[5]" style="text-align:center;line-height: 50px;"><a ng-if="row.handling" style="cursor:pointer;padding:10px;" ng-click="$ctrl.openAlertDialog(row, 'handling')" title="点击查看详情">{{ row.handling?row.handling:"" }}</a></td>
+          <td data-title="$ctrl.cols[5]" style="text-align:center;line-height: 50px;"><a style="cursor:pointer;padding:10px;" ng-click="$ctrl.openAlertDialog(row, 'total')" title="点击查看详情">{{ row.total }}</a></td>
+        </tr>
+        <tfoot ng-if="$ctrl.isLastPage()">
+          <tr>
+
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>
+
+<opr-alert-dialog ng-if="$ctrl.showAlertDialog" show="$ctrl.showAlertDialog"></opr-alert-dialog>

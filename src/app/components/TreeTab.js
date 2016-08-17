@@ -33,6 +33,12 @@ function DatePicker($filter) {
   this.range = {
     isopen: false
   }
+  this.selectedItems = [];
+  for(var i=0; i<this.tabs.length; i++){
+    this.selectedItems.push({id:null});
+  }
+  console.log('this.selectedItems');
+  console.log(this.selectedItems);
 }
 
 DatePicker.prototype = {
@@ -41,7 +47,9 @@ DatePicker.prototype = {
   },
   onSelected: function(tabIndex, selectedItem){
     console.log('onSelected');
-    console.log(tabIndex);
+    tabIndex = Number(tabIndex);
+    this.selectedItems[tabIndex] = selectedItem;
+    console.log(this.selectedItems);
     this.paths[tabIndex] = {
       name: selectedItem.name,
       id: selectedItem.id

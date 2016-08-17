@@ -45,8 +45,14 @@ function MalljingApp() {
       path: '/app/mall/pfanalysis',
     }]
   },{
-    name: '个人中心',
+    name: '运营监控',
     id: 2,
+    active: false,
+    enable: true,
+    path: '/app/operator'
+  },{
+    name: '个人中心',
+    id: 3,
     active: false,
     enable: true,
     path: '/app/personal/settings',

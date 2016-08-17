@@ -1261,50 +1261,51 @@ function watchlistCtrl($rootScope, $state, todoService, $injector, $location) {
     id:0,
     name:"新增客户数",
     unit:"人数",
-    trend:[2022,3535,4441,5111,5729,5778,5795,5483,5128,4985,4719,3141,913],
-    value: 282768,
-    _d_value: 262568,
-    doD: 7.69,
+    trend:[1577,1558,1604,1480,1308,1385,1301,1387,1616,1417,1046,495,215],
+    value: 16389,
+    _d_value: 16076,
+    doD: 1.95,
     cgEnable: true,
-    splineData: getSplineConfig("xData", [2022,3535,4441,5111,5729,5778,5795,5483,5128,4985,4719,3141,913], "人")
+    splineData: getSplineConfig("xData", [1577,1558,1604,1480,1308,1385,1301,1387,1616,1417,1046,495,215], "人")
   },{
     id:1,
     name:"到访客户数",
     unit:"人数",
-    trend:[6224,9986,12382,12736,13185,13044,13190,13078,12595,12133,11619,8783,4022],
-    value: 599162,
-    _d_value: 698165,
-    doD: -14.18,
+    trend:[8912,10648,12020,12274,11861,11658,11778,11737,12152,11727,10865,9273,6624],
+    value: 35673,
+    _d_value: 34744,
+    doD: 2.67,
     cgEnable: true,
-    splineData: getSplineConfig("xData", [6224,9986,12382,12736,13185,13044,13190,13078,12595,12133,11619,8783,4022], "人")
+    splineData: getSplineConfig("xData", [8912,10648,12020,12274,11861,11658,11778,11737,12152,11727,10865,9273,6624], "人")
   },{
     id:2,
     name:"进店客户数",
     unit:"人数",
     trend:[6224,9986,12382,12736,13185,13044,13190,13078,12595,12133,11619,8783,4022],
-    value: 599162,
-    _d_value: 698165,
-    doD: -14.18,
+    value: 32460,
+    _d_value: 31719,
+    doD: 2.34,
     cgEnable: true,
     splineData: getSplineConfig("xData", [6224,9986,12382,12736,13185,13044,13190,13078,12595,12133,11619,8783,4022], "人")
   },{
     id:3,
     name:"驻留客户数",
     unit:"人数",
-    trend:[5970,9477,11620,12024,12444,12313,12435,12294,11832,11395,10889,8215,3676],
-    value: 563037,
-    _d_value: 658185,
-    doD: -14.45,
+    trend:[6590,7794,9064,9264,8915,8637,8687,8756,9108,8756,8119,6764,4479],
+    value: 32460,
+    _d_value: 31719,
+    doD: 2.34,
     cgEnable: true,
-    splineData: getSplineConfig("xData", [5970,9477,11620,12024,12444,12313,12435,12294,11832,11395,10889,8215,3676], "人")
+    splineData: getSplineConfig("xData", [6590,7794,9064,9264,8915,8637,8687,8756,9108,8756,8119,6764,4479], "人")
   },{
     id:4,
     name:"人均驻留时长",
     unit:"分钟",
-    trend:"趋势图",
-    value: 20000,
-    _d_value: 20000,
-    doD: 0.05
+    trend:[21.22,16.17,17.42 ,16.99 ,16.99 ,17.73 ,17.24 ,16.98 ,17.38 ,17.38 ,16.78 ,14.61 ,9.61 ],
+    value: 17.96,
+    _d_value: 17.78,
+    doD: 1.01,
+    splineData: getSplineConfig("xData", [21.22,16.17,17.42 ,16.99 ,16.99 ,17.73 ,17.24 ,16.98 ,17.38 ,17.38 ,16.78 ,14.61 ,9.61 ], "人")
   }];
 
   self.tableParams = new ngTableParams({}, {
@@ -1322,7 +1323,7 @@ function watchlistCtrl($rootScope, $state, todoService, $injector, $location) {
   }
 
   this.showDetails = function(row){
-     $state.go('app.home.indexdetails');
+     $state.go('app.home.indexdetails', {selectedId: row.id});
   }
   this.showCgAnalysis = function(row){
     $state.go('app.home.cganalysis');

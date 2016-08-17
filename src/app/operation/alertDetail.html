@@ -1,0 +1,36 @@
+<script type="text/ng-template" id="alertDetailModal.html">
+  <div class="modal-header">
+    <h3 class="modal-title">告警详情</h3>
+  </div>
+  <div class="row" style="padding: 0 40px;height:500px;overflow:auto;margin: 20px 0;">
+    <table ng-table-dynamic="tableParams with cols" class="mj-table table table-condensed table-bordered table-hover">
+      <colgroup>
+        <col width="20%" />
+        <col width="20%" />
+        <col width="20%" />
+        <col width="10%" />
+        <col width="10%" />
+        <col width="10%" />
+        <col width="10%" />
+      </colgroup>
+      <tr ng-repeat="row in indexList track by $index">
+        <td data-title="cols[0]" style="text-align:center;position:relative; line-height: 50px;">{{ row.time }}</td>
+        <td data-title="cols[1]" style="text-align:center;line-height: 50px;">{{ row.mallName }}</td>
+        <td data-title="cols[2]" style="text-align:center;line-height: 50px;">{{row.class}}</td>
+        <td data-title="cols[3]" style="text-align:center;line-height: 50px;">{{ row.name }}</td>
+        <td data-title="cols[4]" style="text-align:center;line-height: 50px;">{{ row.body }}</td>
+        <td data-title="cols[5]" style="text-align:center;line-height: 50px;">{{ row.status }}</td>
+        <td data-title="cols[5]" style="text-align:center;line-height: 50px;">{{ row.reason }}</td>
+      </tr>
+      <tfoot ng-if="isLastPage()">
+        <tr>
+
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">确定</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">取消</button>
+  </div>
+</script>

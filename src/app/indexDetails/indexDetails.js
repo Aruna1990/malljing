@@ -6,7 +6,7 @@ angular
   });
 
 /** @ngInject */
-function indexDetailsCtrl($rootScope, $state, todoService, $injector, $timeout) {
+function indexDetailsCtrl($rootScope, $state, todoService, $injector, $timeout,$stateParams) {
   console.log('indexDetailsCtrl');
   var ngTableParams;
 
@@ -1184,49 +1184,46 @@ function indexDetailsCtrl($rootScope, $state, todoService, $injector, $timeout) 
     id:0,
     name:"新增客户数",
     unit:"人数",
-    value: 282768,
-    _d_value: 262568,
-    doD: 7.69,
+    value: 16389,
+    _d_value: 16076,
+    doD: 1.95,
     cgEnable: true,
-    up: true,
-    data: [2022,3535,4441,5111,5729,5778,5795,5483,5128,4985,4719,3141,913]
+    data: [1577,1558,1604,1480,1308,1385,1301,1387,1616,1417,1046,495,215]
   },{
     id:1,
     name:"到访客户数",
     unit:"人数",
-    value: 599162,
-    _d_value: 698165,
-    doD: -14.18,
+    value: 35673,
+    _d_value: 34744,
+    doD: 2.67,
     cgEnable: true,
-    up: false,
-    data: [6224,9986,12382,12736,13185,13044,13190,13078,12595,12133,11619,8783,4022]
+    data: [8912,10648,12020,12274,11861,11658,11778,11737,12152,11727,10865,9273,6624]
   },{
     id:2,
     name:"进店客户数",
     unit:"人数",
-    value: 599162,
-    _d_value: 698165,
-    doD: -14.18,
+    value: 32460,
+    _d_value: 31719,
+    doD: 2.34,
     cgEnable: true,
-    up: false,
     data: [6224,9986,12382,12736,13185,13044,13190,13078,12595,12133,11619,8783,4022]
   },{
     id:3,
     name:"驻留客户数",
     unit:"人数",
-    value: 563037,
-    _d_value: 658185,
-    doD: -14.45,
+    value: 32460,
+    _d_value: 31719,
+    doD: 2.34,
     cgEnable: true,
-    up: false,
-    data: [5970,9477,11620,12024,12444,12313,12435,12294,11832,11395,10889,8215,3676]
+    data: [6590,7794,9064,9264,8915,8637,8687,8756,9108,8756,8119,6764,4479]
   },{
     id:4,
     name:"人均驻留时长",
     unit:"分钟",
-    value: 20000,
-    _d_value: 20000,
-    doD: 0.05
+    value: 17.96,
+    _d_value: 17.78,
+    doD: 1.01,
+    data: [21.22,16.17,17.42 ,16.99 ,16.99 ,17.73 ,17.24 ,16.98 ,17.38 ,17.38 ,16.78 ,14.61 ,9.61 ]
   }];
 
   var colorBank = Highcharts.getOptions().colors;
@@ -1884,7 +1881,9 @@ function indexDetailsCtrl($rootScope, $state, todoService, $injector, $timeout) 
     data: [840, 872, 914]
   }];
 
-  this.selectedIndex = this.indexData[0];
+  console.log("selectedId" + $stateParams.selectedId);
+
+  this.selectedIndex = this.indexData[Number($stateParams.selectedId)];
 
   this.onIndexChange = function(index){
     // this.selectedIndex = index;

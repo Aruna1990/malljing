@@ -1,11 +1,12 @@
 angular
   .module('app')
-  .component('personal', {
-    templateUrl: 'app/containers/Personal.html',
-    controller: Personal
+  .component('operatorPage', {
+    templateUrl: 'app/containers/Operator.html',
+    controller: Operator
   });
 
-function Personal() {
+function Operator() {
+  this.userInfo = [userInfo];
   this.navs = [{
     name: '我的关注',
     id: 0,
@@ -76,7 +77,6 @@ function Personal() {
       path: '/app/personal/resetpwd',
     }]
   }];
-  this.sideBarNavs = this.navs[3].children;
-  this.userInfo = [userInfo];
-  console.log('Personal');
+  this.sideBarNavs = this.navs[2].children;
+  console.log('Operator');
 }

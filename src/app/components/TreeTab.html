@@ -7,9 +7,9 @@
     <uib-tabset active="$ctrl.active">
       <uib-tab ng-repeat="tab in $ctrl.contents track by tab.id" heading="{{tab.tabName}}">
         <div style="height:200px;overflow: auto;">
-          <div ng-click="$ctrl.onSelected(tab.id, {name:'所有'+tab.tabName})">所有{{tab.tabName}}</div>
-          <ul ng-if="$ctrl.contents[$index]">
-            <li role="menuitem" ng-repeat="item in $ctrl.contents[tab.id].children" ng-click="$ctrl.onSelected(tab.id, item)">{{item.name}}</li>
+          <ul ng-if="$ctrl.contents[$index]" class="tree-tab">
+            <li ng-click="$ctrl.onSelected(tab.id, {name:'所有'+tab.tabName, id:null});" ng-class="{selected:$ctrl.selectedItems[tab.id].id==null}">所有{{tab.tabName}}</li>
+            <li role="menuitem" ng-repeat="item in $ctrl.contents[tab.id].children" ng-click="$ctrl.onSelected(tab.id, item)" ng-class="{selected:item==$ctrl.selectedItems[tab.id]}">{{item.name}}</li>
           </ul>
         </div>
       </uib-tab>

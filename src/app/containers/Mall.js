@@ -14,8 +14,15 @@ function Mall() {
     enable: true,
     path: '/app/home/watchlist'
   },{
-    name: '商场',
+    name: '指标分析',
     id: 1,
+    active: false,
+    enable: true,
+    path: '/app/index/indexList',
+    children:[]
+  },{
+    name: '商场',
+    id: 2,
     active: false,
     enable: true,
     path: '/app/mall/rtmonitor',
@@ -47,13 +54,13 @@ function Mall() {
     }]
   },{
     name: '运营监控',
-    id: 2,
+    id: 3,
     active: false,
     enable: true,
     path: '/app/operator'
   },{
     name: '个人中心',
-    id: 3,
+    id: 4,
     active: false,
     enable: true,
     path: '/app/personal/settings',
@@ -77,6 +84,6 @@ function Mall() {
       path: '/app/personal/resetpwd',
     }]
   }];
-  this.sideBarNavs = this.navs[1].children;
+  this.sideBarNavs = this.navs[2].children;
   console.log('Mall');
 }

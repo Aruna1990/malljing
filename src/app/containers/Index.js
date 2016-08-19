@@ -1,11 +1,12 @@
 angular
   .module('app')
-  .component('personal', {
-    templateUrl: 'app/containers/Personal.html',
-    controller: Personal
+  .component('mjIndex', {
+    templateUrl: 'app/containers/Index.html',
+    controller: Index
   });
 
-function Personal() {
+function Index() {
+  this.userInfo = [userInfo];
   this.navs = [{
     name: '我的关注',
     id: 0,
@@ -83,7 +84,6 @@ function Personal() {
       path: '/app/personal/resetpwd',
     }]
   }];
-  this.sideBarNavs = this.navs[4].children;
-  this.userInfo = [userInfo];
-  console.log('Personal');
+  this.sideBarNavs = this.navs[1].children;
+  console.log('Index');
 }

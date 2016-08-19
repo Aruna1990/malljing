@@ -26,7 +26,7 @@
         </li>
       </ul>
     </div>
-    <div style="padding-top:30px; border: 1px #ccc solid; border-top: none;margin-top:-10px;" ng-repeat="index in $ctrl.indexList track by $index" ng-show="index.selected">
+    <div style="padding-top:30px; border: 1px #337ab7 solid; border-top: none;margin-top:-10px;" ng-repeat="index in $ctrl.indexList track by $index" ng-show="index.selected">
       <highchart id="chart_thred_{{$index}}" config="index.trend"></highchart>
     </div>
   </div>

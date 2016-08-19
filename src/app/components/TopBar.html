@@ -1,4 +1,12 @@
-<nav class="navbar navbar-inverse" style="position:relative;z-index:5">
+<nav class="navbar navbar-inverse" style="z-index: 10;
+    background: #354052;
+    margin: 0;
+    position: relative;
+    -webkit-box-shadow: 0 1px 2px #888;
+    -moz-box-shadow: 0 1px 2px #888;
+    box-shadow: 0 1px 2px #888;
+    height: 50px;
+    border-radius: 0;">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
@@ -10,6 +18,51 @@
       <ul class="nav navbar-nav">
         <li ng-repeat="nav in $ctrl.navs track by $index" ng-class="{active:nav.active, disabled: !nav.enable}" ng-click="$ctrl.onClick($index)"><a href="{{nav.path}}">{{nav.name}}</a></li>
       </ul>
+
+      <div class="pull-right">
+        <div style="height: 50px;
+                    line-height: 50px;
+                    float: left;
+                    text-align: center;
+                    font-size: 13px;
+                    margin-right: 55px;
+                    font-weight: normal;">
+            <a href="app/personal/messages" style="color: #ccc;margin-left: 20px;position: relative;">消息<span id="notice05216646872439856" style="display: block;
+                                                          width: 8px;
+                                                          height: 8px;
+                                                          position: absolute;
+                                                          top: -3px;
+                                                          right: -8px;
+                                                          background: #f86b4f;
+                                                          border-radius: 5px;"></span></a>
+        </div>
+        <div style="position: relative;
+                    padding: 0;
+                    float: left;
+                    font-size: 14px;
+                    margin: 8px 10px;">
+          <a id="btn7515722568701084" href="javascript:void(0);" style="display: block;
+                                                                        height: 33px;
+                                                                        line-height: 33px;
+                                                                        padding: 0 5px;
+                                                                        color: #fff;
+                                                                        font-size: 14px;
+                                                                        text-align: left;
+                                                                        position: relative;
+                                                                        min-width: 180px;
+                                                                        text-decoration: none;
+                                                                        background: url('https://static.zhugeio.com/module/common/images/headerline.jpg') repeat-y left center;">
+              <span style="position: absolute;
+                            top: 8px;
+                            left: 20px;
+                            height: 16px;
+                            width: 16px;
+                            text-align: center;
+                            display: block;
+                            background: url('https://static.zhugeio.com/module/common/images/admin.png') no-repeat -1px -3px;" aria-hidden="true">&nbsp;</span> <span  style="line-height: 35px;padding-left: 41px;padding-right: 22px;">demo@zhugeio.com</span>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </nav>

@@ -106,6 +106,30 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
         requireLogin: false
       }
     })
+    .state('app.index', {
+      abstract: true,
+      url: '/index',
+      template: '<mj-index></mj-index>',
+      data: {
+        requireLogin: false
+      }
+    })
+    .state('app.index.indexList', {
+      abstract: false,
+      url: '/indexList',
+      template: '<index-list></index-list>',
+      data: {
+        requireLogin: false
+      }
+    })
+    .state('app.index.indexdetails', {
+      abstract: false,
+      url: '/indexdetails/:selectedId',
+      template: '<index-details></index-details>',
+      data: {
+        requireLogin: false
+      }
+    })
     .state('app.mall', {
       abstract: true,
       url: '/mall',

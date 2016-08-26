@@ -6,7 +6,7 @@ angular
   });
 
 /** @ngInject */
-function rtMonitorCtrl($rootScope, $state, todoService, $interval) {
+function rtMonitorCtrl($rootScope, $state, todoService, $interval, $uibModal) {
   console.log('rtMonitorCtrl');
   this.name = userInfo.name;
   this.password = '1';
@@ -1248,12 +1248,32 @@ function rtMonitorCtrl($rootScope, $state, todoService, $interval) {
     var indexInfo = this.selectedIndex;
     var queryInfo = {
     }
+
+    var modalInstance = $uibModal.open({
+      templateUrl: 'selectKanbanModal.html',
+      controller: 'SelectKanbanModalInstanceCtrl',
+      size: 'sm',
+      resolve: {
+        cardInfo: function () {
+          return {
+            // text: "标题"+$rootScope.kanbanList.length,
+            type: "chart",
+            // index: $rootScope.kanbanList.length,
+            chartConfig: chartConfig
+          };
+        }
+      }
+    });
+
+    modalInstance.result.then(function (newList) {
+      // $scope.selected = selectedItem;
+      // self.kanbanTabs = newList;
+    }, function () {
+      // self.show = false;
+      // $log.info('Modal dismissed at: ' + new Date());
+    });
     //TODO 选择看板
     // $rootScope.kanbanList.unshift({
-    //   text: "标题"+$rootScope.kanbanList.length,
-    //   type: "chart",
-    //   index: $rootScope.kanbanList.length,
-    //   chartConfig: chartConfig
     // });
   }
 }

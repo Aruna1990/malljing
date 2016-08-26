@@ -42,3 +42,21 @@
   <!-- endbuild -->
 </html>
 
+
+<script type="text/ng-template" id="selectKanbanModal.html">
+  <div class="modal-header">
+    <h3 class="modal-title">添加到看板</h3>
+  </div>
+  <div class="row" style="padding: 0 40px;height:100px;overflow:auto;margin: 20px 0;">
+    <div>
+      <select style="display:block;" ng-model="selectedKanban" ng-options="kanban.name for kanban in kanbanTabs"></select>
+      <br>
+      <input style="display:block;" class="zg-input" type="text" placeholder="关注项名称" title="" name="" autocomplete="off" ng-model="newCardTitle" autofocus>
+      <span ng-show="msg" style="color:red;">{{msg}}</span>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">确定</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">取消</button>
+  </div>
+</script>

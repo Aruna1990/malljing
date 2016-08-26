@@ -122,6 +122,14 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
         requireLogin: false
       }
     })
+    .state('app.index.cganalysis', {
+      abstract: false,
+      url: '/cganalysis',
+      template: '<cg-analysis></cg-analysis>',
+      data: {
+        requireLogin: false
+      }
+    })
     .state('app.index.indexdetails', {
       abstract: false,
       url: '/indexdetails/:selectedId',

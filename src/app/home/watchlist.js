@@ -63,6 +63,15 @@ function watchlistCtrl($rootScope, $state, todoService, $injector, $location, $t
       // $log.info('Modal dismissed at: ' + new Date());
     });
   }
+  this.changeKanban = function(tab){
+    this.activeKanban.active = false;
+    this.activeKanban = tab;
+    this.activeKanban.active = true;
+    
+    $timeout(function() {
+      self.reflow();
+    },0);
+  }
 
   this.delKanban = function(){    
     console.log("open Dialog")

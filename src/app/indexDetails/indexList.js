@@ -6,7 +6,7 @@ angular
   });
 
 /** @ngInject */
-function indexlistCtrl($rootScope, $state, todoService, $injector, $location) {
+function indexlistCtrl($rootScope, $state, todoService, $injector, $location, $uibModal) {
   console.log('indexlistCtrl');
   var ngTableParams;
 
@@ -1365,18 +1365,66 @@ function indexlistCtrl($rootScope, $state, todoService, $injector, $location) {
     var indexInfo = self.indexList[index];
     var queryInfo = {
     }
+
+    var modalInstance = $uibModal.open({
+      templateUrl: 'selectKanbanModal.html',
+      controller: 'SelectKanbanModalInstanceCtrl',
+      size: 'sm',
+      resolve: {
+        cardInfo: function () {
+          return {
+            // text: "标题"+$rootScope.kanbanList.length,
+            type: "index",
+            // index: $rootScope.kanbanList.length,
+            data:{
+              name: indexInfo.name,
+              unit: indexInfo.unit,
+              value: indexInfo.value,
+              _d_value: indexInfo._d_value,
+              doD: indexInfo.doD,
+            }
+          };
+        }
+      }
+    });
+
+    modalInstance.result.then(function (newList) {
+      // $scope.selected = selectedItem;
+      // self.kanbanTabs = newList;
+    }, function () {
+      // self.show = false;
+      // $log.info('Modal dismissed at: ' + new Date());
+    });
+
     //TODO 选择看板
-    // $rootScope.kanbanList.unshift({
-    //   text: "标题"+$rootScope.kanbanList.length,
-    //   type: "index",
-    //   index: $rootScope.kanbanList.length,
-    //   data:{
-    //     name: indexInfo.name,
-    //     unit: indexInfo.unit,
-    //     value: indexInfo.value,
-    //     _d_value: indexInfo._d_value,
-    //     doD: indexInfo.doD,
-    //   }
-    // });
+    // $rootScope.kanbanList.unshift();
   }
 }
+
+
+
+angular
+  .module('app')
+  .controller('SelectKanbanModalInstanceCtrl', function ($rootScope, $scope, $injector, $uibModalInstance, cardInfo) {
+    $scope.newCardTitle = "";
+    $scope.kanbanTabs = $rootScope.kanbanTabs;
+
+    $scope.selectedKanban = $scope.kanbanTabs[0];
+    
+    $scope.ok = function () {
+      if($scope.newCardTitle == ""){
+        $scope.msg = "请输入名称";
+        return;
+      }
+
+      cardInfo.text = $scope.newCardTitle;
+      cardInfo.index = $scope.selectedKanban.cardList.length;
+
+      $scope.selectedKanban.cardList.unshift(cardInfo);
+
+      $uibModalInstance.close($rootScope.kanbanTabs);
+    };
+    $scope.cancel = function () {
+      $uibModalInstance.dismiss('cancel');
+    };
+});

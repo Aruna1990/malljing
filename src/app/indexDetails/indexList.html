@@ -24,8 +24,7 @@
             <span class="pull-right tool-bar">
               <span class="glyphicon glyphicon-stats mj-icon" style="color:#1b809e;" title="指标分析" ng-click="$ctrl.showDetails(row)"></span>
               <span class="glyphicon glyphicon-eye-open mj-icon" style="color:#1b809e;" title="客群分析" ng-if="row.cgEnable" ng-click="$ctrl.showCgAnalysis(row)"></span>
-              <span ng-if="row.isContent" class="glyphicon glyphicon-heart mj-icon" style="color:#ce4844;" title="取消关注" ng-click="$ctrl.delete($index)"></span>
-              <span ng-if="!row.isContent" class="glyphicon glyphicon-heart-empty mj-icon" style="color:#ce4844;" title="添加关注" ng-click="$ctrl.delete($index)"></span>
+              <span class="glyphicon glyphicon-blackboard mj-icon" style="color:#1b809e;" title="添加到看板" ng-click="$ctrl.addToKanban($index)"></span>
             </span>
           </td>
           <td data-title="$ctrl.cols[1]" style="text-align:center;line-height: 50px;">{{ row.unit }}</td>

@@ -1176,6 +1176,7 @@ function rtMonitorCtrl($rootScope, $state, todoService, $interval) {
   }];
 
   this.indexList[0].selected = true;
+  this.selectedIndex = this.indexList[0];
 
   this.maps = [{
     id:0,
@@ -1238,5 +1239,21 @@ function rtMonitorCtrl($rootScope, $state, todoService, $interval) {
       this.indexList[i].selected = false;
     }
     row.selected = true;
+
+    this.selectedIndex = row;
+  }
+
+  this.addToKanban = function(chartConfig){
+    console.log("addToKanban");
+    var indexInfo = this.selectedIndex;
+    var queryInfo = {
+    }
+    //TODO 选择看板
+    // $rootScope.kanbanList.unshift({
+    //   text: "标题"+$rootScope.kanbanList.length,
+    //   type: "chart",
+    //   index: $rootScope.kanbanList.length,
+    //   chartConfig: chartConfig
+    // });
   }
 }

@@ -1,49 +1,89 @@
-<div style="padding: 0 40px;">
-  <view-header tips="'将日常或近期需要关注的指标方便的加到“我的关注”上，随时查看。'" text="'我的关注'"></view-header>
-  <div style="clear:both;margin-bottom:20px;">
-    <mj-date-picker></mj-date-picker>
-    <mj-tree-tab tabs="$ctrl.commercial.tabs" data="$ctrl.commercial.data" width="300" title="商业类型"></mj-tree-tab>
-    <mj-tree-tab tabs="$ctrl.space.tabs" data="$ctrl.space.data" width="400" title="空间范围"></mj-tree-tab>
-    <input type="text" ng-model="$ctrl.selected" uib-typeahead="state for state in $ctrl.states | filter:$viewValue | limitTo:8" class="form-control" style="display:inline-block;width: 200px;">
-    <span class="glyphicon glyphicon-search" style="margin-left:-25px;"></span>
-  </div>
-  <div>
-    <div>
-      <div style="margin-bottom:20px;"><button class="btn" ng-click="$ctrl.openCgDefine();">客群定义测试按钮</button></div>
-      <div style="margin-bottom:20px;"><button class="btn" title="添加关注指标" ng-click="$ctrl.openAddIndex();"><span class="glyphicon glyphicon-plus" style="color:#1b809e;margin-right: 10px;" title="添加指标"></span>添加关注指标</button></div>
-      <table ng-table-dynamic="$ctrl.tableParams with $ctrl.cols" class="mj-table table table-condensed table-bordered table-hover">
-        <colgroup>
-          <col width="30%" />
-          <col width="5%" />
-          <col width="30%" />
-          <col width="15%" />
-          <col width="15%" />
-          <col width="5%" />
-        </colgroup>
-        <tr ng-repeat="row in $ctrl.indexList track by $index">
-          <td data-title="$ctrl.cols[0]" style="text-align:left;position:relative;padding-left: 10px; line-height: 50px;">
-            {{ row.name }}
-            <span class="pull-right tool-bar">
-              <span class="glyphicon glyphicon-stats mj-icon" style="color:#1b809e;" title="指标分析" ng-click="$ctrl.showDetails(row)"></span>
-              <span class="glyphicon glyphicon-eye-open mj-icon" style="color:#1b809e;" title="客群分析" ng-if="row.cgEnable" ng-click="$ctrl.showCgAnalysis(row)"></span>
-              <span class="glyphicon glyphicon-heart mj-icon" style="color:#ce4844;" title="取消关注" ng-click="$ctrl.delete($index)"></span>
-            </span>
-          </td>
-          <td data-title="$ctrl.cols[1]" style="text-align:center;line-height: 50px;">{{ row.unit }}</td>
-          <td data-title="$ctrl.cols[2]" style="text-align:center;line-height: 50px;"><div class="spline-container"><highchart id="chart-{{row.id}}" config="row.splineData"  ng-show="row.splineData"></highchart></div></td>
-          <td data-title="$ctrl.cols[3]" style="text-align:center;line-height: 50px;">{{ row.value }}</td>
-          <td data-title="$ctrl.cols[4]" style="text-align:center;line-height: 50px;">{{ row._d_value }}</td>
-          <td data-title="$ctrl.cols[5]" style="text-align:center;line-height: 50px;">{{ row.doD }}%</td>
-        </tr>
-        <tfoot ng-if="$ctrl.isLastPage()">
-          <tr>
+<div style="padding: 0 40px;" class="kanban">
+  <ul class="kanbanlist">
+    <div id="toBoardList04457454788535187" style="display: inline-block;float: left;">
 
-          </tr>
-        </tfoot>
-      </table>
+    <li ng-repeat="tab in $ctrl.kanbanTabs" title="tab.name" ng-class="{active:tab.active}" style="min-width:75px;">{{tab.name}}</li></div>
+    <li id="addBoard04457454788535187" class="icon-add" ng-click="$ctrl.addNewKanban();"></li>
+    <div class="clear"></div>
+  </ul>
+  <div ng-if="$ctrl.activeKanban && $ctrl.activeKanban.cardList.length">
+    <div class="kanbantitle" style="margin: 10px;position:relative;height:40px;line-height: 40px;">
+      <div id="editBoardPanel04457454788535187" class="edit-board-name" ng-show="$ctrl.editKanban" style="    height: 35px;
+            width: 300px;
+            position: absolute;
+            display: inline-block;">
+          <span id="toEditBoardName04457454788535187" class="board-name">
+            <div class="zg-validate-text " id="text17109121712916187" style="height: 35px;width: 300px;position:absolute;margin-left: 15px;">
+              <input class="zg-input" type="text" placeholder="看板名称" title="" name="" autocomplete="off" ng-model="$ctrl.newKanbanName">
+            </div>
+          </span>
+          <span class="edit-ok" ng-click="$ctrl.editKanbanName(false, true)">确定</span>
+          <span class="edit-cancel" ng-click="$ctrl.editKanbanName(false)">取消</span>
+      </div>
+      <span style="font-size: 18px;margin-top: 20px;margin-left: 15px;" ng-show="!$ctrl.editKanban">{{$ctrl.activeKanban.name}}</span>
+      <span id="editBoard04457454788535187" class="icon-editor" ng-click="$ctrl.editKanbanName(true)" ng-show="!$ctrl.editKanban"></span>
+      <span id="delBoard04457454788535187" class="icon-del" ng-show="!$ctrl.editKanban" ng-click="$ctrl.delKanban()"></span>
+    </div>
+    <div>
+      <ul ui-sortable="$ctrl.sortableOptions" ng-model="$ctrl.activeKanban.cardList" class="sortable-item">
+        <li ng-repeat="item in $ctrl.activeKanban.cardList" ng-class="{'col-md-12': item.type=='map', 'col-md-6': item.type=='chart','col-md-3': item.type=='index'}">
+          <div class="kanbancard" >
+            <div class="cardtitle">{{item.text}}</div>
+            <div class="cardbody">
+              <div ng-if="item.type == 'index'" style="text-align:center;">
+                <div style="font-size:18px;">{{item.data.name}}</div>
+                <div>{{item.data.value}}{{item.data.unit}}</div>
+                <div>{{item.data.doD}}<span class="glyphicon" ng-class="{'glyphicon-arrow-up':item.data.up, 'glyphicon-arrow-down':!item.data.up}"></span></div>
+               <!--  <div class="tool-bar">
+                  <span class="glyphicon glyphicon-stats mj-icon" style="color:#1b809e;" ng-click="$ctrl.showDetails(item.data);$event.stopPropagation();"></span>
+                  <span ng-if="item.data.cgEnable" class="glyphicon glyphicon-eye-open mj-icon" style="color:#1b809e;" ng-click="$ctrl.showCgAnalysis(item.data);$event.stopPropagation();"></span>
+                </div> -->
+              </div>
+              <div>
+                <highchart ng-if="item.type == 'chart'" style="height:350px;" id="chart_thred_{{item.index}}" config="item.chartConfig"></highchart>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
+  <div ng-if="$ctrl.activeKanban && !$ctrl.activeKanban.cardList.length">
+    看板空空如也，还不如删掉。
+    <br>快去添加关注吧。
+    <span class="glyphicon glyphicon-blackboard"></span>
+  </div>
+
+  <div ng-if="!$ctrl.activeKanban">一个看板都没有哎~<br>快去添加一个新的看板吧。</div>
 </div>
 
-<cg-define ng-if="$ctrl.showCgDefine" show="$ctrl.showCgDefine"></cg-define>
-<add-index ng-if="$ctrl.showAddIndex" show="$ctrl.showAddIndex"></add-index>
+<script type="text/ng-template" id="addKanbanModal.html">
+  <div class="modal-header">
+    <h3 class="modal-title">新增看板</h3>
+  </div>
+  <div class="row" style="padding: 0 40px;height:50px;overflow:auto;margin: 20px 0;">
+    <div>
+      <input class="zg-input" type="text" placeholder="看板名称" title="addkanban" name="" autocomplete="off" ng-model="newKanbanName" autofocus>
+      <br>
+      <span ng-show="msg" style="color:red;">{{msg}}</span>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">确定</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">取消</button>
+  </div>
+</script>
+
+
+<script type="text/ng-template" id="delKanbanModal.html">
+  <div class="modal-header">
+    <h3 class="modal-title">删除看板</h3>
+  </div>
+  <div class="row" style="padding: 0 40px;height:50px;overflow:auto;margin: 20px 0;">
+    <div>确定要删除<b>{{kanbanName}}</b>看板</div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">确定</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">取消</button>
+  </div>
+</script>

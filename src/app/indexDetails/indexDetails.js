@@ -2134,4 +2134,18 @@ function indexDetailsCtrl($rootScope, $state, todoService, $injector, $timeout,$
   this.back = function(){
     window.history.back()
   };
+
+  this.addToKanban = function(chartConfig){
+    console.log("addToKanban");
+    var indexInfo = this.selectedIndex;
+    var queryInfo = {
+    }
+    //TODO 选择看板
+    // $rootScope.kanbanList.unshift({
+    //   text: "标题"+$rootScope.kanbanList.length,
+    //   type: "chart",
+    //   index: $rootScope.kanbanList.length,
+    //   chartConfig: chartConfig
+    // });
+  }
 }

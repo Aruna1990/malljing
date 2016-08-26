@@ -1355,12 +1355,28 @@ function indexlistCtrl($rootScope, $state, todoService, $injector, $location) {
   }
 
   this.showDetails = function(row){
-     $state.go('app.home.indexdetails', {selectedId: row.id});
+     $state.go('app.index.indexdetails', {selectedId: row.id});
   }
   this.showCgAnalysis = function(row){
-    $state.go('app.home.cganalysis');
+    $state.go('app.index.cganalysis');
   }
-  this.delete = function(index){
-    self.indexList[index].isContent = !self.indexList[index].isContent;
+  this.addToKanban = function(index){
+    console.log("addToKanban");
+    var indexInfo = self.indexList[index];
+    var queryInfo = {
+    }
+    //TODO 选择看板
+    // $rootScope.kanbanList.unshift({
+    //   text: "标题"+$rootScope.kanbanList.length,
+    //   type: "index",
+    //   index: $rootScope.kanbanList.length,
+    //   data:{
+    //     name: indexInfo.name,
+    //     unit: indexInfo.unit,
+    //     value: indexInfo.value,
+    //     _d_value: indexInfo._d_value,
+    //     doD: indexInfo.doD,
+    //   }
+    // });
   }
 }

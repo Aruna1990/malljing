@@ -46,6 +46,7 @@
   <div style="margin-bottom:20px;">
     <uib-tabset justified="true">
       <uib-tab index="0" heading="趋势分析" ng-click="$ctrl.reflow()">
+        <div  style="padding-top:30px;margin-bottom:40px;"><span class="btn btn-primary glyphicon glyphicon-blackboard pull-right" title="添加到看板" ng-click="$ctrl.addToKanban($ctrl.chartThredConfig)"></span></div>
         <div style="padding-top:30px;">
           <highchart id="chart_thred" config="$ctrl.chartThredConfig"></highchart>
         </div>
@@ -74,6 +75,7 @@
           <div style="margin-bottom:40px;">
             维度
             <select ng-model="$ctrl.selectedDim" ng-options="dim.name for dim in $ctrl.dimData" ng-change="$ctrl.onDimChange();"></select>
+            <span class="btn btn-primary glyphicon glyphicon-blackboard pull-right" title="添加到看板" ng-click="$ctrl.addToKanban($ctrl.chartPieConfig)"></span>
           </div>
           <highchart id="chart_pie" config="$ctrl.chartPieConfig"></highchart>
           <div>
@@ -101,6 +103,7 @@
           <div style="margin-bottom:40px;">
             对比指标
             <select ng-model="$ctrl.selectedIndex" ng-options="index.name for index in $ctrl.indexData" ng-change="$ctrl.onIndexChange();"></select>
+            <span class="btn btn-primary glyphicon glyphicon-blackboard pull-right" title="添加到看板" ng-click="$ctrl.addToKanban($ctrl.chartCompareConfig)"></span>
           </div>
           <highchart id="chart_pie" config="$ctrl.chartCompareConfig"></highchart>
           <div>

@@ -1375,6 +1375,18 @@ function indexlistCtrl($rootScope, $state, todoService, $injector, $location, $u
           return {
             // text: "标题"+$rootScope.kanbanList.length,
             type: "index",
+            query:{
+              timeType: "日",
+              area: {
+                id: null,
+                name: "全部空间"
+              },
+              dim: {
+                id: null,
+                name: "维度值"
+              },
+              time: ["2016-08-29", "2016-08-29"]
+            },
             // index: $rootScope.kanbanList.length,
             data:{
               name: indexInfo.name,
@@ -1406,7 +1418,7 @@ function indexlistCtrl($rootScope, $state, todoService, $injector, $location, $u
 angular
   .module('app')
   .controller('SelectKanbanModalInstanceCtrl', function ($rootScope, $scope, $injector, $uibModalInstance, cardInfo) {
-    $scope.newCardTitle = "";
+    $scope.newCardTitle = cardInfo.data.name+'('+cardInfo.query.timeType+')';
     $scope.kanbanTabs = $rootScope.kanbanTabs;
 
     $scope.selectedKanban = $scope.kanbanTabs[0];

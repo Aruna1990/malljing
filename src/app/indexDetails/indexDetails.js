@@ -2147,9 +2147,20 @@ function indexDetailsCtrl($rootScope, $state, todoService, $injector, $timeout,$
       resolve: {
         cardInfo: function () {
           return {
-          //   text: "标题"+$rootScope.kanbanList.length,
             type: "chart",
-          //   index: $rootScope.kanbanList.length,
+            query:{
+              timeType: "日",
+              area: {
+                id: null,
+                name: "全部空间"
+              },
+              dim: {
+                id: null,
+                name: "全部空间"
+              },
+              time: "1016-08-29"
+            },
+            data: indexInfo,
             chartConfig: chartConfig
           };
         }
@@ -2163,12 +2174,5 @@ function indexDetailsCtrl($rootScope, $state, todoService, $injector, $timeout,$
       // self.show = false;
       // $log.info('Modal dismissed at: ' + new Date());
     });
-    //TODO 选择看板
-    // $rootScope.kanbanList.unshift({
-    //   text: "标题"+$rootScope.kanbanList.length,
-    //   type: "chart",
-    //   index: $rootScope.kanbanList.length,
-    //   chartConfig: chartConfig
-    // });
   }
 }

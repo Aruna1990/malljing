@@ -16,6 +16,25 @@ angular
       text: "标题",
       type: "chart",
       index: 0,
+      query:{
+        timeType: "日",
+        area: {
+          id: null,
+          name: "全部空间"
+        },
+        dim: {
+          id: null,
+          name: "维度值"
+        },
+        time: ["2016-08-29", "2016-08-29"]
+      },
+      data:{
+        name:"人均驻留时长",
+        unit:"分钟",
+        value: 17.96,
+        _d_value: 17.78,
+        doD: 1.01,
+      },
       chartConfig: {
         options: {
           chart: {
@@ -43,6 +62,25 @@ angular
       text: "标题",
       type: "chart",
       index: 1,
+      data:{
+        name:"人均驻留时长",
+        unit:"分钟",
+        value: 17.96,
+        _d_value: 17.78,
+        doD: 1.01,
+      },
+      query:{
+        timeType: "日",
+        area: {
+          id: null,
+          name: "全部空间"
+        },
+        dim: {
+          id: null,
+          name: "维度值"
+        },
+        time: ["2016-08-29", "2016-08-29"]
+      },
       chartConfig: {
         options: {
           chart: {
@@ -69,7 +107,26 @@ angular
     },{
       text: "标题",
       type: "chart",
-      index: 2,
+      index: 2,  
+      data:{
+        name:"人均驻留时长",
+        unit:"分钟",
+        value: 17.96,
+        _d_value: 17.78,
+        doD: 1.01,
+      },
+      query:{
+        timeType: "日",
+        area: {
+          id: null,
+          name: "全部空间"
+        },
+        dim: {
+          id: null,
+          name: "维度值"
+        },
+        time: ["2016-08-29", "2016-08-29"]
+      },
       chartConfig: {
         options: {
           chart: {
@@ -96,7 +153,19 @@ angular
     },{
       text: "标题",
       type: "index",
-      index: 3,
+      index: 3,      
+      query:{
+        timeType: "日",
+        area: {
+          id: null,
+          name: "全部空间"
+        },
+        dim: {
+          id: null,
+          name: "维度值"
+        },
+        time: ["2016-08-29", "2016-08-29"]
+      },
       data:{
         name:"新增客户数",
         unit:"人数",
@@ -108,7 +177,19 @@ angular
     },{
       text: "标题",
       type: "index",
-      index: 4,
+      index: 4,      
+      query:{
+        timeType: "日",
+        area: {
+          id: null,
+          name: "全部空间"
+        },
+        dim: {
+          id: null,
+          name: "维度值"
+        },
+        time: ["2016-08-29", "2016-08-29"]
+      },
       data:{
         name:"人均驻留时长",
         unit:"分钟",
@@ -117,6 +198,18 @@ angular
         doD: 1.01,
       }
     },{
+      query:{
+        timeType: "日",
+        area: {
+          id: null,
+          name: "全部空间"
+        },
+        dim: {
+          id: null,
+          name: "维度值"
+        },
+        time: ["2016-08-29", "2016-08-29"]
+      },
       text: "标题",
       type: "map",
       index: 5,

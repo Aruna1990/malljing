@@ -28,19 +28,25 @@
       <ul ui-sortable="$ctrl.sortableOptions" ng-model="$ctrl.activeKanban.cardList" class="sortable-item">
         <li ng-repeat="item in $ctrl.activeKanban.cardList" ng-class="{'col-md-12': item.type=='map', 'col-md-6': item.type=='chart','col-md-3': item.type=='index'}">
           <div class="kanbancard" >
-            <div class="cardtitle">{{item.text}}</div>
+            <div class="cardtitle">{{item.data.name}}({{item.query.timeType}})</div>
             <div class="cardbody">
+              <div class="query-area" style="height:100px;text-align:center;">
+                <div style="font-size:12px;" ng-if="item.query.area" >{{item.query.area.name}}</div>
+                <div style="font-size:12px;" ng-if="item.query.dim">{{item.query.dim.name}}</div>
+                <div ng-if="item.query.time">{{item.query.time[0]}} - {{item.query.time[1]}}</div>
+              </div>
               <div ng-if="item.type == 'index'" style="text-align:center;">
-                <div style="font-size:18px;">{{item.data.name}}</div>
+                <!-- <div style="font-size:18px;">{{item.data.name}}</div> -->
                 <div>{{item.data.value}}{{item.data.unit}}</div>
-                <div>{{item.data.doD}}<span class="glyphicon" ng-class="{'glyphicon-arrow-up':item.data.up, 'glyphicon-arrow-down':!item.data.up}"></span></div>
+                <div><span>环比</span>{{item.data.doD}}<span class="glyphicon" ng-class="{'glyphicon-arrow-up':item.data.up, 'glyphicon-arrow-down':!item.data.up}"></span></div>
+                <div><span>同比</span>{{item.data.doD}}<span class="glyphicon" ng-class="{'glyphicon-arrow-up':item.data.up, 'glyphicon-arrow-down':!item.data.up}"></span></div>
                <!--  <div class="tool-bar">
                   <span class="glyphicon glyphicon-stats mj-icon" style="color:#1b809e;" ng-click="$ctrl.showDetails(item.data);$event.stopPropagation();"></span>
                   <span ng-if="item.data.cgEnable" class="glyphicon glyphicon-eye-open mj-icon" style="color:#1b809e;" ng-click="$ctrl.showCgAnalysis(item.data);$event.stopPropagation();"></span>
                 </div> -->
               </div>
               <div>
-                <highchart ng-if="item.type == 'chart'" style="height:350px;" id="chart_thred_{{item.index}}" config="item.chartConfig"></highchart>
+                <highchart ng-if="item.type == 'chart'" style="height:250px;" id="chart_thred_{{item.index}}" config="item.chartConfig"></highchart>
               </div>
             </div>
           </div>
@@ -48,10 +54,7 @@
       </ul>
     </div>
   </div>
-  <div ng-if="$ctrl.activeKanban && !$ctrl.activeKanban.cardList.length">
-    看板空空如也，还不如删掉。
-    <br>快去添加关注吧。
-    <span class="glyphicon glyphicon-blackboard"></span>
+  <div ng-if="$ctrl.activeKanban && !$ctrl.activeKanban.cardList.length" style="background:url('https://static.zhugeio.com/module/boardView/images/emptypic.jpg') no-repeat center;height:300px;margin: 30px auto 0 auto;">
   </div>
 
   <div ng-if="!$ctrl.activeKanban">一个看板都没有哎~<br>快去添加一个新的看板吧。</div>

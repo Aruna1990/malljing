@@ -16,6 +16,7 @@ function watchlistCtrl($rootScope, $state, todoService, $injector, $location, $t
   this.newKanbanName = this.activeKanban.name;
 
   this.list = this.activeKanban.cardList;
+  var tmpList = this.list || [];
   this.sortingLog = [];
   this.sortableOptions = {
     update: function(e, ui) {

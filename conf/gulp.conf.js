@@ -18,7 +18,8 @@ exports.ngModule = 'app';
  */
 exports.paths = {
   src: 'src',
-  dist: 'docs',
+  github: 'docs',
+  dist: 'dist',
   tmp: '.tmp',
   e2e: 'e2e',
   tasks: 'gulp_tasks'

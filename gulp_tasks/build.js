@@ -20,7 +20,7 @@ function build() {
   const partialsInjectOptions = {
     starttag: '<!-- inject:partials -->',
     ignorePath: conf.paths.tmp,
-    addRootSlash: false
+    addRootSlash: true
   };
 
   const htmlFilter = filter(conf.path.tmp('*.html'), {restore: true});

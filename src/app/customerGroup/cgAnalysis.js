@@ -8,19 +8,19 @@ angular
 /** @ngInject */
 function cgAnalysisCtrl($rootScope, $state, todoService, $injector, $timeout) {
   console.log('cgAnalysisCtrl');
-  var ngTableParams;
+  var NgTableParams;
 
-  ngTableParams = $injector.get('NgTableParams');
+  NgTableParams = $injector.get('NgTableParams');
 
   var self = this;
   self.cols = [{
     field: "id",
     title: "访客标识",
-    show: true,
+    show: true
   }, {
     field: "first",
     title: "首次访问时间",
-    show: true,
+    show: true
   }, {
     field: "last",
     title: "最后访问时间",
@@ -38,70 +38,70 @@ function cgAnalysisCtrl($rootScope, $state, todoService, $injector, $timeout) {
   }];
 
   self.indexList = [{
-    id:'8ac1dc6a-49e0-11e6-83fc-90b11c32f3cc',
-    first:"2016-06-05 10:00",
-    last:"2016-08-05 10:00",
-    visitcount:"5",
+    id: '8ac1dc6a-49e0-11e6-83fc-90b11c32f3cc',
+    first: "2016-06-05 10:00",
+    last: "2016-08-05 10:00",
+    visitcount: "5",
     timecount: 140
-  },{
-    id:'8ac1dc6a-49e0-11e6-83fc-90b11c32f3cc',
-    first:"2016-06-05 10:00",
-    last:"2016-08-05 10:00",
-    visitcount:"5",
+  }, {
+    id: '8ac1dc6a-49e0-11e6-83fc-90b11c32f3cc',
+    first: "2016-06-05 10:00",
+    last: "2016-08-05 10:00",
+    visitcount: "5",
     timecount: 140
-  },{
-    id:'8ac1dc6a-49e0-11e6-83fc-90b11c32f3cc',
-    first:"2016-06-05 10:00",
-    last:"2016-08-05 10:00",
-    visitcount:"5",
+  }, {
+    id: '8ac1dc6a-49e0-11e6-83fc-90b11c32f3cc',
+    first: "2016-06-05 10:00",
+    last: "2016-08-05 10:00",
+    visitcount: "5",
     timecount: 140
-  },{
-    id:'8ac1dc6a-49e0-11e6-83fc-90b11c32f3cc',
-    first:"2016-06-05 10:00",
-    last:"2016-08-05 10:00",
-    visitcount:"5",
+  }, {
+    id: '8ac1dc6a-49e0-11e6-83fc-90b11c32f3cc',
+    first: "2016-06-05 10:00",
+    last: "2016-08-05 10:00",
+    visitcount: "5",
     timecount: 140
-  },{
-    id:'8ac1dc6a-49e0-11e6-83fc-90b11c32f3cc',
-    first:"2016-06-05 10:00",
-    last:"2016-08-05 10:00",
-    visitcount:"5",
+  }, {
+    id: '8ac1dc6a-49e0-11e6-83fc-90b11c32f3cc',
+    first: "2016-06-05 10:00",
+    last: "2016-08-05 10:00",
+    visitcount: "5",
     timecount: 140
   }];
 
   this.chartThredConfig = {
     options: {
-        chart: {
-            type: 'line'
-        }
+      chart: {
+        type: 'line'
+      }
     },
     series: [{
-        data: [10, 15, 12, 8, 7]
+      data: [10, 15, 12, 8, 7]
     }],
     title: {
-        text: ''
+      text: ''
     },
     loading: false
   };
 
   this.chartDeviceConfig = {
     options: {
-        chart: {
-            type: 'pie'
-        }
+      chart: {
+        type: 'pie'
+      }
     },
     series: [{
-        data: [10, 15, 12, 8, 7]
+      data: [10, 15, 12, 8, 7]
     }],
     title: {
-        text: ''
+      text: ''
     },
     loading: false
   };
   this.chartSexConfig = {
     options: {
       chart: {
-          type: 'pie'
+        type: 'pie'
       },
       plotOptions: {
         pie: {
@@ -123,7 +123,7 @@ function cgAnalysisCtrl($rootScope, $state, todoService, $injector, $timeout) {
       }]
     }],
     title: {
-        text: ''
+      text: ''
     },
     loading: false
   };
@@ -131,7 +131,7 @@ function cgAnalysisCtrl($rootScope, $state, todoService, $injector, $timeout) {
   this.chartCarConfig = {
     options: {
       chart: {
-          type: 'pie'
+        type: 'pie'
       },
       plotOptions: {
         pie: {
@@ -153,7 +153,7 @@ function cgAnalysisCtrl($rootScope, $state, todoService, $injector, $timeout) {
       }]
     }],
     title: {
-        text: ''
+      text: ''
     },
     loading: false
   };
@@ -161,17 +161,17 @@ function cgAnalysisCtrl($rootScope, $state, todoService, $injector, $timeout) {
   this.chartMarryConfig = {
     options: {
       chart: {
-          type: 'column'
+        type: 'column'
       },
       xAxis: {
-        categories: ['未婚', '已婚'] //x轴数据
+        categories: ['未婚', '已婚']
       }
     },
     series: [{
       data: [840, 872]
     }],
     title: {
-        text: ''
+      text: ''
     },
     loading: false
   };
@@ -179,32 +179,32 @@ function cgAnalysisCtrl($rootScope, $state, todoService, $injector, $timeout) {
   this.chartAgeConfig = {
     options: {
       chart: {
-          type: 'column'
+        type: 'column'
       },
       xAxis: {
-        categories: ['19岁以下', '19-25岁', '26-35岁', '36-45岁', '46-55岁', '55岁以上'] //x轴数据
+        categories: ['19岁以下', '19-25岁', '26-35岁', '36-45岁', '46-55岁', '55岁以上']
       }
     },
     series: [{
       data: [458, 798, 863, 783, 542, 369]
     }],
     title: {
-        text: ''
+      text: ''
     },
     loading: false
   };
 
   this.chartPositionConfig = {
     options: {
-        chart: {
-            type: 'pie'
-        }
+      chart: {
+        type: 'pie'
+      }
     },
     series: [{
-        data: [10, 15, 12, 8, 7]
+      data: [10, 15, 12, 8, 7]
     }],
     title: {
-        text: ''
+      text: ''
     },
     loading: false
   };
@@ -214,47 +214,39 @@ function cgAnalysisCtrl($rootScope, $state, todoService, $injector, $timeout) {
     $rootScope.$broadcast('highchartsng.reflow');
   };
 
-  $timeout(function() {
+  $timeout(function () {
     self.reflow();
-  },0);
+  }, 0);
 
-  self.tableParams = new ngTableParams({}, {
+  self.tableParams = new NgTableParams({}, {
     dataset: self.indexList
   });
-  
   self.isLastPage = isLastPage;
-  
-  function isLastPage(){
+  function isLastPage() {
     return self.tableParams.page() === totalPages();
   }
-  
-  function totalPages(){
+  function totalPages() {
     return Math.ceil(self.tableParams.total() / self.tableParams.count());
   }
-
-  this.delete = function(index){
-    for(var i=index; i<self.indexList.length; i++){
-
-      if((i+1) != self.indexList.length){
-        self.indexList[i] = self.indexList[i+1];
-      }
-      else{
+  this.delete = function (index) {
+    for (var i = index; i < self.indexList.length; i++) {
+      if ((i + 1) === self.indexList.length) {
         self.indexList.pop();
+      } else {
+        self.indexList[i] = self.indexList[i + 1];
       }
     }
     console.log(self.indexList);
 
-    self.tableParams = new ngTableParams({}, {
+    self.tableParams = new NgTableParams({}, {
       dataset: self.indexList
     });
-  }
-
-  this.showDetails = function(row){
+  };
+  this.showDetails = function (row) {
     this.showCustomDetails = true;
     this.selectedCustomId = row.id;
-  }
-  
-  this.back = function(){
-    window.history.back()
+  };
+  this.back = function () {
+    window.history.back();
   };
 }

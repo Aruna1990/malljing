@@ -11,10 +11,9 @@ function settingsCtrl($rootScope, $state, todoService) {
   this.name = userInfo.name;
   this.password = '1';
   this.code = '';
-
-  this.onSubmit = function(){
+  this.onSubmit = function () {
     console.log('[settingsCtrl] onSubmit');
     $rootScope.currentUser = userInfo;
     $state.go('app');
-  }
+  };
 }

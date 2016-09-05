@@ -12,10 +12,9 @@ function loginCtrl($rootScope, $state, todoService) {
   this.password = '1';
   this.code = '';
 
-  this.onSubmit = function(){
+  this.onSubmit = function () {
     console.log('[loginCtrl] onSubmit');
     $rootScope.currentUser = userInfo;
     $state.go('app.home.watchlist');
-  }
+  };
 }
- 

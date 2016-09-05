@@ -19,7 +19,7 @@ PageHeader.prototype = {
   openTips: function () {
     this.showTips = true;
   },
-  closeTips: function(){
+  closeTips: function () {
     this.showTips = false;
   }
 };

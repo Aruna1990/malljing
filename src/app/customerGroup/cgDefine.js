@@ -13,7 +13,7 @@ function cgDefineCtrl($rootScope, $scope, $state, todoService, $timeout, $uibMod
   var self = this;
 
   var open = function () {
-    console.log("open Dialog")
+    console.log("open Dialog");
     var modalInstance = $uibModal.open({
       templateUrl: 'myModalContent.html',
       controller: 'ModalInstanceCtrl',
@@ -35,23 +35,19 @@ function cgDefineCtrl($rootScope, $scope, $state, todoService, $timeout, $uibMod
 
   $scope.show = this.show;
 
-  $scope.$watch('show', function(){
-    console.log("status:" + self.show)
-    if(self.show) open();
+  $scope.$watch('show', function () {
+    console.log("status:" + self.show);
+    if (self.show) {
+      open();
+    }
   });
-  var self = this;
 }
-
-
-// Please note that $uibModalInstance represents a modal window (instance) dependency.
-// It is not the same as the $uibModal service used above.
 
 angular
   .module('app')
   .controller('ModalInstanceCtrl', function ($scope, $injector, $uibModalInstance) {
-
-    var ngTableParams;
-    ngTableParams = $injector.get('NgTableParams');
+    var NgTableParams;
+    NgTableParams = $injector.get('NgTableParams');
 
     $scope.cgId = "";
     $scope.cgName = "";
@@ -59,11 +55,11 @@ angular
     $scope.cols = [{
       field: "id",
       title: "访客标识",
-      show: true,
+      show: true
     }, {
       field: "first",
       title: "首次访问时间",
-      show: true,
+      show: true
     }, {
       field: "last",
       title: "最后访问时间",
@@ -81,41 +77,41 @@ angular
     }];
 
     $scope.indexList = [{
-      id:'8ac1dc6a-49e0-11e6-83fc-90b11c32f3cc',
-      first:"2016-06-05 10:00",
-      last:"2016-08-05 10:00",
-      visitcount:"5",
+      id: '8ac1dc6a-49e0-11e6-83fc-90b11c32f3cc',
+      first: "2016-06-05 10:00",
+      last: "2016-08-05 10:00",
+      visitcount: "5",
       timecount: 140
-    },{
-      id:'8ac1dc6a-49e0-11e6-83fc-90b11c32f3cc',
-      first:"2016-06-05 10:00",
-      last:"2016-08-05 10:00",
-      visitcount:"5",
+    }, {
+      id: '8ac1dc6a-49e0-11e6-83fc-90b11c32f3cc',
+      first: "2016-06-05 10:00",
+      last: "2016-08-05 10:00",
+      visitcount: "5",
       timecount: 140
-    },{
-      id:'8ac1dc6a-49e0-11e6-83fc-90b11c32f3cc',
-      first:"2016-06-05 10:00",
-      last:"2016-08-05 10:00",
-      visitcount:"5",
+    }, {
+      id: '8ac1dc6a-49e0-11e6-83fc-90b11c32f3cc',
+      first: "2016-06-05 10:00",
+      last: "2016-08-05 10:00",
+      visitcount: "5",
       timecount: 140
-    },{
-      id:'8ac1dc6a-49e0-11e6-83fc-90b11c32f3cc',
-      first:"2016-06-05 10:00",
-      last:"2016-08-05 10:00",
-      visitcount:"5",
+    }, {
+      id: '8ac1dc6a-49e0-11e6-83fc-90b11c32f3cc',
+      first: "2016-06-05 10:00",
+      last: "2016-08-05 10:00",
+      visitcount: "5",
       timecount: 140
-    },{
-      id:'8ac1dc6a-49e0-11e6-83fc-90b11c32f3cc',
-      first:"2016-06-05 10:00",
-      last:"2016-08-05 10:00",
-      visitcount:"5",
+    }, {
+      id: '8ac1dc6a-49e0-11e6-83fc-90b11c32f3cc',
+      first: "2016-06-05 10:00",
+      last: "2016-08-05 10:00",
+      visitcount: "5",
       timecount: 140
     }];
 
-    $scope.tableParams = new ngTableParams({}, {
+    $scope.tableParams = new NgTableParams({}, {
       dataset: $scope.indexList
     });
-    
+
     $scope.ok = function () {
       $uibModalInstance.close({
         id: $scope.cgId,
@@ -124,6 +120,6 @@ angular
     };
 
     $scope.cancel = function () {
-      $uibModalInstance.dismiss('cancel');
+      $uibModalInstance$uibModalInstance.dismiss('cancel');
     };
-});
+  });

@@ -12,9 +12,9 @@ angular
 /** @ngInject */
 function customDetailsCtrl($rootScope, $state, todoService, $injector, $timeout) {
   console.log('customDetailsCtrl');
-  var ngTableParams;
+  var NgTableParams;
 
-  ngTableParams = $injector.get('NgTableParams');
+  NgTableParams = $injector.get('NgTableParams');
 
   var self = this;
   self.cols = [{
@@ -24,87 +24,87 @@ function customDetailsCtrl($rootScope, $state, todoService, $injector, $timeout)
   }, {
     field: "action",
     title: "行为",
-    show: true,
+    show: true
   }];
 
   self.indexList = [{
-    id:0,
-    time:"2016-07-15 13:07:13",
-    action:"进入 店铺 ZARA",
-  },{
-    id:1,
-    time:"2016-07-15 13:07:13",
-    action:"进入 店铺 ZARA",
-  },{
-    id:2,
-    time:"2016-07-15 13:07:13",
-    action:"进入 店铺 ZARA",
-  },{
-    id:3,
-    time:"2016-07-15 13:07:13",
-    action:"进入 店铺 ZARA",
-  },{
-    id:4,
-    time:"2016-07-15 13:07:13",
-    action:"进入 店铺 ZARA",
+    id: 0,
+    time: "2016-07-15 13:07:13",
+    action: "进入 店铺 ZARA"
+  }, {
+    id: 1,
+    time: "2016-07-15 13:07:13",
+    action: "进入 店铺 ZARA"
+  }, {
+    id: 2,
+    time: "2016-07-15 13:07:13",
+    action: "进入 店铺 ZARA"
+  }, {
+    id: 3,
+    time: "2016-07-15 13:07:13",
+    action: "进入 店铺 ZARA"
+  }, {
+    id: 4,
+    time: "2016-07-15 13:07:13",
+    action: "进入 店铺 ZARA"
   }];
 
   this.chartThredConfig = {
     options: {
-        chart: {
-            type: 'line'
-        }
+      chart: {
+        type: 'line'
+      }
     },
     series: [{
-        data: [10, 15, 12, 8, 7]
+      data: [10, 15, 12, 8, 7]
     }],
     title: {
-        text: ''
+      text: ''
     },
     loading: false
   };
 
   this.chartSexConfig = {
     options: {
-        chart: {
-            type: 'pie'
-        }
+      chart: {
+        type: 'pie'
+      }
     },
     series: [{
-        data: [10, 15, 12, 8, 7]
+      data: [10, 15, 12, 8, 7]
     }],
     title: {
-        text: ''
+      text: ''
     },
     loading: false
   };
 
   this.chartDeviceConfig = {
     options: {
-        chart: {
-            type: 'pie'
-        }
+      chart: {
+        type: 'pie'
+      }
     },
     series: [{
-        data: [10, 15, 12, 8, 7]
+      data: [10, 15, 12, 8, 7]
     }],
     title: {
-        text: ''
+      text: ''
     },
     loading: false
   };
 
   this.chartPositionConfig = {
     options: {
-        chart: {
-            type: 'pie'
-        }
+      chart: {
+        type: 'pie'
+      }
     },
     series: [{
-        data: [10, 15, 12, 8, 7]
+      data: [10, 15, 12, 8, 7]
     }],
     title: {
-        text: ''
+      text: ''
     },
     loading: false
   };
@@ -113,39 +113,31 @@ function customDetailsCtrl($rootScope, $state, todoService, $injector, $timeout)
     console.log("reflow");
     $rootScope.$broadcast('highchartsng.reflow');
   };
-
-  $timeout(function() {
+  $timeout(function () {
     self.reflow();
-  },0);
-
-  self.tableParams = new ngTableParams({}, {
+  }, 0);
+  self.tableParams = new NgTableParams({}, {
     dataset: self.indexList
   });
-  
   self.isLastPage = isLastPage;
-  
-  function isLastPage(){
+  function isLastPage() {
     return self.tableParams.page() === totalPages();
   }
-  
-  function totalPages(){
+  function totalPages() {
     return Math.ceil(self.tableParams.total() / self.tableParams.count());
   }
-
-  this.delete = function(index){
-    for(var i=index; i<self.indexList.length; i++){
-
-      if((i+1) != self.indexList.length){
-        self.indexList[i] = self.indexList[i+1];
-      }
-      else{
+  this.delete = function (index) {
+    for (var i = index; i < self.indexList.length; i++) {
+      if ((i + 1) === self.indexList.length) {
         self.indexList.pop();
+      } else {
+        self.indexList[i] = self.indexList[i + 1];
       }
     }
     console.log(self.indexList);
 
-    self.tableParams = new ngTableParams({}, {
+    self.tableParams = new NgTableParams({}, {
       dataset: self.indexList
     });
-  }
+  };
 }

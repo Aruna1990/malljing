@@ -11,4 +11,3 @@ function registerCtrl() {
   this.code = '';
   console.log('Login');
 }
- 

@@ -30,7 +30,7 @@
           <td data-title="$ctrl.cols[1]" style="text-align:center;line-height: 50px;">{{ row.unit }}</td>
           <td data-title="$ctrl.cols[2]" style="text-align:center;line-height: 50px;"><div class="spline-container"><highchart id="chart-{{row.id}}" config="row.splineData"  ng-show="row.splineData"></highchart></div></td>
           <td data-title="$ctrl.cols[3]" style="text-align:center;line-height: 50px;">{{ row.value }}</td>
-          <td data-title="$ctrl.cols[4]" style="text-align:center;line-height: 50px;">{{ row._d_value }}</td>
+          <td data-title="$ctrl.cols[4]" style="text-align:center;line-height: 50px;">{{ row._dValue }}</td>
           <td data-title="$ctrl.cols[5]" style="text-align:center;line-height: 50px;">{{ row.doD }}%</td>
         </tr>
         <tfoot ng-if="$ctrl.isLastPage()">

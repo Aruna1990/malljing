@@ -11,7 +11,6 @@ function NavService() {
 
 NavService.prototype = {
   changeNav: function (toNav) {
-    //Change nav
     return navs;
   }
 };

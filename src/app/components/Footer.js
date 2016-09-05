@@ -29,4 +29,3 @@ Footer.prototype = {
     this.onShow({filter: filter});
   }
 };
-

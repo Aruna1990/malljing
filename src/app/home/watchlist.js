@@ -19,15 +19,15 @@ function watchlistCtrl($rootScope, $state, todoService, $injector, $location, $t
   var tmpList = this.list || [];
   this.sortingLog = [];
   this.sortableOptions = {
-    update: function(e, ui) {
-      var logEntry = tmpList.map(function(i){
+    update: function (e, ui) {
+      var logEntry = tmpList.map(function (i) {
         return i.value;
       }).join(', ');
       self.sortingLog.push('Update: ' + logEntry);
     },
-    stop: function(e, ui) {
+    stop: function (e, ui) {
       // this callback has the changed model
-      var logEntry = tmpList.map(function(i){
+      var logEntry = tmpList.map(function (i) {
         return i.value;
       }).join(', ');
       self.sortingLog.push('Stop: ' + logEntry);
@@ -37,14 +37,14 @@ function watchlistCtrl($rootScope, $state, todoService, $injector, $location, $t
     console.log("reflow");
     $rootScope.$broadcast('highchartsng.reflow');
   };
-  this.editKanbanName = function(isEdit, isSave){
-    if(isSave){
+  this.editKanbanName = function (isEdit, isSave) {
+    if (isSave) {
       this.activeKanban.name = this.newKanbanName;
     }
     this.editKanban = isEdit;
-  }
-  this.addNewKanban = function(){    
-    console.log("open Dialog")
+  };
+  this.addNewKanban = function () {
+    console.log("open Dialog");
     var modalInstance = $uibModal.open({
       templateUrl: 'addKanbanModal.html',
       controller: 'AddKanbanModalInstanceCtrl',
@@ -63,19 +63,19 @@ function watchlistCtrl($rootScope, $state, todoService, $injector, $location, $t
       // self.show = false;
       // $log.info('Modal dismissed at: ' + new Date());
     });
-  }
-  this.changeKanban = function(tab){
+  };
+  this.changeKanban = function (tab) {
     this.activeKanban.active = false;
     this.activeKanban = tab;
     this.activeKanban.active = true;
-    
-    $timeout(function() {
-      self.reflow();
-    },0);
-  }
 
-  this.delKanban = function(){    
-    console.log("open Dialog")
+    $timeout(function () {
+      self.reflow();
+    }, 0);
+  };
+
+  this.delKanban = function () {
+    console.log("open Dialog");
     var modalInstance = $uibModal.open({
       templateUrl: 'delKanbanModal.html',
       controller: 'DelKanbanModalInstanceCtrl',
@@ -95,33 +95,28 @@ function watchlistCtrl($rootScope, $state, todoService, $injector, $location, $t
       // self.show = false;
       // $log.info('Modal dismissed at: ' + new Date());
     });
-  }
-  $timeout(function() {
+  };
+  $timeout(function () {
     self.reflow();
-  },0);
-
+  }, 0);
 }
-
-
 
 angular
   .module('app')
   .controller('AddKanbanModalInstanceCtrl', function ($rootScope, $scope, $injector, $uibModalInstance) {
     $scope.newKanbanName = "";
-
-    $scope.$watch("newKanbanName", function(){
-      if($scope.newKanbanName != ""){
+    $scope.$watch("newKanbanName", function () {
+      if ($scope.newKanbanName !== "") {
         $scope.msg = null;
       }
     });
-    
     $scope.ok = function () {
-      if($scope.newKanbanName == ""){
+      if ($scope.newKanbanName === "") {
         $scope.msg = "请输入看板名称";
         return;
       }
-      for(var i = 0; i < $rootScope.kanbanTabs.length; i++){
-        if($scope.newKanbanName == $rootScope.kanbanTabs[i].name){
+      for (var i = 0; i < $rootScope.kanbanTabs.length; i++) {
+        if ($scope.newKanbanName === $rootScope.kanbanTabs[i].name) {
           $scope.msg = "名称被占用";
           return;
         }
@@ -130,24 +125,23 @@ angular
         id: $rootScope.kanbanTabs.length,
         name: $scope.newKanbanName,
         active: false,
-        cardList:[]
+        cardList: []
       });
       $uibModalInstance.close($rootScope.kanbanTabs);
     };
     $scope.cancel = function () {
       $uibModalInstance.dismiss('cancel');
     };
-});
+  });
 
 angular
   .module('app')
   .controller('DelKanbanModalInstanceCtrl', function ($rootScope, $scope, $injector, $uibModalInstance, kanban) {
     $scope.kanban = kanban;
-    
     $scope.ok = function () {
-      for(var i = 0; i < $rootScope.kanbanTabs.length; i++){
-        if($scope.kanban.id == $rootScope.kanbanTabs[i].id){
-          $rootScope.kanbanTabs.splice(i,1);
+      for (var i = 0; i < $rootScope.kanbanTabs.length; i++) {
+        if ($scope.kanban.id === $rootScope.kanbanTabs[i].id) {
+          $rootScope.kanbanTabs.splice(i, 1);
           break;
         }
       }
@@ -156,4 +150,4 @@ angular
     $scope.cancel = function () {
       $uibModalInstance.dismiss('cancel');
     };
-});
+  });

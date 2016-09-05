@@ -12,9 +12,9 @@ function changepwdCtrl($rootScope, $state, todoService) {
   this.password = '1';
   this.code = '';
 
-  this.onSubmit = function(){
+  this.onSubmit = function () {
     console.log('[changepwdCtrl] onSubmit');
     $rootScope.currentUser = userInfo;
     $state.go('app');
-  }
+  };
 }

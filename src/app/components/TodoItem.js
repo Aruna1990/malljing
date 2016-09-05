@@ -19,7 +19,6 @@ TodoItem.prototype = {
   handleDoubleClick: function () {
     this.editing = true;
   },
-
   handleSave: function (text) {
     this.onSave({
       todo: {
@@ -29,7 +28,6 @@ TodoItem.prototype = {
     });
     this.editing = false;
   },
-
   handleDestroy: function (id) {
     this.onDestroy({id: id});
   }

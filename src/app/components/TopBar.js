@@ -10,29 +10,35 @@ angular
 
 /** @ngInject */
 function TopBar($location) {
+  var i;
   console.log('[TopBar]');
   var pathArray = $location.$$path.split('/');
   pathArray.shift();
 
-  for(var i=0; i<this.navs.length; i++){
+  for (i = 0; i < this.navs.length; i++) {
     var navPath = this.navs[i].path.split('/');
     navPath.shift();
-    if(pathArray[1] == navPath[1]){
+    if (pathArray[1] === navPath[1]) {
       this.navs[i].active = true;
     }
   }
 }
 
 TopBar.prototype = {
-  onClick: function(toNav){
-    if(!this.navs[toNav].enable) return;
+  onClick: function (toNav) {
+    var i;
+    if (!this.navs[toNav].enable) {
+      return;
+    }
 
-    if(this.navs[toNav].active) return;
+    if (this.navs[toNav].active) {
+      return;
+    }
 
-    for(var i=0; i<this.navs.length; i++){
-      if(i == toNav){
+    for (i = 0; i < this.navs.length; i++) {
+      if (i === toNav) {
         this.navs[i].active = true;
-      }else{
+      } else {
         this.navs[i].active = false;
       }
     }

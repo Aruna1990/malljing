@@ -6,7 +6,7 @@ angular
     bindings: {
       title: '<',
       toLogin: '<',
-      submitBtnName:'<'
+      submitBtnName: '<'
     }
   });
 

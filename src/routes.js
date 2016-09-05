@@ -195,28 +195,27 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
       }
     });
 
-    $httpProvider.interceptors.push(function ($timeout, $q, $injector) {
-      var loginModal, $http, $state;
-
-      // this trick must be done so that we don't receive
-      // `Uncaught Error: [$injector:cdep] Circular dependency found`
-      $timeout(function () {
-        $http = $injector.get('$http');
-        $state = $injector.get('$state');
-      });
-
-      return {
-        responseError: function (rejection) {
-          if (rejection.status !== 401) {
-            return rejection;
-          }
-
-          var deferred = $q.defer();
-
-          $state.go('welcome.login');
-
-          return deferred.promise;
-        }
-      };
+  $httpProvider.interceptors.push(function ($timeout, $q, $injector) {
+    var loginModal;
+    var $http;
+    var $state;
+    $timeout(function () {
+      $http = $injector.get('$http');
+      $state = $injector.get('$state');
     });
+
+    return {
+      responseError: function (rejection) {
+        if (rejection.status !== 401) {
+          return rejection;
+        }
+
+        var deferred = $q.defer();
+
+        $state.go('welcome.login');
+
+        return deferred.promise;
+      }
+    };
+  });
 }
